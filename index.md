@@ -4,7 +4,7 @@ title: About
 permalink: /
 ---
 
-[📄 查看/下载我的简历](/assets/files/CV.pdf)
+[📄 查看/下载我的简历](/assets/files/CV-郝卓远.pdf)
 
 I am a student at HIT(SZ)
 

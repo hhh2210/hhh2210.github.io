@@ -4,6 +4,8 @@ title: About
 permalink: /
 ---
 
+[📄 查看/下载我的简历](/assets/files/CV.pdf)
+
 I am a student at HIT(SZ)
 
 🔭 I'm currently working on LLL-knowledge:Knowledge Graph,Reasoning,Agent and LLM-based applications.

@@ -1,12 +1,12 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /
 ---
 
-[📄 查看/下载我的简历](/assets/files/CV-郝卓远.pdf)
+<!-- [📄 Here's my personanl CV!](/assets/files/CV-郝卓远.pdf) -->
 
-I am a student at HIT(SZ)
+I am a student at HIT(SZ) and a intern in TEG-tencent.
 
 🔭 I'm currently working on LLL-knowledge:Knowledge Graph,Reasoning,Agent and LLM-based applications.
 

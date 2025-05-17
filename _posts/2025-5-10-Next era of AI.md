@@ -13,9 +13,11 @@ title: Next era of AI
 
 有没有解决方案呢？
 
-我觉得答案是肯定的，那就是 Info-Share，也就是说，你在期待一个 LLM 或者说 Agent 帮你解决问题之前，仅仅给他很多工具（MCP、function.etc）是不够的，更重要的是先帮他获取到足够多的信息。
+我觉得答案是肯定的，那就是 Info-Share，也就是说，你在期待一个 LLM 或者说 Agent 帮你解决问题之前，仅仅给他很多工具（MCP、function.etc）是不够的，更重要的是先帮他获取到足够多的信息，关于这方面，无论是学术界还是工业界都已经做出了很多尝试，
 
-关于这方面，无论是学术界还是工业界都已经做出了很多尝试，
+我个人认为这个过程越无痛越好，目前看到最好的实现方式是：用户一次性写好一个文档（类似于 cursor project mdc 的东西），然后 AI 在交互的时候可以 always read or Agetic read，并且可以根据当前的进度自动 refine or re-generate a new cursor rules。
+
+当然也有一些强交互性质的方式：
 
 比如Agent-Memory layer，它的核心是在你和 llm 对话中自动抽取出关键信息存储；
 
@@ -23,6 +25,6 @@ title: Next era of AI
 
 再比如dia（一款 ai 浏览器），它的核心是抓取你当前的网页内容，包括视频字幕，来更好的后续做出交互。
 
-对于企业来说，谁做好了Info-Share，谁就能获取更大的市场；
+对于企业来说，谁做好了Info-Share，谁就能抢占更大的市场、更多的用户；
 
-而对于个人来说，谁做好了Info-Share，谁就能在 AI 交互中找到属于自己的，最快路径。
+而对于个人来说，谁做好了Info-Share，谁就能跟上 AI Agent 发展的潮流，找到自己的定位。

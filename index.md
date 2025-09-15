@@ -6,7 +6,7 @@ permalink: /
 
 <!-- [📄 Here's my personanl CV!](/assets/files/CV-郝卓远.pdf) -->
 
-I am a student at HIT(SZ) and a intern in TEG-tencent.
+I am a student at HIT(SZ) and used to be a intern in IEG-TenCent.
 
 🔭 I'm currently working on LLL-knowledge:Knowledge Graph,Reasoning,Agent and LLM-based applications.
 

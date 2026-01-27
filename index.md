@@ -8,15 +8,14 @@ permalink: /
 
 Hi! I'm Larry Hao. You can contact me via email hzy2210@gmail.com
 
-I was a research intern at Tencent-IEG, where I worked on training models and developing intelligent agents to serve the ENTIRE GROUP.
+I'm a research intern at Tencent IEG (Summer 2025), where I train large language models (32B scale) and develop intelligent agents for practical deployment.
 
-Since my freshman year, I have been dedicated to research in large language models (LLMs). I began conducting independent research in 2024, and I have recently submitted papers to ICLR 2026 and ACL 2026.
+My research focuses on reinforcement learning, reasoning, and LLM-based applications.
 
-🔭 My current research focuses on LLM-related areas, including reinforcement learning, reasoning, agents, and LLM-based applications.
+I'm especially interested in bridging the gap between academic research and real-world use cases.
 
-🌱I am actively exploring practical applications of LLMs.
+Always open to collaborations in LLM/ML/RL research or projects, feel free to reach out!
 
-👯I am open to collaborations on LLM-based applications and related research.
 
 
 ## Blog

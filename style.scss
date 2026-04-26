@@ -180,6 +180,20 @@ img {
   }
 }
 
+.profile-photo {
+  float: right;
+  width: 220px;
+  height: 220px;
+  margin: 0 0 10px 20px;
+  object-fit: cover;
+
+  @include mobile {
+    float: none;
+    display: block;
+    margin: 0 auto 20px;
+  }
+}
+
 .site-info {
   float: left;
 

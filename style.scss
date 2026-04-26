@@ -186,12 +186,6 @@ img {
   height: 220px;
   margin: 0 0 10px 20px;
   object-fit: cover;
-
-  @include mobile {
-    float: none;
-    display: block;
-    margin: 0 auto 20px;
-  }
 }
 
 .site-info {

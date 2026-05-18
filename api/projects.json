@@ -1,0 +1,56 @@
+[
+  {
+    "name": "echoes-as-anchors",
+    "title": "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning",
+    "type": "research-code",
+    "venue": "ICLR 2026",
+    "github": "https://github.com/hhh2210/echoes-as-anchors",
+    "project_page": "https://hhh2210.github.io/projects/echoes-as-anchors/",
+    "openreview": "https://openreview.net/forum?id=vndn1Wrult",
+    "summary": "Code for an ICLR 2026 LLM reasoning paper studying Echo of Prompt, echoic prompting, attention refocusing, reasoning probes, and probabilistic analysis.",
+    "topics": [
+      "LLM reasoning",
+      "Echo of Prompt",
+      "attention refocusing",
+      "echoic prompting",
+      "chain-of-thought",
+      "probabilistic analysis"
+    ]
+  },
+  {
+    "name": "rtk",
+    "type": "developer-tooling",
+    "github": "https://github.com/hhh2210/rtk",
+    "summary": "Rust CLI proxy that reduces LLM agent token consumption by filtering noisy command output before it reaches model context.",
+    "topics": [
+      "LLM agents",
+      "AI coding",
+      "token efficiency",
+      "developer tools"
+    ]
+  },
+  {
+    "name": "auto-skill",
+    "type": "agent-research",
+    "github": "https://github.com/hhh2210/auto-skill",
+    "summary": "Few-shot skill induction prototype for turning examples into reusable AI-agent skills.",
+    "topics": [
+      "AI agents",
+      "skill induction",
+      "few-shot learning",
+      "agent tooling"
+    ]
+  },
+  {
+    "name": "CodexBar",
+    "type": "macos-tool",
+    "github": "https://github.com/hhh2210/CodexBar",
+    "summary": "macOS menu bar utility for observing OpenAI Codex and Claude Code usage.",
+    "topics": [
+      "Codex",
+      "Claude Code",
+      "macOS",
+      "AI developer tools"
+    ]
+  }
+]

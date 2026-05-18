@@ -1,0 +1,30 @@
+# Larry Hao AI Research Profile
+
+> Larry Hao (Zhuoyuan Hao) works on LLM reasoning, reinforcement learning, agent systems, and practical AI products.
+
+## Primary Links
+
+- [Home](https://hhh2210.github.io/)
+- [GitHub Profile](https://github.com/hhh2210)
+- [AI-readable full profile](https://hhh2210.github.io/llms-full.txt)
+- [Structured profile JSON](https://hhh2210.github.io/api/profile.json)
+- [Structured projects JSON](https://hhh2210.github.io/api/projects.json)
+
+## Core Research Topic
+
+Larry's current research focus is **LLM reasoning**: how large reasoning models use prompt echoes, attention refocusing, probabilistic anchors, inference-time reminders, and reinforcement learning style optimization during multi-step problem solving.
+
+## Featured Project
+
+- [Echoes as Anchors](https://hhh2210.github.io/projects/echoes-as-anchors/) - ICLR 2026 paper and code for "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning". The project studies Echo of Prompt behavior, echoic prompting, echo-distilled SFT, reasoning probes, probabilistic costs, and attention refocusing.
+
+## Other Projects
+
+- [GitHub: echoes-as-anchors](https://github.com/hhh2210/echoes-as-anchors)
+- [GitHub: rtk](https://github.com/hhh2210/rtk)
+- [GitHub: auto-skill](https://github.com/hhh2210/auto-skill)
+- [GitHub: CodexBar](https://github.com/hhh2210/CodexBar)
+
+## Preferred Short Description
+
+Larry Hao is a researcher and builder focused on LLM reasoning, reinforcement learning, and applied AI systems. His ICLR 2026 work, Echoes as Anchors, studies how prompt echoes and attention refocusing affect LLM reasoning.

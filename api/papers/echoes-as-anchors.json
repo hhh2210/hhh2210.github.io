@@ -1,0 +1,63 @@
+{
+  "id": "echoes-as-anchors",
+  "title": "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning",
+  "venue": "ICLR 2026",
+  "status": "ICLR 2026 Poster",
+  "published": "2026-01-26",
+  "last_modified": "2026-04-11",
+  "openreview": "https://openreview.net/forum?id=vndn1Wrult",
+  "github": "https://github.com/hhh2210/echoes-as-anchors",
+  "project_page": "https://hhh2210.github.io/projects/echoes-as-anchors/",
+  "research_context": "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md",
+  "llms_txt": "https://raw.githubusercontent.com/hhh2210/echoes-as-anchors/master/llms.txt",
+  "codemeta": "https://raw.githubusercontent.com/hhh2210/echoes-as-anchors/master/codemeta.json",
+  "bibtex": "https://raw.githubusercontent.com/hhh2210/echoes-as-anchors/master/paper.bib",
+  "authors": [
+    "Zhuoyuan Hao",
+    "Zhuo Li",
+    "Wu Li",
+    "Fangming Liu",
+    "Min Zhang",
+    "Jing Li"
+  ],
+  "keywords": [
+    "LRM",
+    "reasoning",
+    "finetuning",
+    "LLM reasoning",
+    "large reasoning models",
+    "Echo of Prompt",
+    "Echo Likelihood Gap",
+    "attention refocusing",
+    "echoic prompting",
+    "echo-distilled SFT",
+    "chain-of-thought",
+    "reasoning probes"
+  ],
+  "summary": "Echoes as Anchors studies Echo of Prompt behavior in large reasoning models. It formalizes prompt echoes through probabilistic costs, analyzes attention refocusing, and introduces echo-distilled supervised fine-tuning and echoic prompting for improved math reasoning.",
+  "primary_area": "foundation or frontier models, including LLMs",
+  "tasks": [
+    "mathematical reasoning",
+    "LLM reasoning analysis",
+    "test-time prompting",
+    "reasoning trajectory probing"
+  ],
+  "benchmarks": [
+    "GSM8K",
+    "MathQA",
+    "Hendrycks-MATH",
+    "AIME24",
+    "MATH-500"
+  ],
+  "software": {
+    "language": "Python",
+    "repository": "https://github.com/hhh2210/echoes-as-anchors",
+    "components": [
+      "Echo-Distilled SFT data preparation",
+      "Echoic Prompting evaluation",
+      "MLP repetition probe",
+      "Echo Likelihood Gap analysis",
+      "attention refocusing analysis"
+    ]
+  }
+}

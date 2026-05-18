@@ -6,6 +6,7 @@
     "venue": "ICLR 2026",
     "github": "https://github.com/hhh2210/echoes-as-anchors",
     "project_page": "https://hhh2210.github.io/projects/echoes-as-anchors/",
+    "metadata_json": "https://hhh2210.github.io/api/papers/echoes-as-anchors.json",
     "openreview": "https://openreview.net/forum?id=vndn1Wrult",
     "summary": "Code for an ICLR 2026 LLM reasoning paper studying Echo of Prompt, echoic prompting, attention refocusing, reasoning probes, and probabilistic analysis.",
     "topics": [

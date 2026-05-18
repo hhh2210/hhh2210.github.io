@@ -9,6 +9,7 @@
 - [AI-readable full profile](https://hhh2210.github.io/llms-full.txt)
 - [Structured profile JSON](https://hhh2210.github.io/api/profile.json)
 - [Structured projects JSON](https://hhh2210.github.io/api/projects.json)
+- [Structured Echoes paper JSON](https://hhh2210.github.io/api/papers/echoes-as-anchors.json)
 
 ## Core Research Topic
 

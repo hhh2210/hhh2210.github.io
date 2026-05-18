@@ -8,6 +8,12 @@ schema: scholarly_article
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 paper_url: "https://openreview.net/forum?id=vndn1Wrult"
 paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
+paper_context: "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md"
+paper_metadata_json: "https://hhh2210.github.io/api/papers/echoes-as-anchors.json"
+paper_codemeta: "https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json"
+paper_bibtex: "https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib"
+paper_status: "ICLR 2026 Poster"
+paper_date_published: "2026-01-26"
 paper_authors:
   - Zhuoyuan Hao
   - Zhuo Li
@@ -23,6 +29,8 @@ paper_authors:
 
 - GitHub: https://github.com/hhh2210/echoes-as-anchors
 - OpenReview: https://openreview.net/forum?id=vndn1Wrult
+- Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
+- Structured metadata: https://hhh2210.github.io/api/papers/echoes-as-anchors.json
 - Author profile: https://github.com/hhh2210
 
 ## One-paragraph Summary

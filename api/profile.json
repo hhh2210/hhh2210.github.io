@@ -18,6 +18,7 @@
     "github": "https://github.com/hhh2210/echoes-as-anchors",
     "openreview": "https://openreview.net/forum?id=vndn1Wrult",
     "project_page": "https://hhh2210.github.io/projects/echoes-as-anchors/",
+    "metadata_json": "https://hhh2210.github.io/api/papers/echoes-as-anchors.json",
     "keywords": [
       "LLM reasoning",
       "Echo of Prompt",

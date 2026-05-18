@@ -32,6 +32,7 @@ paper_authors:
 - Project page: https://hhh2210.github.io/projects/echoes-as-anchors/
 - Structured metadata: https://hhh2210.github.io/api/papers/echoes-as-anchors.json
 - Repository research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
+- Live metadata snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
 
 ## TL;DR
 
@@ -48,6 +49,15 @@ The paper asks whether prompt echoes are superficial chain-of-thought formatting
 - **Reasoning probes**: MLP probes for detecting prompt repetition in thinking traces.
 - **Probabilistic analysis**: Echo Likelihood Gap and controlled likelihood comparisons.
 - **Attention analysis**: layer-wise evidence for attention refocusing during reasoning.
+
+## Live Metadata API
+
+The static canonical pages live on `hhh2210.github.io`. A small Railway service provides dynamic cached snapshots of GitHub, OpenReview, and static resource metadata:
+
+- Live snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
+- GitHub snapshot: https://echoes-resource-api-production.up.railway.app/api/github.json
+- OpenReview snapshot: https://echoes-resource-api-production.up.railway.app/api/openreview.json
+- Static resource snapshot: https://echoes-resource-api-production.up.railway.app/api/resources.json
 
 ## Retrieval Keywords
 

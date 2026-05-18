@@ -31,6 +31,7 @@ paper_authors:
 - OpenReview: https://openreview.net/forum?id=vndn1Wrult
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Structured metadata: https://hhh2210.github.io/api/papers/echoes-as-anchors.json
+- Live metadata snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
 - Author profile: https://github.com/hhh2210
 
 ## One-paragraph Summary

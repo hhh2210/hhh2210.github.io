@@ -6,6 +6,7 @@
     "github": "https://github.com/hhh2210"
   },
   "purpose": "Machine-readable index of public AI-readable resources for Larry Hao's research profile and Echoes as Anchors.",
+  "live_api": "https://echoes-resource-api-production.up.railway.app/api/live.json",
   "primary_topics": [
     "LLM reasoning",
     "large reasoning models",
@@ -70,6 +71,22 @@
     {
       "name": "echoes-concepts.json",
       "url": "https://hhh2210.github.io/api/papers/echoes-concepts.json",
+      "format": "application/json"
+    },
+    {
+      "name": "live.json",
+      "url": "https://echoes-resource-api-production.up.railway.app/api/live.json",
+      "format": "application/json",
+      "description": "Railway-hosted dynamic snapshot combining GitHub, OpenReview, and static site metadata."
+    },
+    {
+      "name": "live-github.json",
+      "url": "https://echoes-resource-api-production.up.railway.app/api/github.json",
+      "format": "application/json"
+    },
+    {
+      "name": "live-openreview.json",
+      "url": "https://echoes-resource-api-production.up.railway.app/api/openreview.json",
       "format": "application/json"
     }
   ],

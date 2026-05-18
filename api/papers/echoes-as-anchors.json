@@ -10,6 +10,7 @@
   "project_page": "https://hhh2210.github.io/projects/echoes-as-anchors/",
   "paper_page": "https://hhh2210.github.io/papers/echoes-as-anchors/",
   "research_context": "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md",
+  "faq": "https://hhh2210.github.io/faq/echoes-as-anchors/",
   "llms_txt": "https://raw.githubusercontent.com/hhh2210/echoes-as-anchors/master/llms.txt",
   "codemeta": "https://raw.githubusercontent.com/hhh2210/echoes-as-anchors/master/codemeta.json",
   "bibtex": "https://raw.githubusercontent.com/hhh2210/echoes-as-anchors/master/paper.bib",
@@ -60,5 +61,27 @@
       "Echo Likelihood Gap analysis",
       "attention refocusing analysis"
     ]
-  }
+  },
+  "faq_items": [
+    {
+      "question": "What is Echo of Prompt?",
+      "answer": "Echo of Prompt is the behavior where a large reasoning model repeats or rephrases the original user question inside its reasoning trajectory."
+    },
+    {
+      "question": "What is Echo Likelihood Gap?",
+      "answer": "Echo Likelihood Gap is a probabilistic measurement used to quantify the cost and likelihood effect of prompt echoes in LLM reasoning."
+    },
+    {
+      "question": "What is attention refocusing?",
+      "answer": "Attention refocusing is the mechanism-level observation that prompt echoes can shift attention back toward important problem or answer-prefix tokens during reasoning."
+    },
+    {
+      "question": "What is Echoic Prompting?",
+      "answer": "Echoic Prompting is a training-free inference-time method that reintroduces the original question or a reminder during generation to re-ground reasoning."
+    },
+    {
+      "question": "What is Echo-Distilled SFT?",
+      "answer": "Echo-Distilled SFT is supervised fine-tuning data preparation that encourages an echo-then-reason pattern."
+    }
+  ]
 }

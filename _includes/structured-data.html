@@ -1,6 +1,49 @@
 {% assign canonical_url = page.url | absolute_url %}
 {% assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace %}
-{% if page.schema == "scholarly_article" %}
+{% if page.schema == "faq" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "name": {{ page.title | jsonify }},
+  "url": {{ canonical_url | jsonify }},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Echoes as Anchors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Echoes as Anchors is an ICLR 2026 paper about LLM reasoning. It studies why large reasoning models often repeat or rephrase the original user question before solving a problem, and whether that behavior helps reasoning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Echo of Prompt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Echo of Prompt is the behavior where a large reasoning model repeats or rephrases the original user question inside its reasoning trajectory."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Echo Likelihood Gap?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Echo Likelihood Gap is a probabilistic measurement used to quantify the cost and likelihood effect of prompt echoes in LLM reasoning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Echoic Prompting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Echoic Prompting is a training-free inference-time method that reintroduces the original question or a reminder during generation to re-ground reasoning."
+      }
+    }
+  ]
+}
+</script>
+{% elsif page.schema == "scholarly_article" %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

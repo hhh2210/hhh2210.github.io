@@ -40,6 +40,16 @@
       "name": "echoes_glossary",
       "url": "https://hhh2210.github.io/glossary/echoes-as-anchors/",
       "description": "Glossary and concept map for Echo of Prompt, Echo Likelihood Gap, attention refocusing, reasoning drift, EP, and ED-SFT."
+    },
+    {
+      "name": "echoes_media",
+      "url": "https://hhh2210.github.io/media/echoes-as-anchors/",
+      "description": "Media kit with short pitch, one-sentence summary, key points, and social post copy."
+    },
+    {
+      "name": "echoes_markdown",
+      "url": "https://hhh2210.github.io/markdown/echoes-as-anchors.txt",
+      "description": "Clean Markdown-style text route for AI retrieval."
     }
   ],
   "machine_readable": [
@@ -72,6 +82,11 @@
       "name": "echoes-concepts.json",
       "url": "https://hhh2210.github.io/api/papers/echoes-concepts.json",
       "format": "application/json"
+    },
+    {
+      "name": "echoes-as-anchors-markdown",
+      "url": "https://hhh2210.github.io/markdown/echoes-as-anchors.txt",
+      "format": "text/markdown"
     },
     {
       "name": "live.json",

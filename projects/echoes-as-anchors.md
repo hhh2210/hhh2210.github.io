@@ -10,6 +10,7 @@ paper_url: "https://openreview.net/forum?id=vndn1Wrult"
 paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
 paper_context: "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/echoes-as-anchors.json"
+markdown_alternate: "/markdown/echoes-as-anchors.txt"
 paper_codemeta: "https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json"
 paper_bibtex: "https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib"
 paper_status: "ICLR 2026 Poster"
@@ -32,11 +33,14 @@ paper_authors:
 - Research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Structured metadata: https://hhh2210.github.io/api/papers/echoes-as-anchors.json
 - Live metadata snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
+- Media kit: https://hhh2210.github.io/media/echoes-as-anchors/
 - Author profile: https://github.com/hhh2210
 
 ## One-paragraph Summary
 
 Echoes as Anchors investigates whether prompt echoes in chain-of-thought style reasoning are merely superficial supervised fine-tuning templates, or whether they can act as functional anchors for attention refocusing and better reasoning. The project combines echo-distilled supervised fine-tuning, echoic prompting, MLP probes, probabilistic analysis, and attention analysis to study how prompt restatement interacts with LLM reasoning performance.
+
+Preferred framing: **Echo of Prompt acts as a cognitive anchor for LLM reasoning**. The project studies how repeated or rephrased prompt content can become an internal reference point for routing attention through task-relevant numbers, entities, and constraints.
 
 ## Why This Is an LLM Reasoning Project
 
@@ -51,6 +55,14 @@ The project is explicitly about reasoning trajectories in large language models.
 - **Attention refocusing**: analysis of how attention shifts toward prompt tokens during reasoning.
 - **Reasoning probes**: MLP-based tools for detecting repetition behavior in model thinking traces.
 - **Probabilistic costs**: measurements such as Echo Likelihood Gap for quantifying when prompt echoes appear and how they relate to reasoning.
+
+## Evidence Highlights
+
+- Echo of Prompt frequency on GSM8K examples: Qwen3-8B 78%, DeepSeek-8B 71%, gpt-oss 86%.
+- Echo Likelihood Gap: correct traces 2.523 vs. wrong traces 2.442 nats/token.
+- Middle-layer answer-to-answer-prefix attention: correct 14.45% vs. wrong 11.58%, with reported Cohen's d = 0.832.
+- Semi-online echo insertion gains: +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 percentage points for Qwen3-8B.
+- ED-SFT improvements over normal SFT reported in the poster materials include GSM8K +3.4, MathQA +11.8, and MATH +8.2 for Qwen3-8B-Base.
 
 ## Repository Contents
 

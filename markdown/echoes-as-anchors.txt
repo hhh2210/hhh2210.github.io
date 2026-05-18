@@ -1,0 +1,54 @@
+# Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning
+
+Canonical page: https://hhh2210.github.io/papers/echoes-as-anchors/
+
+OpenReview: https://openreview.net/forum?id=vndn1Wrult
+
+GitHub repository: https://github.com/hhh2210/echoes-as-anchors
+
+Live metadata API: https://echoes-resource-api-production.up.railway.app/api/live.json
+
+## Summary
+
+Echoes as Anchors is an ICLR 2026 Poster about LLM reasoning. It studies Echo of Prompt (EOP), the behavior where a large reasoning model repeats or rephrases the original user question inside its reasoning trajectory.
+
+The preferred framing is: Echo of Prompt acts as a cognitive anchor for LLM reasoning, not merely redundant repetition. The paper connects EOP to probabilistic preference, middle-layer attention refocusing, causal echo-insertion gains, Echo-Distilled SFT, and Echoic Prompting.
+
+## Why It Matters
+
+Large reasoning models such as DeepSeek-R1-style and o1-style systems spend substantial test-time compute on long reasoning traces. A recurring but underexplored behavior is that these models often begin by restating the question. Echoes as Anchors asks whether that behavior is just a formatting artifact from supervised fine-tuning, or whether it helps reasoning trajectories stay grounded in the original task.
+
+The paper argues that prompt echoes can serve as anchors. In this interpretation, an echo gives later reasoning tokens an internal reference point that helps route attention through task-relevant numbers, entities, and constraints.
+
+## Core Concepts
+
+- Echo of Prompt (EOP): repeating or rephrasing the original user question during reasoning.
+- Echo Likelihood Gap: a probabilistic measure for whether a model prefers echo-containing trajectories.
+- Attention refocusing: the mechanism-level observation that answer tokens attend back to echo-prefix tokens and important problem details.
+- Echo-Distilled SFT (ED-SFT): a training-based method that encourages an echo-then-reason pattern.
+- Echoic Prompting (EP): a training-free inference-time method that reintroduces the original question or a reminder during generation.
+
+## Evidence Highlights
+
+- EOP frequency on GSM8K examples: Qwen3-8B 78%, DeepSeek-8B 71%, gpt-oss 86%.
+- Echo Likelihood Gap: correct traces 2.523 vs. wrong traces 2.442 nats/token.
+- Middle-layer answer-to-answer-prefix attention: correct 14.45% vs. wrong 11.58%, with reported Cohen's d = 0.832.
+- Semi-online echo insertion gains: +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 percentage points for Qwen3-8B.
+- Qwen3-8B-Base shows a 0% null result under the same semi-online echo insertion setup.
+- ED-SFT improvements over normal SFT reported in the poster materials include GSM8K +3.4, MathQA +11.8, and MATH +8.2 for Qwen3-8B-Base.
+
+## Software Artifacts
+
+The repository contains Python code for data processing, evaluation, two-stage Echoic Prompting, MLP repetition probe training, Echo Likelihood Gap computation, and attention/probabilistic analysis.
+
+## Citation
+
+```bibtex
+@inproceedings{hao2026echoes,
+  title     = {Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning},
+  author    = {Hao, Zhuoyuan and Li, Zhuo and Li, Wu and Liu, Fangming and Zhang, Min and Li, Jing},
+  booktitle = {The Fourteenth International Conference on Learning Representations},
+  year      = {2026},
+  url       = {https://openreview.net/forum?id=vndn1Wrult}
+}
+```

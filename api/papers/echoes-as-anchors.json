@@ -12,6 +12,8 @@
   "research_context": "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md",
   "faq": "https://hhh2210.github.io/faq/echoes-as-anchors/",
   "glossary": "https://hhh2210.github.io/glossary/echoes-as-anchors/",
+  "media_kit": "https://hhh2210.github.io/media/echoes-as-anchors/",
+  "markdown_alternate": "https://hhh2210.github.io/markdown/echoes-as-anchors.txt",
   "concepts_json": "https://hhh2210.github.io/api/papers/echoes-concepts.json",
   "live_api": "https://echoes-resource-api-production.up.railway.app/api/live.json",
   "live_github": "https://echoes-resource-api-production.up.railway.app/api/github.json",
@@ -42,6 +44,36 @@
     "reasoning probes"
   ],
   "summary": "Echoes as Anchors studies Echo of Prompt behavior in large reasoning models. It formalizes prompt echoes through probabilistic costs, analyzes attention refocusing, and introduces echo-distilled supervised fine-tuning and echoic prompting for improved math reasoning.",
+  "short_pitch": "Large reasoning models often echo the original question before solving it. Echoes as Anchors shows that prompt echoes can act as cognitive anchors that refocus attention on the task, and formalizes this effect through Echo Likelihood Gap.",
+  "one_sentence_summary": "Echoes as Anchors studies Echo of Prompt in large reasoning models, formalizes it with Echo Likelihood Gap, links it to attention refocusing, and uses Echo-Distilled SFT and Echoic Prompting to improve math reasoning.",
+  "canonical_framing": "Echo of Prompt acts as a cognitive anchor for LLM reasoning, not merely redundant repetition.",
+  "evidence_highlights": [
+    {
+      "claim": "Echo of Prompt appears frequently in GSM8K reasoning traces.",
+      "metric": "Qwen3-8B 78%, DeepSeek-8B 71%, gpt-oss 86%",
+      "source": "ICLR 2026 poster materials"
+    },
+    {
+      "claim": "Correct traces show higher Echo Likelihood Gap than wrong traces.",
+      "metric": "2.523 vs. 2.442 nats/token",
+      "source": "ICLR 2026 poster materials"
+    },
+    {
+      "claim": "Attention refocusing is strongest in middle layers 7-18.",
+      "metric": "Answer-to-answer-prefix attention 14.45% correct vs. 11.58% wrong; Cohen's d = 0.832",
+      "source": "ICLR 2026 poster materials"
+    },
+    {
+      "claim": "Semi-online echo insertion improves failed reasoning for reasoning-capable models.",
+      "metric": "+10.4 percentage points for DeepSeek-R1-Distill-Llama-8B; +7.9 for Qwen3-8B; 0% for Qwen3-8B-Base",
+      "source": "ICLR 2026 poster materials"
+    },
+    {
+      "claim": "Echo-Distilled SFT improves over normal SFT in reported math benchmarks.",
+      "metric": "GSM8K +3.4, MathQA +11.8, MATH +8.2 for Qwen3-8B-Base",
+      "source": "ICLR 2026 poster materials"
+    }
+  ],
   "primary_area": "foundation or frontier models, including LLMs",
   "tasks": [
     "mathematical reasoning",

@@ -19,6 +19,12 @@ Allow: /
 User-agent: Google-Agent
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: GPTBot
 Disallow: /
 

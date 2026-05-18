@@ -5,13 +5,33 @@
 # Name of your site (displayed in the header)
 name: Larry Hao
 
-# Short bio or description (displayed in the header)
-description: 郝卓远
+# Short bio or description (displayed in the header and metadata)
+description: LLM reasoning, reinforcement learning, agent systems, and applied AI products
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: 
+avatar:
 
 about: about/
+
+author:
+  name: Larry Hao
+  full_name: Zhuoyuan Hao
+  email: hzy2210@gmail.com
+  github: hhh2210
+  affiliation: Harbin Institute of Technology, Shenzhen
+  same_as:
+    - https://github.com/hhh2210
+    - https://hhh2210.github.io/
+
+keywords:
+  - LLM reasoning
+  - reinforcement learning
+  - agent systems
+  - Echoes as Anchors
+  - Echo of Prompt
+  - attention refocusing
+  - probabilistic analysis
+  - applied AI
 
 #
 # Flags below are optional
@@ -21,16 +41,16 @@ about: about/
 footer-links:
   dribbble:
   email: hzy2210@gmail.com
-  googlescholar: 
+  googlescholar:
   facebook:
   flickr:
   github: hhh2210
   instagram:
-  linkedin: 
+  linkedin:
   pinterest:
   rss: # just type anything here for a working RSS icon
   blog: blog
-  twitter: 
+  twitter:
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/
@@ -41,11 +61,11 @@ footer-links:
 disqus: https-larryhao-github-io-blog
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: 
+google_analytics:
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
-# Used for Sitemap.xml and your RSS feed
-url: https://github.com/hhh2210
+# Used for Sitemap.xml, canonical URLs, and your RSS feed
+url: https://hhh2210.github.io
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
@@ -66,7 +86,7 @@ version: v1.2.0
 kramdown:
   # Use GitHub flavored markdown, including triple backtick fenced code blocks
   input: GFM
-  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  # Jekyll 3 and GitHub Pages now only supports rouge for syntax highlighting
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     # Use existing pygments syntax highlighting css

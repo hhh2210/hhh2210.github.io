@@ -2,6 +2,8 @@
 layout: page
 title: About Me
 permalink: /
+description: "Larry Hao works on LLM reasoning, reinforcement learning, agent systems, and practical AI products. Featured ICLR 2026 work: Echoes as Anchors."
+keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning, reinforcement learning, agent systems, Echoes as Anchors, ICLR 2026"
 ---
 
 <!-- [CV](/assets/files/CV-郝卓远.pdf) -->

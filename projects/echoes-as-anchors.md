@@ -2,6 +2,19 @@
 layout: page
 title: Echoes as Anchors
 permalink: /projects/echoes-as-anchors/
+description: "AI-readable project page for Echoes as Anchors, an ICLR 2026 paper on Echo of Prompt, attention refocusing, probabilistic costs, and LLM reasoning."
+keywords: "Echoes as Anchors, LLM reasoning, Echo of Prompt, attention refocusing, echoic prompting, probabilistic costs, chain-of-thought, ICLR 2026"
+schema: scholarly_article
+paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
+paper_url: "https://openreview.net/forum?id=vndn1Wrult"
+paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
+paper_authors:
+  - Zhuoyuan Hao
+  - Zhuo Li
+  - Wu Li
+  - Fangming Liu
+  - Min Zhang
+  - Jing Li
 ---
 
 # Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning

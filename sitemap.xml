@@ -19,6 +19,9 @@
     <loc>https://hhh2210.github.io/faq/echoes-as-anchors/</loc>
   </url>
   <url>
+    <loc>https://hhh2210.github.io/glossary/echoes-as-anchors/</loc>
+  </url>
+  <url>
     <loc>https://hhh2210.github.io/api/profile.json</loc>
   </url>
   <url>
@@ -26,6 +29,9 @@
   </url>
   <url>
     <loc>https://hhh2210.github.io/api/papers/echoes-as-anchors.json</loc>
+  </url>
+  <url>
+    <loc>https://hhh2210.github.io/api/papers/echoes-concepts.json</loc>
   </url>
   <url>
     <loc>https://hhh2210.github.io/api/llm-index.json</loc>

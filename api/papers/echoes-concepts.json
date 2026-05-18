@@ -1,0 +1,65 @@
+{
+  "paper": "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning",
+  "paper_page": "https://hhh2210.github.io/papers/echoes-as-anchors/",
+  "glossary": "https://hhh2210.github.io/glossary/echoes-as-anchors/",
+  "faq": "https://hhh2210.github.io/faq/echoes-as-anchors/",
+  "concepts": [
+    {
+      "term": "LLM reasoning",
+      "definition": "Multi-step problem solving by large language models, including the trajectory by which a model keeps track of the original problem while generating intermediate reasoning steps.",
+      "related_terms": ["large reasoning models", "chain-of-thought reasoning", "mathematical reasoning"]
+    },
+    {
+      "term": "Large reasoning models",
+      "abbreviation": "LRMs",
+      "definition": "Large language models optimized or prompted for multi-step reasoning.",
+      "related_terms": ["LLM reasoning", "test-time compute", "chain-of-thought"]
+    },
+    {
+      "term": "Echo of Prompt",
+      "abbreviation": "EOP",
+      "definition": "The behavior where a model repeats or rephrases the original user question inside its reasoning trajectory.",
+      "related_terms": ["prompt restatement", "attention refocusing", "reasoning drift"]
+    },
+    {
+      "term": "Echo Likelihood Gap",
+      "definition": "A probabilistic measure used to quantify the likelihood effect of prompt echoes and connect early prompt repetition with reasoning performance.",
+      "related_terms": ["probabilistic costs", "rejection-based conditioning", "reasoning accuracy"]
+    },
+    {
+      "term": "Attention refocusing",
+      "definition": "A mechanism where prompt echoes shift model attention back toward important problem or answer-prefix tokens during reasoning.",
+      "related_terms": ["attention analysis", "prompt grounding", "reasoning drift"]
+    },
+    {
+      "term": "Echoic Prompting",
+      "abbreviation": "EP",
+      "definition": "A training-free inference-time strategy that reintroduces the original question or a reminder during generation to re-ground reasoning.",
+      "related_terms": ["test-time prompting", "prompt restatement", "inference-time re-grounding"]
+    },
+    {
+      "term": "Echo-Distilled SFT",
+      "abbreviation": "ED-SFT",
+      "definition": "A supervised fine-tuning data strategy that encourages an echo-then-reason pattern.",
+      "related_terms": ["supervised fine-tuning", "finetuning", "reasoning data"]
+    },
+    {
+      "term": "Reasoning probe",
+      "definition": "A classifier or diagnostic tool used to detect patterns inside model reasoning traces, such as prompt repetition.",
+      "related_terms": ["MLP probe", "repetition detection", "reasoning trajectory analysis"]
+    },
+    {
+      "term": "Reasoning drift",
+      "definition": "A failure mode where a model loses track of the original problem during a long reasoning trace.",
+      "related_terms": ["prompt grounding", "attention refocusing", "multi-step reasoning"]
+    }
+  ],
+  "edges": [
+    {"source": "Echo of Prompt", "relation": "is_a", "target": "prompt restatement"},
+    {"source": "Echo of Prompt", "relation": "supports", "target": "attention refocusing"},
+    {"source": "attention refocusing", "relation": "may_reduce", "target": "reasoning drift"},
+    {"source": "Echo Likelihood Gap", "relation": "measures", "target": "Echo of Prompt"},
+    {"source": "Echoic Prompting", "relation": "uses", "target": "Echo of Prompt"},
+    {"source": "Echo-Distilled SFT", "relation": "trains", "target": "Echo of Prompt"}
+  ]
+}

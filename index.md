@@ -10,7 +10,7 @@ keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning, reinforcement learning, agent
 
 I'm Larry Hao (Zhuoyuan Hao), a CS undergrad at Harbin Institute of Technology, Shenzhen. I work on **LLM reasoning and reinforcement learning** — why models reason the way they do, and where RL training quietly goes wrong — advised by Jing Li (HITSZ) and Xiaozhi Wang (Tsinghua), as a research intern at THUAIS. Previously I interned at Tencent IEG and the CSIG CodeBuddy team, and I like turning research ideas into real systems.
 
-[Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [X](https://x.com/larryhaonlp) · [GitHub](https://github.com/hhh2210) · [CV](/assets/files/resume-en.pdf) · [Email](mailto:hzy2210@gmail.com)
+[Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [X](https://x.com/larryhaonlp) · [GitHub](https://github.com/hhh2210) · [CV (EN)](/assets/files/resume-en.pdf) · [简历 (中文)](/assets/files/resume-zh.pdf) · [Email](mailto:hzy2210@gmail.com)
 
 ## Selected Work
 

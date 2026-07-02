@@ -25,6 +25,25 @@
     ]
   },
   {
+    "name": "CHERRL",
+    "title": "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning",
+    "type": "research-code",
+    "venue": "arXiv preprint",
+    "github": "https://github.com/THUAIS-Lab/CHERRL",
+    "project_page": "https://hhh2210.github.io/projects/cherrl/",
+    "markdown_alternate": "https://hhh2210.github.io/markdown/cherrl.txt",
+    "metadata_json": "https://hhh2210.github.io/api/papers/cherrl.json",
+    "arxiv": "https://arxiv.org/abs/2606.04923",
+    "summary": "Controllable hacking environment for rubric-based RL (co-first author): inject known biases into an LLM judge, reproduce reward hacking, observe reward divergence, and detect hacking onset from training logs with an agent.",
+    "topics": [
+      "reward hacking",
+      "rubric-based reinforcement learning",
+      "LLM-as-a-Judge",
+      "judge bias",
+      "reward hacking detection"
+    ]
+  },
+  {
     "name": "rtk",
     "type": "developer-tooling",
     "github": "https://github.com/hhh2210/rtk",

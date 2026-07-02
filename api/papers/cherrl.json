@@ -1,0 +1,29 @@
+{
+  "title": "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning",
+  "short_name": "CHERRL",
+  "status": "arXiv preprint",
+  "date_published": "2026-06-04",
+  "arxiv": "https://arxiv.org/abs/2606.04923",
+  "github": "https://github.com/THUAIS-Lab/CHERRL",
+  "project_page": "https://hhh2210.github.io/projects/cherrl/",
+  "markdown_alternate": "https://hhh2210.github.io/markdown/cherrl.txt",
+  "authors": [
+    {"name": "Xuekang Wang", "equal_contribution": true},
+    {"name": "Zhuoyuan Hao", "equal_contribution": true, "alternate_name": "Larry Hao", "profile": "https://hhh2210.github.io/"},
+    {"name": "Shuo Hou"},
+    {"name": "Hao Peng"},
+    {"name": "Juanzi Li"},
+    {"name": "Xiaozhi Wang"}
+  ],
+  "summary": "CHERRL is a controllable hacking environment for rubric-based reinforcement learning. By injecting known biases into an LLM-as-a-Judge and separating the proxy reward into a clean gold reward and an isolated biased reward, CHERRL enables stable reproduction of reward hacking, explicit observation of reward divergence, and precise ground-truth identification of hacking onset. The paper analyzes judge biases by discoverability and exploitability, and introduces the Reward Hacking Detection Agent (RHDA) for detecting hacking onset from training logs.",
+  "keywords": [
+    "reward hacking",
+    "rubric-based reinforcement learning",
+    "LLM-as-a-Judge",
+    "judge bias",
+    "reward hacking detection",
+    "dual-judge reward",
+    "RLHF",
+    "agentic monitoring"
+  ]
+}

@@ -2,8 +2,8 @@
 layout: page
 title: About Me
 permalink: /
-description: "Larry Hao works on LLM reasoning, reinforcement learning, agent systems, and practical AI products. Featured ICLR 2026 work: Echoes as Anchors."
-keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning, reinforcement learning, agent systems, Echoes as Anchors, ICLR 2026"
+description: "Larry Hao (Zhuoyuan Hao) researches LLM reasoning and reinforcement learning. First author of Echoes as Anchors (ICLR 2026); co-first author of CHERRL on reward hacking in rubric-based RL."
+keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning, reinforcement learning, reward hacking, agent systems, Echoes as Anchors, CHERRL, ICLR 2026"
 ---
 
 <img class="profile-photo" src="{{ site.baseurl }}/images/personal.png" alt="Larry Hao">
@@ -24,6 +24,7 @@ I'm Larry Hao (Zhuoyuan Hao), a CS undergrad at Harbin Institute of Technology, 
 - **CHERRL: A Controllable Hacking Environment for Rubric-Based Reinforcement Learning** <br>
   Co-first author <br>
   A controllable sandbox for reward hacking in rubric-based RL with LLM judges: inject a known judge bias, reproduce the hack cleanly, pin down the exact training step it starts, and have an agent flag the onset from training logs. <br>
+  [project page](/projects/cherrl/) |
   [repo](https://github.com/THUAIS-Lab/CHERRL) |
   [paper](https://arxiv.org/abs/2606.04923)
 

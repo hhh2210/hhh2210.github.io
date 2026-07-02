@@ -15,6 +15,16 @@ paper_codemeta: "https://github.com/hhh2210/echoes-as-anchors/blob/master/codeme
 paper_bibtex: "https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib"
 paper_status: "ICLR 2026 Poster"
 paper_date_published: "2026-01-26"
+paper_repo_name: "echoes-as-anchors"
+paper_software_description: "Research code for Echoes as Anchors, an ICLR 2026 paper on Echo of Prompt, attention refocusing, and LLM reasoning."
+paper_topics:
+  - LLM reasoning
+  - large reasoning models
+  - Echo of Prompt
+  - attention refocusing
+  - echoic prompting
+  - probabilistic analysis
+  - chain-of-thought reasoning
 paper_authors:
   - Zhuoyuan Hao
   - Zhuo Li

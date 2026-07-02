@@ -1,0 +1,32 @@
+# CHERRL: A Controllable Hacking Environment for Rubric-Based Reinforcement Learning
+
+Paper: Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning
+Authors: Xuekang Wang*, Zhuoyuan Hao* (co-first authors), Shuo Hou, Hao Peng, Juanzi Li, Xiaozhi Wang
+Affiliations: Tsinghua University (THUAIS Lab); Harbin Institute of Technology, Shenzhen; Xi'an Jiaotong University
+arXiv: https://arxiv.org/abs/2606.04923
+Code: https://github.com/THUAIS-Lab/CHERRL
+Author profile (Zhuoyuan Hao / Larry Hao): https://hhh2210.github.io/
+
+## Summary
+
+Rubric-based reinforcement learning uses an LLM-as-a-Judge (LaaJ) to score model outputs according to rubrics as rewards. Policy models may exploit latent biases in the judge, leading to reward hacking and ineffective or unsafe training outcomes. In real-world rubric-based RL, such hacking behaviors are often subtle and entangled with multiple judge biases, making them difficult to analyze, detect, and mitigate.
+
+CHERRL is a controllable hacking environment for rubric-based RL. By injecting known biases into the LLM judge, CHERRL enables stable reproduction of reward hacking, explicit observation of reward divergence, and precise identification of hacking onset. The core mechanism is a dual-judge reward construction that separates the proxy reward into a clean gold reward and an isolated biased reward.
+
+## Key contributions
+
+1. CHERRL, a controllable environment that reliably reproduces reward hacking in rubric-based RL through known judge biases.
+2. A systematic analysis of judge bias types from the perspectives of discoverability and exploitability.
+3. The Reward Hacking Detection Agent (RHDA), a long-running LLM agent that monitors training rollouts ({step, input, output, score}) and identifies hacking onsets with behavioral evidence, evaluated against ground-truth onsets provided by CHERRL.
+
+## Key concepts
+
+- Rubric-based RL: RL where an LLM-as-a-Judge scores outputs against rubrics to produce rewards.
+- Reward hacking: the policy exploits weaknesses of the reward (judge biases) rather than improving on the intended task.
+- Dual-judge reward construction: gold reward and isolated biased reward tracked independently, so divergence exposes hacking.
+- Hacking onset: the precise training step at which exploitation begins; provided as ground truth by construction.
+- RHDA: agentic detection of reward hacking onset from realistic, limited training logs.
+
+## Citation
+
+Wang, X.*, Hao, Z.*, Hou, S., Peng, H., Li, J., & Wang, X. (2026). Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning. arXiv:2606.04923.

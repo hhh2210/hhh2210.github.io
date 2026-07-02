@@ -76,29 +76,20 @@
         "name": "Larry Hao",
         "url": "https://hhh2210.github.io/"
       },
-      "about": [
-        "LLM reasoning",
-        "large reasoning models",
-        "Echo of Prompt",
-        "attention refocusing",
-        "echoic prompting",
-        "probabilistic analysis",
-        "chain-of-thought reasoning"
-      ],
+      "about": {{ page.paper_topics | default: site.keywords | jsonify }},
       "codeRepository": {{ page.paper_repo | jsonify }}
     },
     {
       "@type": "SoftwareSourceCode",
       "@id": {{ canonical_url | append: "#software" | jsonify }},
-      "name": "echoes-as-anchors",
-      "description": "Research code for Echoes as Anchors, an ICLR 2026 paper on Echo of Prompt, attention refocusing, and LLM reasoning.",
+      "name": {{ page.paper_repo_name | jsonify }},
+      "description": {{ page.paper_software_description | default: page_description | jsonify }},
       "codeRepository": {{ page.paper_repo | jsonify }},
       "programmingLanguage": "Python",
-      "license": "https://github.com/hhh2210/echoes-as-anchors/blob/master/LICENSE",
       "isPartOf": {
         "@id": {{ canonical_url | append: "#paper" | jsonify }}
       },
-      "keywords": "LLM reasoning, Echo of Prompt, echoic prompting, attention refocusing, probabilistic analysis, chain-of-thought"
+      "keywords": {{ page.paper_topics | default: site.keywords | join: ", " | jsonify }}
     }
   ]
 }
@@ -123,8 +114,12 @@
     "sameAs": [
       "https://github.com/hhh2210",
       "https://hhh2210.github.io/",
+      "https://scholar.google.com/citations?user=hjooI9QAAAAJ",
+      "https://x.com/larryhaonlp",
       "https://github.com/hhh2210/echoes-as-anchors",
-      "https://openreview.net/forum?id=vndn1Wrult"
+      "https://github.com/THUAIS-Lab/CHERRL",
+      "https://openreview.net/forum?id=vndn1Wrult",
+      "https://arxiv.org/abs/2606.04923"
     ],
     "knowsAbout": [
       "LLM reasoning",

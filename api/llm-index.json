@@ -11,6 +11,8 @@
     "LLM reasoning",
     "large reasoning models",
     "reinforcement learning",
+    "reward hacking",
+    "rubric-based RL",
     "agent systems",
     "Echo of Prompt",
     "attention refocusing"
@@ -50,6 +52,16 @@
       "name": "echoes_markdown",
       "url": "https://hhh2210.github.io/markdown/echoes-as-anchors.txt",
       "description": "Clean Markdown-style text route for AI retrieval."
+    },
+    {
+      "name": "cherrl_project",
+      "url": "https://hhh2210.github.io/projects/cherrl/",
+      "description": "Project page for CHERRL, a controllable hacking environment for reward hacking in rubric-based RL (co-first author)."
+    },
+    {
+      "name": "cherrl_markdown",
+      "url": "https://hhh2210.github.io/markdown/cherrl.txt",
+      "description": "Clean Markdown-style text route for CHERRL."
     }
   ],
   "machine_readable": [
@@ -84,6 +96,11 @@
       "format": "application/json"
     },
     {
+      "name": "cherrl.json",
+      "url": "https://hhh2210.github.io/api/papers/cherrl.json",
+      "format": "application/json"
+    },
+    {
       "name": "echoes-as-anchors-markdown",
       "url": "https://hhh2210.github.io/markdown/echoes-as-anchors.txt",
       "format": "text/markdown"
@@ -110,6 +127,11 @@
       "name": "echoes-as-anchors",
       "url": "https://github.com/hhh2210/echoes-as-anchors",
       "role": "ICLR 2026 LLM reasoning paper code and metadata"
+    },
+    {
+      "name": "CHERRL",
+      "url": "https://github.com/THUAIS-Lab/CHERRL",
+      "role": "Controllable reward hacking environment for rubric-based RL (co-first author)"
     },
     {
       "name": "hhh2210",

@@ -47,3 +47,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://hhh2210.github.io/sitemap.xml
+Sitemap: https://hhh2210.github.io/sitemap-ai.xml

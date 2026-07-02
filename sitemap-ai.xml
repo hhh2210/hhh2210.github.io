@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AI-readable endpoints (llms.txt, JSON APIs, Markdown alternates).
+     Human pages are covered by the auto-generated /sitemap.xml. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hhh2210.github.io/llms.txt</loc></url>
+  <url><loc>https://hhh2210.github.io/llms-full.txt</loc></url>
+  <url><loc>https://hhh2210.github.io/markdown/echoes-as-anchors.txt</loc></url>
+  <url><loc>https://hhh2210.github.io/markdown/cherrl.txt</loc></url>
+  <url><loc>https://hhh2210.github.io/api/profile.json</loc></url>
+  <url><loc>https://hhh2210.github.io/api/projects.json</loc></url>
+  <url><loc>https://hhh2210.github.io/api/llm-index.json</loc></url>
+  <url><loc>https://hhh2210.github.io/api/papers/echoes-as-anchors.json</loc></url>
+  <url><loc>https://hhh2210.github.io/api/papers/echoes-concepts.json</loc></url>
+  <url><loc>https://hhh2210.github.io/api/papers/cherrl.json</loc></url>
+</urlset>

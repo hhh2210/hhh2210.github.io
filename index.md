@@ -6,15 +6,11 @@ description: "Larry Hao works on LLM reasoning, reinforcement learning, agent sy
 keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning, reinforcement learning, agent systems, Echoes as Anchors, ICLR 2026"
 ---
 
-<!-- [CV](/assets/files/CV-郝卓远.pdf) -->
-
 <img class="profile-photo" src="{{ site.baseurl }}/images/personal.png" alt="Larry Hao">
 
-I'm Larry Hao (Zhuoyuan Hao), a former research intern at Tencent with experience across Tencent IEG and the CSIG CodeBuddy team.
+I'm Larry Hao (Zhuoyuan Hao), a CS undergrad at Harbin Institute of Technology, Shenzhen. I work on **LLM reasoning and reinforcement learning** — why models reason the way they do, and where RL training quietly goes wrong — advised by Jing Li (HITSZ) and Xiaozhi Wang (Tsinghua), as a research intern at THUAIS. Previously I interned at Tencent IEG and the CSIG CodeBuddy team, and I like turning research ideas into real systems.
 
-My main interests are **LLM reasoning, reinforcement learning, agent systems, and practical AI products**. I am especially interested in how reasoning models stay grounded in the original problem, how attention refocusing affects multi-step reasoning, and how research ideas can be turned into real systems.
-
-AI-readable profile files: [llms.txt](/llms.txt), [llms-full.txt](/llms-full.txt), [profile.json](/api/profile.json), [projects.json](/api/projects.json).
+[Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [X](https://x.com/larryhaonlp) · [GitHub](https://github.com/hhh2210) · [CV](/assets/files/resume-en.pdf) · [Email](mailto:hzy2210@gmail.com)
 
 ## Selected Work
 
@@ -25,8 +21,14 @@ AI-readable profile files: [llms.txt](/llms.txt), [llms-full.txt](/llms-full.txt
   [repo](https://github.com/hhh2210/echoes-as-anchors) |
   [paper](https://openreview.net/forum?id=vndn1Wrult)
 
+- **CHERRL: A Controllable Hacking Environment for Rubric-Based Reinforcement Learning** <br>
+  Co-first author <br>
+  A controllable sandbox for reward hacking in rubric-based RL with LLM judges: inject a known judge bias, reproduce the hack cleanly, pin down the exact training step it starts, and have an agent flag the onset from training logs. <br>
+  [repo](https://github.com/THUAIS-Lab/CHERRL) |
+  [paper](https://arxiv.org/abs/2606.04923)
+
 - **Date Match** <br>
-  Idea, matching algorithm, and early full-stack development <br>
+  Co-founder and algorithm lead; now incubating at MiraclePlus (YC China) <br>
   A psychology-based compatibility matching product that used EFA/ESEM/SEM-style analysis for questionnaire design and matching, cold-started to 100k users in 10 days, and has reached 170k+ completed tests. <br>
   [product](https://www.date-match.online) |
   [analysis toolkit](https://github.com/fumitsoku-beep/ESEM)
@@ -35,7 +37,7 @@ AI-readable profile files: [llms.txt](/llms.txt), [llms-full.txt](/llms-full.txt
   Practical systems around AI coding agents, token-efficient command output, local model workflows, and reusable skill induction. <br>
   [rtk](https://github.com/hhh2210/rtk) |
   [auto-skill](https://github.com/hhh2210/auto-skill) |
-  [CodexBar](https://github.com/hhh2210/CodexBar)
+  [CodexBar](https://github.com/steipete/CodexBar)
 
 ## Blog
 
@@ -46,3 +48,5 @@ AI-readable profile files: [llms.txt](/llms.txt), [llms-full.txt](/llms-full.txt
     </article>
   {% endfor %}
 </div>
+
+<small>For AI agents: [llms.txt](/llms.txt), [llms-full.txt](/llms-full.txt), [profile.json](/api/profile.json), [projects.json](/api/projects.json).</small>

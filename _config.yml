@@ -22,6 +22,8 @@ author:
   same_as:
     - https://github.com/hhh2210
     - https://hhh2210.github.io/
+    - https://scholar.google.com/citations?user=hjooI9QAAAAJ
+    - https://x.com/larryhaonlp
 
 keywords:
   - LLM reasoning
@@ -41,7 +43,7 @@ keywords:
 footer-links:
   dribbble:
   email: hzy2210@gmail.com
-  googlescholar:
+  googlescholar: hjooI9QAAAAJ
   facebook:
   flickr:
   github: hhh2210
@@ -50,7 +52,7 @@ footer-links:
   pinterest:
   rss: # just type anything here for a working RSS icon
   blog: blog
-  twitter:
+  twitter: larryhaonlp
   stackoverflow: # your stackoverflow profile, e.g. "users/50476/bart-kiers"
   youtube: # channel/<your_long_string> or user/<user-name>
   googleplus: # anything in your profile username that comes after plus.google.com/

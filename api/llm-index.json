@@ -120,6 +120,18 @@
       "name": "live-openreview.json",
       "url": "https://echoes-resource-api-production.up.railway.app/api/openreview.json",
       "format": "application/json"
+    },
+    {
+      "name": "live-cherrl.json",
+      "url": "https://echoes-resource-api-production.up.railway.app/api/cherrl.json",
+      "format": "application/json",
+      "description": "Live CHERRL snapshot combining arXiv metadata, GitHub repository stats, and structured paper metadata."
+    },
+    {
+      "name": "live-profile.json",
+      "url": "https://echoes-resource-api-production.up.railway.app/api/profile.json",
+      "format": "application/json",
+      "description": "Live full-profile snapshot: GitHub user stats, projects, and both papers in one endpoint."
     }
   ],
   "github_repositories": [

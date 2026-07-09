@@ -1,12 +1,15 @@
 ---
 layout: page
 title: Echoes as Anchors Paper
+seo_title: "Echoes as Anchors: LLM Reasoning Attention"
+last_modified_at: 2026-07-09
 permalink: /papers/echoes-as-anchors/
 description: "Echoes as Anchors (ICLR 2026): a mechanistic, attention-level study of why large reasoning models restate the prompt before thinking — layer-wise attention analysis, probes, and causal echo insertion, with implications for test-time compute and long chain-of-thought grounding."
 keywords: "Echoes as Anchors paper, ICLR 2026, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, chain-of-thought faithfulness, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting"
 schema: scholarly_article
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 paper_url: "https://openreview.net/forum?id=vndn1Wrult"
+paper_arxiv: "https://arxiv.org/abs/2602.06600"
 paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
 paper_context: "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/echoes-as-anchors.json"
@@ -42,8 +45,6 @@ paper_authors:
   - Min Zhang
   - Jing Li
 ---
-
-# Echoes as Anchors Paper
 
 **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning** is an **ICLR 2026 Poster** paper on **large reasoning models**: a mechanistic, attention-level study of why reasoning models restate the prompt before thinking, and how to exploit that behavior for **test-time compute**.
 

@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Echoes as Anchors Media Kit
+seo_title: "Echoes as Anchors Media Kit"
+last_modified_at: 2026-07-09
 permalink: /media/echoes-as-anchors/
 description: "Media kit and promotional summary for Echoes as Anchors, an ICLR 2026 Poster on Echo of Prompt, Echo Likelihood Gap, attention refocusing, and LLM reasoning."
 keywords: "Echoes as Anchors media kit, ICLR 2026 Poster, LLM reasoning, Echo of Prompt, Echo Likelihood Gap, attention refocusing"
@@ -22,8 +24,6 @@ paper_authors:
   - Min Zhang
   - Jing Li
 ---
-
-# Echoes as Anchors Media Kit
 
 **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning** is an **ICLR 2026 Poster** about why large reasoning models often repeat the question before thinking, and how that behavior can be understood and used.
 

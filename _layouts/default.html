@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.name }} - {{ site.description }}</title>
+    {% assign browser_title = page.seo_title | default: page.title | default: site.name %}
+    <title>{% if browser_title == site.name %}{{ site.name }} - {{ site.description }}{% else %}{{ browser_title }} - {{ site.name }}{% endif %}</title>
 
     {% include meta.html %}
     {% include structured-data.html %}
@@ -22,10 +23,10 @@
           <!--<a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a> -->
 
           <div class="site-info">
-            <h1 class="site-name">
+            <p class="site-name">
               <a href="{{ site.baseurl }}/">{{ site.name }}</a>
               <!--<small> <small> <small> {% include svg-icons.html %} </small> </small> </small>-->
-            </h1>
+            </p>
             <p class="site-description">{{ site.description }}</p>
           </div>
 

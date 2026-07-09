@@ -22,6 +22,18 @@
       "echoic prompting",
       "chain-of-thought",
       "probabilistic analysis"
+    ],
+    "arxiv": "https://arxiv.org/abs/2602.06600",
+    "keywords": [
+      "mechanistic interpretability",
+      "reasoning attention",
+      "attention analysis",
+      "test-time compute",
+      "test-time scaling",
+      "long chain-of-thought",
+      "long-context reasoning",
+      "chain-of-thought faithfulness",
+      "lost in the middle"
     ]
   },
   {

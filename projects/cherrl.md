@@ -30,7 +30,7 @@ paper_authors:
   - Xiaozhi Wang
 ---
 
-# CHERRL: A Controllable Hacking Environment for Rubric-Based Reinforcement Learning
+## CHERRL: A Controllable Hacking Environment for Rubric-Based Reinforcement Learning
 
 **CHERRL** is a research environment and paper about **reward hacking in rubric-based reinforcement learning**. Rubric-based RL uses an LLM-as-a-Judge (LaaJ) to score model outputs as rewards; policy models can learn to exploit latent biases in the judge instead of genuinely improving. CHERRL makes this normally-covert failure mode observable and reproducible. Zhuoyuan Hao (Larry Hao) is co-first author with Xuekang Wang, working with the THUAIS Lab at Tsinghua University.
 

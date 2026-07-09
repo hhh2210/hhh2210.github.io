@@ -18,6 +18,46 @@
     },
     {
       "@type": "Question",
+      "name": "Is Echoes as Anchors a mechanistic interpretability paper?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Partly, with an honest scope. The paper provides attention- and behavior-level mechanistic evidence: layer-wise attention analysis across all 32 layers, an MLP probe, likelihood decomposition, and causal echo reinsertion, with the effect localized to middle layers 7-18 (Cohen's d = 0.832). It does not claim neuron- or circuit-level reverse engineering."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does the paper connect to reasoning attention?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It measures where reasoning tokens attend. Correct traces attend to the echoed answer-prefix at 14.45% vs. 11.58% for wrong traces in middle layers, and token-wise tests show wrong traces attend more to the raw question while correct traces attend to the model's own echoed restatement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does this relate to test-time compute and test-time scaling?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Echo of Prompt is analyzed as a front-loaded, compute-shaping mechanism for test-time compute allocation. Echoic Prompting outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical decoding settings and budgets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is this relevant to long-context reasoning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Long reasoning traces drift from the original problem, the same pressure behind lost-in-the-middle positional bias. The echo prefix (averaging about 219 tokens) is the model's self-generated re-injection of the problem statement, and Echoic Prompting applies the same re-grounding move mid-trace."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are chain-of-thought tokens functional or decorative?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The paper answers causally: reinserting an echo into failed traces lifts exact match by +10.4 points on DeepSeek-R1-Distill-Llama-8B and +7.9 points on Qwen3-8B, with no change on a non-reasoning base model. The echo tokens do real computational work, which connects to chain-of-thought faithfulness debates."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "What is Echo of Prompt?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -58,6 +98,7 @@
       "datePublished": {{ page.paper_date_published | jsonify }},
       "creativeWorkStatus": {{ page.paper_status | jsonify }},
       "sameAs": [
+        {% if page.paper_arxiv %}{{ page.paper_arxiv | jsonify }},{% endif %}
         {{ page.paper_url | jsonify }},
         {{ page.paper_repo | jsonify }},
         {{ page.paper_context | jsonify }},
@@ -123,7 +164,13 @@
     ],
     "knowsAbout": [
       "LLM reasoning",
+      "mechanistic interpretability",
+      "reasoning attention",
+      "test-time compute",
+      "long-context reasoning",
+      "chain-of-thought faithfulness",
       "reinforcement learning",
+      "reward hacking",
       "agent systems",
       "Echo of Prompt",
       "attention refocusing",

@@ -1,12 +1,15 @@
 ---
 layout: page
 title: Echoes as Anchors
+seo_title: "Echoes as Anchors Project"
+last_modified_at: 2026-07-09
 permalink: /projects/echoes-as-anchors/
 description: "Project page for Echoes as Anchors (ICLR 2026): attention-level mechanistic analysis of Echo of Prompt in large reasoning models, with causal echo insertion, test-time compute framing, and long chain-of-thought grounding."
 keywords: "Echoes as Anchors, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, reasoning drift, chain-of-thought faithfulness, Echo of Prompt, attention refocusing, echoic prompting, chain-of-thought, ICLR 2026"
 schema: scholarly_article
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 paper_url: "https://openreview.net/forum?id=vndn1Wrult"
+paper_arxiv: "https://arxiv.org/abs/2602.06600"
 paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
 paper_context: "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/echoes-as-anchors.json"
@@ -43,7 +46,7 @@ paper_authors:
   - Jing Li
 ---
 
-# Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning
+## Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning
 
 **Echoes as Anchors** is an ICLR 2026 paper and codebase about **LLM reasoning**. It studies how large reasoning models repeat or rephrase the original user question inside long reasoning trajectories — a behavior called **Echo of Prompt (EOP)** — and explains, at the attention level, why that behavior helps: **attention refocusing** in middle layers, reduced **reasoning drift**, and better use of **test-time compute**.
 

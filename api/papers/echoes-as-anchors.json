@@ -35,6 +35,17 @@
     "finetuning",
     "LLM reasoning",
     "large reasoning models",
+    "mechanistic interpretability",
+    "interpretability of reasoning models",
+    "reasoning attention",
+    "attention analysis",
+    "chain-of-thought faithfulness",
+    "test-time compute",
+    "test-time scaling",
+    "long chain-of-thought",
+    "long-context reasoning",
+    "lost in the middle",
+    "reasoning drift",
     "Echo of Prompt",
     "Echo Likelihood Gap",
     "attention refocusing",
@@ -64,14 +75,29 @@
       "source": "ICLR 2026 poster materials"
     },
     {
-      "claim": "Semi-online echo insertion improves failed reasoning for reasoning-capable models.",
-      "metric": "+10.4 percentage points for DeepSeek-R1-Distill-Llama-8B; +7.9 for Qwen3-8B; 0% for Qwen3-8B-Base",
-      "source": "ICLR 2026 poster materials"
+      "claim": "Causal echo reinsertion improves failed reasoning traces.",
+      "metric": "EM 15.85% -> 26.22% (+10.4 pts) DeepSeek-R1-Distill-Llama-8B; 21.34% -> 29.27% (+7.9 pts) Qwen3-8B; null on Qwen3-8B-Base (10.56% -> 10.56%)",
+      "source": "paper section 4.1"
     },
     {
       "claim": "Echo-Distilled SFT improves over normal SFT in reported math benchmarks.",
       "metric": "GSM8K +3.4, MathQA +11.8, MATH +8.2 for Qwen3-8B-Base",
       "source": "ICLR 2026 poster materials"
+    },
+    {
+      "claim": "Traces that spontaneously contain an echo are more accurate than traces without one.",
+      "metric": "63.8% vs. 57.2% accuracy on GSM8K",
+      "source": "paper appendix A.13"
+    },
+    {
+      "claim": "Wrong traces attend more to the raw question; correct traces attend to the echoed restatement.",
+      "metric": "question-attention significantly higher for wrong traces at 22/32 early answer positions",
+      "source": "paper appendix A.9"
+    },
+    {
+      "claim": "Echoic Prompting outperforms thinking-token test-time scaling.",
+      "metric": "beats TTTS on AIME24 and MATH-500 under identical decoding and budgets",
+      "source": "paper section 4.3"
     }
   ],
   "primary_area": "foundation or frontier models, including LLMs",
@@ -119,6 +145,30 @@
     {
       "question": "What is Echo-Distilled SFT?",
       "answer": "Echo-Distilled SFT is supervised fine-tuning data preparation that encourages an echo-then-reason pattern."
+    }
+  ],
+  "research_areas": [
+    {
+      "area": "mechanistic interpretability of reasoning models",
+      "scope": "attention- and behavior-level mechanism, not neuron- or circuit-level reverse engineering",
+      "evidence": "layer-wise attention analysis over all 32 layers localizes attention refocusing to middle layers 7-18 (Cohen's d = 0.832); MLP probe for echo detection; likelihood decomposition; causal echo reinsertion; answer-to-question attention flat as negative control"
+    },
+    {
+      "area": "reasoning attention",
+      "evidence": "middle-layer answer-to-answer-prefix attention 14.45% correct vs 11.58% wrong; wrong traces attend more to the raw question (22/32 early positions) while correct traces attend to the echoed restatement; word-level heatmaps concentrate on key quantities; information-flow analysis shows echo tokens as an internal hub"
+    },
+    {
+      "area": "chain-of-thought faithfulness",
+      "scope": "adjacent: shows visible trace tokens are causally functional",
+      "evidence": "echo reinsertion into failed traces lifts exact match 15.85% -> 26.22% (+10.4 pts, DeepSeek-R1-Distill-Llama-8B) and 21.34% -> 29.27% (+7.9 pts, Qwen3-8B); null effect on non-reasoning Qwen3-8B-Base (10.56% -> 10.56%)"
+    },
+    {
+      "area": "test-time compute / test-time scaling",
+      "evidence": "EOP framed as a front-loaded, compute-shaping mechanism; Echoic Prompting outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical decoding settings and budgets"
+    },
+    {
+      "area": "long chain-of-thought grounding",
+      "evidence": "echo prefixes (mean ~219 tokens) re-inject the problem statement so later tokens can attend back to it, counteracting lost-in-the-middle-style positional bias and reasoning drift; Echoic Prompting applies the same re-grounding mid-trace"
     }
   ]
 }

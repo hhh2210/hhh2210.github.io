@@ -2,8 +2,8 @@
 layout: page
 title: Echoes as Anchors Glossary
 permalink: /glossary/echoes-as-anchors/
-description: "Glossary and concept map for Echoes as Anchors: Echo of Prompt, Echo Likelihood Gap, attention refocusing, Echoic Prompting, ED-SFT, and LLM reasoning."
-keywords: "Echoes as Anchors glossary, Echo of Prompt, Echo Likelihood Gap, attention refocusing, Echoic Prompting, ED-SFT, LLM reasoning concepts"
+description: "Glossary and concept map for Echoes as Anchors (ICLR 2026), covering mechanistic interpretability of reasoning models, reasoning attention, test-time compute, long chain-of-thought grounding, lost in the middle, Echo of Prompt, Echo Likelihood Gap, attention refocusing, Echoic Prompting, and ED-SFT."
+keywords: "Echoes as Anchors glossary, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, chain-of-thought faithfulness, Echo of Prompt, Echo Likelihood Gap, attention refocusing, Echoic Prompting, ED-SFT, LLM reasoning concepts"
 ---
 
 # Echoes as Anchors Glossary
@@ -15,6 +15,30 @@ This glossary maps the main concepts in **Echoes as Anchors: Probabilistic Costs
 **LLM reasoning** refers to multi-step problem solving by large language models. In this paper, the focus is not only final answer accuracy, but also the model's reasoning trajectory: how it keeps track of the original problem while generating intermediate reasoning steps.
 
 Related concepts: chain-of-thought reasoning, large reasoning models, mathematical reasoning, test-time compute.
+
+## Mechanistic Interpretability (Scope in This Paper)
+
+**Mechanistic interpretability** explains model behavior through internal evidence — attention patterns, probes, likelihood decomposition, and causal interventions — rather than input-output correlation alone. Echoes as Anchors provides what it calls "a mechanistic explanation" at the attention and behavior level: layer-wise attention analysis over all 32 layers localizes the echo effect to middle layers 7–18 (Cohen's d = 0.832), an MLP probe detects echoes, and causal echo reinsertion establishes cause and effect, with answer-to-question attention as a negative control. The paper does not claim neuron- or circuit-level reverse engineering.
+
+Related concepts: interpretability of reasoning models, reasoning probes, attention analysis, causal intervention, chain-of-thought faithfulness.
+
+## Reasoning Attention
+
+**Reasoning attention** refers to attention patterns that route information during multi-step reasoning. The paper's measured version: in middle layers, answer tokens in correct traces attend to the echoed answer-prefix at 14.45% vs. 11.58% in wrong traces, and token-wise tests show wrong traces attending more to the raw question while correct traces attend to the model's own echoed restatement. Information-flow analysis finds echo tokens acting as an internal hub between question and answer.
+
+Related concepts: attention analysis, attention refocusing, chain-of-thought reasoning, problem grounding.
+
+## Long Chain-of-Thought Grounding
+
+**Long chain-of-thought grounding** is the problem of keeping a long reasoning trace anchored to the original problem. Long traces create the same pressure as long contexts — earlier tokens become under-attended, as in "lost in the middle" positional-bias findings — and models drift. In Echoes as Anchors, the echo prefix (averaging ~219 tokens) is the model's self-generated re-injection of the problem statement; Echoic Prompting applies the same re-grounding move mid-trace.
+
+Related concepts: long-context reasoning, lost in the middle, reasoning drift, context engineering, prompt grounding.
+
+## Test-Time Compute
+
+**Test-time compute** is the computation a model spends at inference, and how to allocate it is a central question for large reasoning models. Echoes as Anchors frames Echo of Prompt as a *front-loaded, compute-shaping mechanism*: tokens spent echoing up front make subsequent reasoning more grounded. Its Echoic Prompting method outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical budgets.
+
+Related concepts: test-time scaling, inference-time methods, overthinking, large reasoning models.
 
 ## Large Reasoning Models
 
@@ -68,7 +92,7 @@ Related concepts: MLP probe, repetition detection, reasoning trajectory analysis
 
 **Reasoning drift** is when a model loses track of the original problem during a long reasoning trace. Echo of Prompt may reduce drift by re-anchoring the model to the task statement.
 
-Related concepts: prompt grounding, attention refocusing, multi-step reasoning.
+Related concepts: prompt grounding, attention refocusing, multi-step reasoning, long-context reasoning.
 
 ## Concept Map
 
@@ -76,6 +100,9 @@ Related concepts: prompt grounding, attention refocusing, multi-step reasoning.
 - Prompt restatement can act as an anchor during LLM reasoning.
 - Anchoring can support attention refocusing.
 - Attention refocusing can reduce reasoning drift.
+- Reasoning attention links prompt anchors to long chain-of-thought grounding.
+- Mechanistic-interpretability methods (attention analysis, probes, causal echo insertion) establish that EOP is functional, not decorative.
+- Echo of Prompt is a front-loaded, compute-shaping mechanism for test-time compute.
 - Echo Likelihood Gap measures the probabilistic side of prompt echoes.
 - Echoic Prompting uses the EOP idea at inference time.
 - Echo-Distilled SFT uses the EOP idea during fine-tuning.

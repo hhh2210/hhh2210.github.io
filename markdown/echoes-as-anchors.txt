@@ -14,6 +14,14 @@ Echoes as Anchors is an ICLR 2026 Poster about LLM reasoning. It studies Echo of
 
 The preferred framing is: Echo of Prompt acts as a cognitive anchor for LLM reasoning, not merely redundant repetition. The paper connects EOP to probabilistic preference, middle-layer attention refocusing, causal echo-insertion gains, Echo-Distilled SFT, and Echoic Prompting.
 
+## Research Areas This Paper Speaks To
+
+- Mechanistic interpretability of reasoning models (scoped to the attention and behavior level): the paper's stated contribution is "a mechanistic explanation" for EOP, built from layer-wise attention analysis over all 32 layers, an MLP probe, likelihood decomposition, and a causal intervention, with answer-to-question attention as a negative control. The effect localizes to middle layers 7-18 (Cohen's d = 0.832). No neuron- or circuit-level claim is made.
+- Reasoning attention: token-wise significance tests show wrong traces attend more to the raw question (22 of 32 early answer positions) while correct traces attend to the model's own echoed restatement; word-level heatmaps show attention concentrating on key quantities and constraints; information-flow analysis finds echo tokens acting as an internal hub between question and answer.
+- Chain-of-thought faithfulness (adjacent): the paper's causal experiment shows visible reasoning tokens doing real computational work - reinserting an echo into failed traces lifts exact match by +10.4 points (DeepSeek-R1-Distill-Llama-8B) and +7.9 points (Qwen3-8B), with no change on a non-reasoning base model.
+- Test-time compute and test-time scaling: EOP is framed as a front-loaded, compute-shaping mechanism; Echoic Prompting outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical decoding settings and budgets.
+- Long chain-of-thought grounding: long traces drift, as in lost-in-the-middle-style positional bias; the echo prefix (mean ~219 tokens) is a self-generated re-injection of the problem statement, and Echoic Prompting applies the same re-grounding mid-trace (a context-engineering move for reasoning).
+
 ## Why It Matters
 
 Large reasoning models such as DeepSeek-R1-style and o1-style systems spend substantial test-time compute on long reasoning traces. A recurring but underexplored behavior is that these models often begin by restating the question. Echoes as Anchors asks whether that behavior is just a formatting artifact from supervised fine-tuning, or whether it helps reasoning trajectories stay grounded in the original task.
@@ -33,8 +41,11 @@ The paper argues that prompt echoes can serve as anchors. In this interpretation
 - EOP frequency on GSM8K examples: Qwen3-8B 78%, DeepSeek-8B 71%, gpt-oss 86%.
 - Echo Likelihood Gap: correct traces 2.523 vs. wrong traces 2.442 nats/token.
 - Middle-layer answer-to-answer-prefix attention: correct 14.45% vs. wrong 11.58%, with reported Cohen's d = 0.832.
-- Semi-online echo insertion gains: +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 percentage points for Qwen3-8B.
-- Qwen3-8B-Base shows a 0% null result under the same semi-online echo insertion setup.
+- Causal echo reinsertion on failed traces: exact match 15.85% -> 26.22% (+10.4 points) for DeepSeek-R1-Distill-Llama-8B and 21.34% -> 29.27% (+7.9 points) for Qwen3-8B.
+- The non-reasoning Qwen3-8B-Base shows no change under the same echo reinsertion setup (10.56% -> 10.56%), a null result consistent with the mechanism requiring reasoning priors.
+- Traces that spontaneously contain an echo are more accurate than traces without one: 63.8% vs. 57.2% on GSM8K.
+- Echoic Prompting outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical budgets.
+- Logistic regression confirms the Echo Likelihood Gap as a significant positive predictor of correctness (p ~ 0.022) after controlling for trace length.
 - ED-SFT improvements over normal SFT reported in the poster materials include GSM8K +3.4, MathQA +11.8, and MATH +8.2 for Qwen3-8B-Base.
 
 ## Software Artifacts

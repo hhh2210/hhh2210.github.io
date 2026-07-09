@@ -249,6 +249,13 @@ nav {
 // .main
 //
 
+.posts .post-title {
+  font-size: 30px;
+  a {
+    color: inherit;
+  }
+}
+
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $lightGray;

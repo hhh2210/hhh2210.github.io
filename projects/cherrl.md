@@ -2,7 +2,7 @@
 layout: page
 title: CHERRL
 permalink: /projects/cherrl/
-description: "AI-readable project page for CHERRL, a controllable hacking environment for studying, reproducing, and detecting reward hacking in rubric-based reinforcement learning with LLM judges."
+description: "CHERRL: a controllable environment for reproducing and detecting reward hacking in rubric-based reinforcement learning with LLM judges."
 keywords: "CHERRL, reward hacking, rubric-based RL, LLM-as-a-Judge, reinforcement learning, judge bias, reward hacking detection, RLHF"
 schema: scholarly_article
 paper_title: "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning"

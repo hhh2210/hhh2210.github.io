@@ -4,7 +4,7 @@ title: Echoes as Anchors Paper
 seo_title: "Echoes as Anchors: LLM Reasoning Attention"
 last_modified_at: 2026-07-09
 permalink: /papers/echoes-as-anchors/
-description: "Echoes as Anchors (ICLR 2026): a mechanistic, attention-level study of why large reasoning models restate the prompt before thinking — layer-wise attention analysis, probes, and causal echo insertion, with implications for test-time compute and long chain-of-thought grounding."
+description: "Echoes as Anchors (ICLR 2026): attention-level mechanistic study of why reasoning LLMs restate the prompt, with causal evidence and test-time compute gains."
 keywords: "Echoes as Anchors paper, ICLR 2026, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, chain-of-thought faithfulness, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting"
 schema: scholarly_article
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"

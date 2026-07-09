@@ -3,7 +3,7 @@ layout: page
 title: About Me
 last_modified_at: 2026-07-09
 permalink: /
-description: "Larry Hao (Zhuoyuan Hao) researches LLM reasoning and reinforcement learning. First author of Echoes as Anchors (ICLR 2026); co-first author of CHERRL on reward hacking in rubric-based RL."
+description: "Larry Hao (Zhuoyuan Hao): LLM reasoning and RL researcher. First author of Echoes as Anchors (ICLR 2026); co-first author of CHERRL on reward hacking."
 keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning, reinforcement learning, reward hacking, agent systems, Echoes as Anchors, CHERRL, ICLR 2026"
 ---
 

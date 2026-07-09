@@ -4,7 +4,7 @@ title: Echoes as Anchors
 seo_title: "Echoes as Anchors Project"
 last_modified_at: 2026-07-09
 permalink: /projects/echoes-as-anchors/
-description: "Project page for Echoes as Anchors (ICLR 2026): attention-level mechanistic analysis of Echo of Prompt in large reasoning models, with causal echo insertion, test-time compute framing, and long chain-of-thought grounding."
+description: "Code and artifacts for Echoes as Anchors (ICLR 2026): attention analysis, MLP probes, causal echo insertion, Echoic Prompting, and a live metadata API."
 keywords: "Echoes as Anchors, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, reasoning drift, chain-of-thought faithfulness, Echo of Prompt, attention refocusing, echoic prompting, chain-of-thought, ICLR 2026"
 schema: scholarly_article
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"

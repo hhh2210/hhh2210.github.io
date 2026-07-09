@@ -1,11 +1,12 @@
 ---
 layout: post
 title: How I use AI tools
+description: "A living note on my AI tool stack: self-hosted LobeChat with relay APIs for fast multi-device chat, and why I picked each piece."
 ---
 
 这个帖子会随时更新
 
-# Web-Chatbot
+## Web-Chatbot
 
 相信每个人都有类似的Chatbot需求，定位就是快速响应+多端云同步（+轻量的文件管理）
 
@@ -15,7 +16,7 @@ title: How I use AI tools
 
 当然也有坏处：LINUX 云服务器的租赁是比较贵的（点名批评阿里云， 300 的学生试用额度竟然限制只能用国内的服务器，大大滴坏）；自己维护S3存储、身份验证这些有点麻烦（但表扬 lobechat，一键部署脚本很好用）
 
-# AI-Coding
+## AI-Coding
 名词：cursor,claude code, openai-codex
 
 使用 AI 编程并不是一个新鲜事儿，最早可以追溯到ChatGPT 刚发布的那一天，不过随着模型能力的增强和使用逻辑的革新，AI-coding 可以说发展日新月异。

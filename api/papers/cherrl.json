@@ -5,6 +5,8 @@
   "date_published": "2026-06-03",
   "live_api": "https://echoes-resource-api-production.up.railway.app/api/cherrl.json",
   "arxiv": "https://arxiv.org/abs/2606.04923",
+  "doi": "https://doi.org/10.48550/arXiv.2606.04923",
+  "openalex": "https://openalex.org/W7163509842",
   "github": "https://github.com/THUAIS-Lab/CHERRL",
   "project_page": "https://hhh2210.github.io/projects/cherrl/",
   "markdown_alternate": "https://hhh2210.github.io/markdown/cherrl.txt",

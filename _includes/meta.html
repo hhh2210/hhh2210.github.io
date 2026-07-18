@@ -13,7 +13,19 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="{{ canonical_url }}">
     {% if page.markdown_alternate %}
-    <link rel="alternate" type="text/markdown" href="{{ page.markdown_alternate | absolute_url }}">
+    <link rel="alternate" type="text/plain" href="{{ page.markdown_alternate | absolute_url }}">
+    {% endif %}
+
+    {% if page.schema == "scholarly_article" %}
+    <meta name="citation_title" content="{{ page.paper_title | default: page.title | escape }}">
+    {% for author in page.paper_authors %}
+    <meta name="citation_author" content="{{ author | escape }}">
+    {% endfor %}
+    <meta name="citation_publication_date" content="{{ page.paper_citation_date | default: page.paper_date_published | escape }}">
+    {% if page.paper_venue %}<meta name="citation_conference_title" content="{{ page.paper_venue | escape }}">{% endif %}
+    {% if page.paper_report_institution %}<meta name="citation_technical_report_institution" content="{{ page.paper_report_institution | escape }}">{% endif %}
+    {% if page.paper_report_number %}<meta name="citation_technical_report_number" content="{{ page.paper_report_number | escape }}">{% endif %}
+    {% if page.paper_arxiv_id %}<meta name="citation_arxiv_id" content="{{ page.paper_arxiv_id | escape }}">{% endif %}
     {% endif %}
 
     <meta property="og:site_name" content="{{ site.name }}">
@@ -21,9 +33,11 @@
     <meta property="og:url" content="{{ canonical_url }}">
     <meta property="og:title" content="{{ page.title | default: site.name | escape }}">
     <meta property="og:description" content="{{ page_description | escape }}">
+    <meta property="og:image" content="{{ page.image | default: site.author.image | absolute_url }}">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@larryhaonlp">
     <meta name="twitter:creator" content="@larryhaonlp">
     <meta property="twitter:title" content="{{ page.title | default: site.name | escape }}">
     <meta property="twitter:description" content="{{ page_description | escape }}">
+    <meta property="twitter:image" content="{{ page.image | default: site.author.image | absolute_url }}">

@@ -18,6 +18,12 @@ paper_codemeta: "https://github.com/hhh2210/echoes-as-anchors/blob/master/codeme
 paper_bibtex: "https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib"
 paper_status: "ICLR 2026 Poster"
 paper_date_published: "2026-01-26"
+paper_citation_date: "2026"
+paper_venue: "The Fourteenth International Conference on Learning Representations (ICLR)"
+paper_arxiv_id: "2602.06600"
+paper_doi: "https://doi.org/10.48550/arXiv.2602.06600"
+paper_doi_value: "10.48550/arXiv.2602.06600"
+paper_openalex: "https://openalex.org/W7128374376"
 paper_repo_name: "echoes-as-anchors"
 paper_software_description: "Research code for Echoes as Anchors, an ICLR 2026 paper with attention analysis, MLP probes, causal echo insertion, Echo Likelihood Gap computation, ED-SFT data preparation, and Echoic Prompting for LLM reasoning."
 paper_topics:
@@ -46,7 +52,7 @@ paper_authors:
   - Jing Li
 ---
 
-**Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning** is an **ICLR 2026 Poster** paper on **large reasoning models**: a mechanistic, attention-level study of why reasoning models restate the prompt before thinking, and how to exploit that behavior for **test-time compute**.
+**Zhuoyuan Hao (Larry Hao) is the first author** of **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning**, an **ICLR 2026 Poster** paper on **large reasoning models**. It gives a mechanistic, attention-level account of why reasoning models restate the prompt before thinking, and how to exploit that behavior for **test-time compute**.
 
 - arXiv: https://arxiv.org/abs/2602.06600
 - OpenReview: https://openreview.net/forum?id=vndn1Wrult
@@ -56,8 +62,9 @@ paper_authors:
 - Repository research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
 - Live metadata snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
 - Media kit: https://hhh2210.github.io/media/echoes-as-anchors/
+- Author publications: https://hhh2210.github.io/publications/
 
-## TL;DR
+## Abstract
 
 Large reasoning models often repeat or rephrase the original user question before thinking. **Echoes as Anchors** formalizes this behavior as **Echo of Prompt (EOP)**, studies its probabilistic cost through **Echo Likelihood Gap**, and analyzes how it relates to **attention refocusing** and downstream reasoning accuracy.
 

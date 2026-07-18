@@ -1,10 +1,10 @@
-# Larry Hao — LLM Reasoning and Reward Hacking Researcher
+# Zhuoyuan Hao (Larry Hao) — LLM Reasoning and Reward Hacking Researcher
 
-> Larry Hao (Zhuoyuan Hao / 郝卓远) studies how LLMs reason and how RL systems fail. He is first author of Echoes as Anchors (ICLR 2026), co-first author of CHERRL, and a builder of agent systems that make model behavior more observable and controllable.
+> Zhuoyuan Hao (郝卓远), professionally known as Larry Hao, studies how LLMs reason and how RL systems fail. He is first author of Echoes as Anchors (ICLR 2026), co-first author of CHERRL, and a builder of agent systems that make model behavior more observable and controllable.
 
 Larry is a CS undergraduate at Harbin Institute of Technology, Shenzhen, and a research intern at THUAIS (Tsinghua University), advised by Jing Li (HITSZ) and Xiaozhi Wang (Tsinghua). He previously interned at Tencent IEG and the Tencent CSIG CodeBuddy team. His work centers on **LLM reasoning** (attention-level mechanistic analysis of reasoning traces, reasoning attention, test-time compute, long chain-of-thought grounding), **reward hacking in rubric-based reinforcement learning**, trustworthy AI, agent systems, and practical AI products. This page is the long-form, citation-friendly counterpart to the curated link index at `/llms.txt`.
 
-Links: https://hhh2210.github.io/ (website) · https://github.com/hhh2210 (GitHub) · https://scholar.google.com/citations?user=hjooI9QAAAAJ (Google Scholar) · https://x.com/larryhaonlp (X/Twitter) · https://hhh2210.github.io/assets/files/resume-en.pdf (CV)
+Links: https://hhh2210.github.io/ (website) · https://hhh2210.github.io/publications/ (publications) · https://github.com/hhh2210 (GitHub) · https://scholar.google.com/citations?user=hjooI9QAAAAJ (Google Scholar) · https://x.com/larryhaonlp (X/Twitter) · https://hhh2210.github.io/assets/files/resume-en.pdf (CV)
 
 ## Research Positioning
 

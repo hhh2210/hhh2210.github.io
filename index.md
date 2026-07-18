@@ -1,21 +1,21 @@
 ---
 layout: page
-title: Larry Hao — LLM Reasoning and Reward Hacking Researcher
-seo_title: "Larry Hao: LLM Reasoning & Reward Hacking"
+title: Zhuoyuan Hao (Larry Hao) — LLM Reasoning and Reward Hacking Researcher
+seo_title: "Zhuoyuan Hao: LLM Reasoning & Reward Hacking"
 last_modified_at: 2026-07-18
 permalink: /
-description: "Larry Hao (Zhuoyuan Hao) researches how LLMs reason and how RL systems fail: first author of Echoes as Anchors (ICLR 2026) and co-first author of CHERRL."
+description: "Zhuoyuan Hao (professionally known as Larry Hao) researches how LLMs reason and how RL systems fail: first author of Echoes as Anchors and co-first author of CHERRL."
 keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning researcher, reinforcement learning researcher, reward hacking, trustworthy AI, mechanistic interpretability, reasoning attention, agent systems, Echoes as Anchors, CHERRL, ICLR 2026"
 markdown_alternate: "/llms-full.txt"
 ---
 
 <img class="profile-photo" src="{{ site.baseurl }}/images/personal.png" alt="Larry Hao">
 
-I'm **Larry Hao (Zhuoyuan Hao / 郝卓远)**, an undergraduate researcher working on **LLM reasoning, reinforcement learning, and trustworthy AI**. My research asks two connected questions: why reasoning models behave the way they do, and how learning systems quietly optimize the wrong objective. I study those questions by turning hidden behavior into something measurable: attention patterns, controlled interventions, reproducible reward hacks, and agents that inspect real training traces.
+I'm **Zhuoyuan Hao (郝卓远)**, professionally known as **Larry Hao**, an undergraduate researcher working on **LLM reasoning, reinforcement learning, and trustworthy AI**. My research asks two connected questions: why reasoning models behave the way they do, and how learning systems quietly optimize the wrong objective. I study those questions by turning hidden behavior into something measurable: attention patterns, controlled interventions, reproducible reward hacks, and agents that inspect real training traces.
 
 I am a CS undergraduate at Harbin Institute of Technology, Shenzhen, advised by Jing Li, and a research intern with the THUAIS Lab at Tsinghua University, advised by Xiaozhi Wang. I am first author of the ICLR 2026 paper **Echoes as Anchors** and co-first author of **CHERRL**. Previously, I interned at Tencent IEG and the Tencent CSIG CodeBuddy team. I also build agent infrastructure and applied AI products, because I like research ideas that survive contact with real systems.
 
-[Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [OpenReview](https://openreview.net/forum?id=vndn1Wrult) · [GitHub](https://github.com/hhh2210) · [X](https://x.com/larryhaonlp) · [CV (EN)](/assets/files/resume-en.pdf) · [简历 (中文)](/assets/files/resume-zh.pdf) · [Email](mailto:hzy2210@gmail.com)
+[Publications](/publications/) · [Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [OpenReview](https://openreview.net/profile?id=~Zhuoyuan_Hao1) · [GitHub](https://github.com/hhh2210) · [X](https://x.com/larryhaonlp) · [CV (EN)](/assets/files/resume-en.pdf) · [简历 (中文)](/assets/files/resume-zh.pdf) · [Email](mailto:hzy2210@gmail.com)
 
 ## Research Focus
 

@@ -1,14 +1,29 @@
 {
-  "name": "Larry Hao",
+  "id": "https://hhh2210.github.io/#person",
+  "name": "Zhuoyuan Hao",
+  "preferred_name": "Larry Hao",
   "full_name": "Zhuoyuan Hao",
+  "aliases": ["Larry Hao", "郝卓远"],
   "github": "https://github.com/hhh2210",
   "website": "https://hhh2210.github.io/",
+  "publications": "https://hhh2210.github.io/publications/",
   "google_scholar": "https://scholar.google.com/citations?user=hjooI9QAAAAJ",
+  "openreview": "https://openreview.net/profile?id=~Zhuoyuan_Hao1",
+  "dblp": "https://dblp.org/pid/425/1472.html",
+  "openalex": "https://openalex.org/A5125425356",
   "twitter": "https://x.com/larryhaonlp",
   "cv_en": "https://hhh2210.github.io/assets/files/resume-en.pdf",
   "cv_zh": "https://hhh2210.github.io/assets/files/resume-zh.pdf",
   "affiliation": "Harbin Institute of Technology, Shenzhen",
-  "summary": "Larry Hao (Zhuoyuan Hao) studies how LLMs reason and how RL systems fail. He is first author of Echoes as Anchors (ICLR 2026), co-first author of CHERRL, and a builder of agent systems for observable and controllable AI.",
+  "same_as": [
+    "https://github.com/hhh2210",
+    "https://scholar.google.com/citations?user=hjooI9QAAAAJ",
+    "https://openreview.net/profile?id=~Zhuoyuan_Hao1",
+    "https://dblp.org/pid/425/1472.html",
+    "https://openalex.org/A5125425356",
+    "https://x.com/larryhaonlp"
+  ],
+  "summary": "Zhuoyuan Hao, professionally known as Larry Hao, studies how LLMs reason and how RL systems fail. He is first author of Echoes as Anchors (ICLR 2026), co-first author of CHERRL, and a builder of agent systems for observable and controllable AI.",
   "research_positioning": "Make hidden model behavior measurable, then test it with controlled interventions: attention and causal trace analysis for LLM reasoning; known bias injection and ground-truth onset detection for reward hacking in rubric-based RL.",
   "primary_topics": [
     "LLM reasoning",
@@ -61,5 +76,14 @@
       "chain-of-thought",
       "reasoning probes"
     ]
-  }
+  },
+  "other_publications": [
+    {
+      "title": "Update Strategy for Channel Knowledge Map in Complex Environments",
+      "role": "co-author",
+      "year": 2025,
+      "arxiv": "https://arxiv.org/abs/2512.15154",
+      "doi": "https://doi.org/10.48550/arXiv.2512.15154"
+    }
+  ]
 }

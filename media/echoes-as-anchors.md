@@ -6,7 +6,7 @@ last_modified_at: 2026-07-09
 permalink: /media/echoes-as-anchors/
 description: "Media kit and promotional summary for Echoes as Anchors, an ICLR 2026 Poster on Echo of Prompt, Echo Likelihood Gap, attention refocusing, and LLM reasoning."
 keywords: "Echoes as Anchors media kit, ICLR 2026 Poster, LLM reasoning, Echo of Prompt, Echo Likelihood Gap, attention refocusing"
-schema: scholarly_article
+schema: web_page
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 paper_url: "https://openreview.net/forum?id=vndn1Wrult"
 paper_repo: "https://github.com/hhh2210/echoes-as-anchors"

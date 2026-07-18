@@ -13,7 +13,14 @@ paper_repo: "https://github.com/THUAIS-Lab/CHERRL"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/cherrl.json"
 markdown_alternate: "/markdown/cherrl.txt"
 paper_status: "arXiv preprint"
-paper_date_published: "2026-06-04"
+paper_date_published: "2026-06-03"
+paper_citation_date: "2026/06/03"
+paper_report_institution: "arXiv"
+paper_report_number: "arXiv:2606.04923"
+paper_arxiv_id: "2606.04923"
+paper_doi: "https://doi.org/10.48550/arXiv.2606.04923"
+paper_doi_value: "10.48550/arXiv.2606.04923"
+paper_openalex: "https://openalex.org/W7163509842"
 paper_repo_name: "CHERRL"
 paper_software_description: "Controllable hacking environment for rubric-based reinforcement learning: dual-judge reward construction, bias injection, and reward hacking onset detection."
 paper_topics:
@@ -41,7 +48,7 @@ paper_authors:
 - Structured metadata: https://hhh2210.github.io/api/papers/cherrl.json
 - Author profile: https://hhh2210.github.io/
 
-## One-paragraph Summary
+## Abstract
 
 In real-world rubric-based RL, reward hacking is subtle and entangled with multiple judge biases at once, which makes it hard to analyze, detect, or mitigate. CHERRL solves this by injecting a *known* bias into the LLM judge and using a dual-judge reward construction that separates the proxy reward into a clean gold reward and an isolated biased reward. This makes it possible to reproduce specific hacking behaviors on demand, observe reward divergence directly, and obtain a precise ground-truth for when hacking begins. The paper uses this testbed to analyze judge biases along two axes — discoverability and exploitability — and introduces the Reward Hacking Detection Agent (RHDA), a long-running LLM agent that monitors training rollouts and flags hacking onset from training logs with behavioral evidence.
 

@@ -6,7 +6,7 @@ last_modified_at: 2026-07-09
 permalink: /projects/echoes-as-anchors/
 description: "Code and artifacts for Echoes as Anchors (ICLR 2026): attention analysis, MLP probes, causal echo insertion, Echoic Prompting, and a live metadata API."
 keywords: "Echoes as Anchors, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, reasoning drift, chain-of-thought faithfulness, Echo of Prompt, attention refocusing, echoic prompting, chain-of-thought, ICLR 2026"
-schema: scholarly_article
+schema: software_source_code
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 paper_url: "https://openreview.net/forum?id=vndn1Wrult"
 paper_arxiv: "https://arxiv.org/abs/2602.06600"
@@ -57,7 +57,8 @@ paper_authors:
 - Structured metadata: https://hhh2210.github.io/api/papers/echoes-as-anchors.json
 - Live metadata snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
 - Media kit: https://hhh2210.github.io/media/echoes-as-anchors/
-- Author profile: https://github.com/hhh2210
+- Author profile: https://hhh2210.github.io/
+- Evidence-focused paper page: https://hhh2210.github.io/papers/echoes-as-anchors/
 
 ## One-paragraph Summary
 

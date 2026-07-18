@@ -3,23 +3,23 @@
      Human pages are covered by the auto-generated /sitemap.xml. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://hhh2210.github.io/llms.txt</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/llms-full.txt</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/markdown/echoes-as-anchors.txt</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/markdown/cherrl.txt</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/api/profile.json</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/api/projects.json</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/api/llm-index.json</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/api/papers/echoes-as-anchors.json</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/api/papers/echoes-concepts.json</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
   <url><loc>https://hhh2210.github.io/api/papers/cherrl.json</loc>
-    <lastmod>2026-07-09</lastmod></url>
+    <lastmod>2026-07-18</lastmod></url>
 </urlset>

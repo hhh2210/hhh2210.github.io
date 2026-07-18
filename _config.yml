@@ -6,7 +6,7 @@
 name: Larry Hao
 
 # Short bio or description (displayed in the header and metadata)
-description: LLM reasoning, reinforcement learning, agent systems, and applied AI products
+description: LLM reasoning, reward hacking, trustworthy AI, and agent systems
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
 avatar:
@@ -29,6 +29,9 @@ keywords:
   - LLM reasoning
   - reinforcement learning
   - reward hacking
+  - trustworthy AI
+  - mechanistic interpretability
+  - reasoning attention
   - rubric-based RL
   - agent systems
   - Echoes as Anchors

@@ -1,0 +1,81 @@
+name: Notify IndexNow
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  submit-changed-urls:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Build changed URL list
+        id: urls
+        shell: bash
+        run: |
+          set -euo pipefail
+          origin="https://hhh2210.github.io"
+          before="${{ github.event.before }}"
+          if [[ -z "$before" || "$before" =~ ^0+$ ]] || ! git cat-file -e "$before^{commit}" 2>/dev/null; then
+            before="$(git rev-parse HEAD^)"
+          fi
+
+          declare -A selected=()
+          add_url() { selected["$origin$1"]=1; }
+          add_url "/"
+          add_url "/llms.txt"
+          add_url "/llms-full.txt"
+          add_url "/sitemap.xml"
+          add_url "/sitemap-ai.xml"
+
+          while IFS= read -r file; do
+            case "$file" in
+              index.md) add_url "/" ;;
+              papers/*.md|projects/*.md|faq/*.md|glossary/*.md|media/*.md)
+                dir="${file%/*}"
+                slug="${file##*/}"
+                add_url "/$dir/${slug%.md}/"
+                ;;
+              _posts/*.md)
+                slug="${file##*/}"
+                slug="${slug#????-??-??-}"
+                add_url "/${slug%.md}/"
+                ;;
+              api/*.json|markdown/*.txt|robots.txt|llms.txt|llms-full.txt|sitemap-ai.xml)
+                add_url "/$file"
+                ;;
+              _config.yml|_includes/*|_layouts/*)
+                add_url "/"
+                ;;
+            esac
+          done < <(git diff --name-only "$before" HEAD)
+
+          printf '%s\n' "${!selected[@]}" | sort > /tmp/indexnow-urls.txt
+          printf 'Submitting %s URLs\n' "$(wc -l < /tmp/indexnow-urls.txt)"
+          cat /tmp/indexnow-urls.txt
+
+      - name: Submit to IndexNow
+        shell: bash
+        env:
+          INDEXNOW_KEY: efcc4f61-78a0-42c2-8282-95bb711af49d
+        run: |
+          set -euo pipefail
+          urls_json="$(jq -R . < /tmp/indexnow-urls.txt | jq -s .)"
+          jq -n \
+            --arg host "hhh2210.github.io" \
+            --arg key "$INDEXNOW_KEY" \
+            --arg keyLocation "https://hhh2210.github.io/$INDEXNOW_KEY.txt" \
+            --argjson urlList "$urls_json" \
+            '{host: $host, key: $key, keyLocation: $keyLocation, urlList: $urlList}' \
+            > /tmp/indexnow-payload.json
+          curl --fail-with-body --silent --show-error \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @/tmp/indexnow-payload.json \
+            https://api.indexnow.org/indexnow

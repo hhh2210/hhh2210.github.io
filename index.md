@@ -31,15 +31,15 @@ The common thread is simple: **make model behavior observable enough to explain,
 
 My first-author ICLR 2026 paper, **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning**, studies *Echo of Prompt* (EOP): the behavior where a reasoning model repeats or rephrases the problem before solving it. The paper asks whether those tokens are redundant formatting or whether they help the model compute.
 
-The evidence supports a functional account. Prompt echoes act as **cognitive anchors** that keep task constraints accessible during long reasoning traces:
+The evidence supports a functional account: prompt echoes act as **cognitive anchors** that keep task constraints accessible later in a reasoning trace. The analytical results below are measured on DeepSeek-R1-Distill-Llama-8B over GSM8K (1,319 traces).
 
-- EOP appears in 78% of Qwen3-8B, 71% of DeepSeek-8B, and 86% of gpt-oss GSM8K examples in the reported poster analysis.
-- Correct traces have a higher Echo Likelihood Gap than wrong traces: 2.523 vs. 2.442 nats per token; the gap remains a significant predictor of correctness after controlling for trace length (p ≈ 0.022).
-- The attention effect localizes to middle layers 7–18. Correct traces allocate 14.45% of answer attention to the echoed prefix versus 11.58% in wrong traces, with Cohen's d = 0.832.
-- Reinserting an echo into failed traces raises exact match from 15.85% to 26.22% for DeepSeek-R1-Distill-Llama-8B and from 21.34% to 29.27% for Qwen3-8B. A non-reasoning base model stays at 10.56%, providing a negative control.
-- Echoic Prompting beats thinking-token test-time scaling on AIME24 and MATH-500 under the reported matched decoding settings and token budgets.
+- EOP appears in 78% of Qwen3-8B, 71% of DeepSeek-R1-Distill-Llama-8B, and 86% of gpt-oss GSM8K traces, as detected by the paper's MLP probe.
+- Correct traces have a higher Echo Likelihood Gap than wrong traces: 2.5231 vs. 2.4421 nats per token. The separation is small, but the gap remains a significant predictor of correctness with echo length controlled (β = 0.24, p ≈ 0.022).
+- Correct traces allocate more answer attention to the echoed prefix at every layer group — 14.45% vs. 11.58% in layers 7–18, Cohen's d = 0.832 — while the answer-to-question channel discriminates far more weakly.
+- Reinserting an echo into previously failed traces raises exact match from 15.85% to 26.22% for DeepSeek-R1-Distill-Llama-8B and from 21.34% to 29.27% for Qwen3-8B, under matched prefixes, decoding and seeds. A non-reasoning base model stays at 10.56% — the null an anchoring account predicts and a more-tokens account does not.
+- Echoic Prompting scored higher than thinking-token test-time scaling on AIME24 and MATH-500 under matched decoding settings and token budgets, in a single-model greedy-decoding comparison.
 
-This result matters for researchers studying **reasoning attention, chain-of-thought faithfulness, test-time compute, long-context reasoning, and reasoning drift**. It suggests that some visible reasoning tokens are not merely explanations after the fact: they can alter the computation itself.
+This matters for researchers studying **reasoning attention, causal interventions on generated traces, test-time compute allocation, and reasoning drift**. It suggests that some visible reasoning tokens are not merely explanations after the fact: they can alter the computation itself. The [paper page](/papers/echoes-as-anchors/) carries per-result scope, effect sizes, and what the work does not establish.
 
 [Read the evidence-focused paper page](/papers/echoes-as-anchors/) · [OpenReview](https://openreview.net/forum?id=vndn1Wrult) · [arXiv](https://arxiv.org/abs/2602.06600) · [code and artifacts](https://github.com/hhh2210/echoes-as-anchors)
 

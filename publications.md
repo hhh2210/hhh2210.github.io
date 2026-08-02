@@ -19,7 +19,7 @@ I publish research under the name **Zhuoyuan Hao** and use **Larry Hao** profess
 Zhuoyuan Hao, Zhuo Li, Wu Li, Fangming Liu, Min Zhang, and Jing Li.<br>
 The Fourteenth International Conference on Learning Representations (**ICLR 2026**, Poster). Zhuoyuan Hao is the first author.
 
-This paper asks why large reasoning models often restate the original question before solving it. It formalizes the behavior as **Echo of Prompt**, measures its probabilistic cost with Echo Likelihood Gap, and connects it to middle-layer attention refocusing. Matched interventions show that inserting an echo can improve failed reasoning traces, while Echoic Prompting turns the same re-grounding mechanism into a training-free inference method.
+This paper asks why large reasoning models often restate the original question before solving it. It formalizes the behavior as **Echo of Prompt**, measures its probabilistic cost with Echo Likelihood Gap, and connects it to attention refocusing toward the echoed prefix. Matched interventions show that inserting an echo can improve previously failed reasoning traces, while Echoic Prompting turns the same re-grounding mechanism into a training-free inference method. The analytical results are measured on DeepSeek-R1-Distill-Llama-8B over GSM8K.
 
 - [HTML abstract and evidence page](/papers/echoes-as-anchors/)
 - [OpenReview paper record](https://openreview.net/forum?id=vndn1Wrult)

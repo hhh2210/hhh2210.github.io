@@ -91,7 +91,7 @@
     },
     {
       "term": "Mechanistic interpretability (attention-level scope)",
-      "definition": "Explaining model behavior through internal evidence: layer-wise attention analysis, probes, likelihood decomposition, and causal interventions. In this paper the echo effect localizes to middle layers 7-18 (Cohen's d = 0.832) with a negative control; no neuron- or circuit-level claim is made.",
+      "definition": "Explaining model behavior through internal evidence: layer-wise attention analysis, probes, likelihood decomposition, and causal interventions. In this paper the analysis runs on DeepSeek-R1-Distill-Llama-8B over GSM8K; the answer-to-prefix attention gap is present at every layer group and peaks in mid-to-late layers (layers 7-18 Cohen's d = 0.832, against 0.820 early and 0.828 late). No neuron- or circuit-level claim is made.",
       "related_terms": [
         "interpretability of reasoning models",
         "attention analysis",
@@ -101,7 +101,7 @@
     },
     {
       "term": "Reasoning attention",
-      "definition": "Where reasoning tokens attend during multi-step generation. Correct traces attend to the echoed answer-prefix (14.45% vs 11.58% in middle layers); wrong traces attend more to the raw question (22/32 early positions).",
+      "definition": "Where reasoning tokens attend during multi-step generation. On DeepSeek-R1-Distill-Llama-8B and GSM8K, correct traces attend more to the echoed answer prefix at every layer group (layers 7-18: 14.45% vs 11.58%), while in the token-wise test wrong traces attend significantly more to the raw question at 22 of 32 positions. The finding is a shift of attention between two targets rather than a one-sided effect.",
       "related_terms": [
         "attention refocusing",
         "attention analysis",
@@ -109,8 +109,8 @@
       ]
     },
     {
-      "term": "Chain-of-thought faithfulness",
-      "definition": "Whether visible reasoning tokens reflect real computation. The paper's causal echo reinsertion shows echo tokens are functional: +10.4 EM points on failed DeepSeek-R1-Distill-Llama-8B traces, null on a non-reasoning base model.",
+      "term": "Causal intervention on reasoning traces",
+      "definition": "Testing whether trace tokens do computational work by editing a trace and resuming generation under matched conditions. Reinserting an echo into previously failed GSM8K traces lifts exact match by +10.4 points (DeepSeek-R1-Distill-Llama-8B) and +7.9 points (Qwen3-8B), with a null result on the non-reasoning Qwen3-8B-Base. The inserted text is a fixed template phrase, so the result shows that mid-trace re-grounding is causally effective rather than that the spontaneous echo is.",
       "related_terms": [
         "causal intervention",
         "Echo of Prompt",
@@ -119,7 +119,7 @@
     },
     {
       "term": "Test-time compute",
-      "definition": "Inference-time computation allocation in large reasoning models. EOP is a front-loaded, compute-shaping mechanism; Echoic Prompting beats thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical budgets.",
+      "definition": "Inference-time computation allocation in large reasoning models. EOP is framed as a front-loaded, compute-shaping mechanism. Echoic Prompting scored higher than thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under matched budgets, on a single model under greedy decoding and reported without numeric tables or error bars.",
       "related_terms": [
         "test-time scaling",
         "Echoic Prompting",
@@ -127,12 +127,11 @@
       ]
     },
     {
-      "term": "Long chain-of-thought grounding",
-      "definition": "Keeping a long reasoning trace anchored to the original problem. Echo prefixes (mean ~219 tokens) re-inject the problem statement, counteracting lost-in-the-middle-style positional bias and reasoning drift.",
+      "term": "Grounding in long reasoning traces",
+      "definition": "Keeping a reasoning trace anchored to the original problem. The paper motivates its anchoring account with positional-bias findings ('lost in the middle') and frames the echo prefix (mean about 219 tokens) as a self-generated re-injection of the problem statement. This is motivation rather than result: all experiments are short math traces and no long-context setting is tested.",
       "related_terms": [
-        "lost in the middle",
         "reasoning drift",
-        "long-context reasoning",
+        "prompt grounding",
         "context engineering"
       ]
     }

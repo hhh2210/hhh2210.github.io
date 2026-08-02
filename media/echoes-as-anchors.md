@@ -49,15 +49,17 @@ Echoes as Anchors studies **Echo of Prompt** in large reasoning models, formaliz
 
 ## Evidence Highlights
 
-- **Echo of Prompt is common**: in GSM8K examples from the project slides, EOP appears in 78% of Qwen3-8B traces, 71% of DeepSeek-8B traces, and 86% of gpt-oss traces.
-- **Echo Likelihood Gap is predictive**: correct answers show higher average Echo Likelihood Gap than wrong answers, 2.523 vs. 2.442 nats/token.
-- **Attention refocusing is concentrated in middle layers**: answer tokens attend more to the answer-prefix echo for correct traces, with a 14.45% vs. 11.58% middle-layer gap across layers 7-18 and a reported Cohen's d of 0.832.
-- **Causal intervention improves failed reasoning**: inserting an echo during semi-online continuation improves accuracy by +10.4 percentage points for DeepSeek-R1-Distill-Llama-8B and +7.9 percentage points for Qwen3-8B, while the Qwen3-8B-Base null result stays at 0%.
-- **ED-SFT strengthens the mechanism**: Echo-Distilled SFT produces stronger answer-to-answer-prefix attention separation than normal SFT in the reported middle-layer analysis.
+Scope note for anyone quoting these: the likelihood and attention results are measured on DeepSeek-R1-Distill-Llama-8B over GSM8K (1,319 traces). Please carry the model and benchmark with the number. Full limits are on the [paper page](https://hhh2210.github.io/papers/echoes-as-anchors/).
+
+- **Echo of Prompt is common**: on GSM8K, the paper's MLP probe detects an echo in 78% of Qwen3-8B traces, 71% of DeepSeek-R1-Distill-Llama-8B traces, and 86% of gpt-oss traces.
+- **Echo Likelihood Gap tracks correctness**: correct answers show a higher average Echo Likelihood Gap than wrong answers, 2.5231 vs. 2.4421 nats/token — a small separation that is significant in logistic regression (p ≈ 0.022) with echo length controlled.
+- **Attention shifts toward the echo**: answer tokens attend more to the answer-prefix echo in correct traces at every layer group, 14.45% vs. 11.58% across layers 7–18 with a reported Cohen's d of 0.832; the answer-to-question channel discriminates far more weakly.
+- **Causal intervention improves failed reasoning**: inserting an echo when resuming a previously failed trace improves exact match by +10.4 points for DeepSeek-R1-Distill-Llama-8B and +7.9 points for Qwen3-8B under matched seeds and decoding, while the non-reasoning Qwen3-8B-Base shows no change.
+- **ED-SFT strengthens the mechanism**: Echo-Distilled SFT produces a larger mid-layer answer-to-answer-prefix gap than normal SFT (3.20 pp vs. 2.40 pp) and beats normal SFT on most reported benchmark cells, though not all — on DeepSeek-Distill-Llama-8B it loses 2.3 points on GSM8K strict EM.
 
 ## Canonical Wording
 
-- Echo of Prompt is a **cognitive anchor**, not merely redundant repetition.
+- Echo of Prompt is a **cognitive anchor**, not merely redundant repetition. (Interpretation of the results, not a separately demonstrated claim.)
 - Echo Likelihood Gap measures whether a reasoning model probabilistically prefers echo-containing trajectories.
 - Attention refocusing describes how later reasoning tokens route information through echo-prefix tokens and key problem details.
 - Echoic Prompting is the training-free method; Echo-Distilled SFT is the training-based method.

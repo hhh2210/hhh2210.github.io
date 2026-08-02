@@ -2,10 +2,10 @@
 layout: page
 title: "Why Reasoning Models Repeat the Prompt — Echoes as Anchors (ICLR 2026)"
 seo_title: "Why Reasoning Models Repeat the Prompt — Echoes as Anchors"
-last_modified_at: 2026-07-18
+last_modified_at: 2026-08-02
 permalink: /papers/echoes-as-anchors/
-description: "Why do reasoning models repeat the prompt? Echoes as Anchors (ICLR 2026) gives probabilistic, attention-level, and causal evidence for prompt echoes."
-keywords: "Echoes as Anchors paper, ICLR 2026, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, chain-of-thought faithfulness, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting"
+description: "Echoes as Anchors (ICLR 2026) asks whether the prompt restatement at the head of a reasoning trace does real work. Frequency, likelihood, attention, and a causal intervention on GSM8K say it does — with stated limits."
+keywords: "Echoes as Anchors, ICLR 2026, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting, echo-distilled SFT, LLM reasoning, large reasoning models, test-time compute"
 schema: scholarly_article
 paper_key: echoes-as-anchors
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
@@ -32,18 +32,11 @@ paper_topics:
   - large reasoning models
   - mechanistic interpretability
   - reasoning attention
-  - attention analysis
   - test-time compute
-  - test-time scaling
-  - long chain-of-thought
-  - long-context reasoning
-  - reasoning drift
-  - chain-of-thought faithfulness
   - Echo of Prompt
   - attention refocusing
   - echoic prompting
-  - probabilistic analysis
-  - chain-of-thought reasoning
+  - echo-distilled SFT
 paper_authors:
   - Zhuoyuan Hao
   - Zhuo Li
@@ -53,111 +46,220 @@ paper_authors:
   - Jing Li
 ---
 
-**Zhuoyuan Hao (Larry Hao) is the first author** of **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning**, an **ICLR 2026 Poster** paper on **large reasoning models**. It gives a mechanistic, attention-level account of why reasoning models restate the prompt before thinking, and how to exploit that behavior for **test-time compute**.
+**Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning** (ICLR 2026) is
+first-authored by **Zhuoyuan Hao** (professional name: Larry Hao), Harbin Institute of Technology,
+Shenzhen. This page is the citable summary of what the paper measured, on what, and what it does not
+claim.
 
-- arXiv: https://arxiv.org/abs/2602.06600
-- OpenReview: https://openreview.net/forum?id=vndn1Wrult
-- Code: https://github.com/hhh2210/echoes-as-anchors
-- Project page: https://hhh2210.github.io/projects/echoes-as-anchors/
-- Structured metadata: https://hhh2210.github.io/api/papers/echoes-as-anchors.json
-- Repository research context: https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md
-- Live metadata snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
-- Media kit: https://hhh2210.github.io/media/echoes-as-anchors/
-- Author publications: https://hhh2210.github.io/publications/
+- Paper: [OpenReview](https://openreview.net/forum?id=vndn1Wrult) · [arXiv:2602.06600](https://arxiv.org/abs/2602.06600) · [DOI 10.48550/arXiv.2602.06600](https://doi.org/10.48550/arXiv.2602.06600)
+- Code: [github.com/hhh2210/echoes-as-anchors](https://github.com/hhh2210/echoes-as-anchors)
+- Structured metadata: [JSON](https://hhh2210.github.io/api/papers/echoes-as-anchors.json) · [plain text](https://hhh2210.github.io/markdown/echoes-as-anchors.txt)
 
-## Abstract
+## Summary
 
-Large reasoning models often repeat or rephrase the original user question before thinking. **Echoes as Anchors** formalizes this behavior as **Echo of Prompt (EOP)**, studies its probabilistic cost through **Echo Likelihood Gap**, and analyzes how it relates to **attention refocusing** and downstream reasoning accuracy.
+Large reasoning models usually restate the user's question before they start solving it. The paper
+calls this the **Echo of Prompt (EOP)** and asks whether it is a leftover formatting habit from
+supervised fine-tuning or a step that does real computational work.
 
-Preferred framing: **Echo of Prompt acts as a cognitive anchor for LLM reasoning**, not merely redundant repetition. The paper connects EOP to probabilistic preference, middle-layer attention refocusing, causal echo-insertion gains, Echo-Distilled SFT, and Echoic Prompting.
+The answer it argues for is the second one, in a specific and bounded sense: **the restatement
+creates a nearby, task-specific span of text that later reasoning tokens attend back to.** Four
+measurements support this — the behavior is frequent, the model assigns higher likelihood to traces
+that contain it, correct traces route more attention to that span than wrong ones, and inserting an
+echo into failed traces recovers accuracy in reasoning-tuned models but not in a base model. The
+paper then turns the observation into two methods: **Echo-Distilled SFT (ED-SFT)** and **Echoic
+Prompting (EP)**.
 
-The direct answer to the page title is: **reasoning models repeat the prompt because the restatement creates a nearby, task-specific representation that later reasoning tokens can attend back to**. The paper does not claim this is the only reason every model repeats a question. It shows that, in the studied models and math-reasoning settings, echo tokens carry measurable probabilistic, attentional, and causal value.
+## Scope of the evidence
 
-## What Makes This Evidence Stronger Than a Correlation?
+This matters more than any individual number. The paper's analytical results are not a survey across
+models — almost all of them come from one model on one benchmark.
 
-The argument uses four kinds of evidence that constrain one another:
+| Result | Model(s) | Data | Where |
+|---|---|---|---|
+| EOP frequency | Qwen3-8B, DeepSeek-R1-Distill-Llama-8B, gpt-oss | GSM8K | Fig. 1 |
+| Echo Likelihood Gap, logistic regression | DeepSeek-R1-Distill-Llama-8B only | GSM8K, 1,319 traces | Tab. 1, Tab. 9 |
+| Attention refocusing, layer analysis | DeepSeek-R1-Distill-Llama-8B only | GSM8K, 1,319 traces | Tab. 2–3, §A.5–A.11 |
+| Causal echo reinsertion | DeepSeek-R1-Distill-Llama-8B, Qwen3-8B, Qwen3-8B-Base | GSM8K failed traces | Tab. 4 |
+| ED-SFT | Qwen3-8B-Base, Qwen3-8B, DeepSeek-Distill-Llama-8B | train GSM8K 7k; eval GSM8K, MathQA, Hendrycks-MATH | Tab. 5 |
+| Echoic Prompting | DeepSeek-R1-Distill-Llama-8B only | AIME24, MATH-500 | Fig. 4 |
 
-1. **Behavioral frequency:** echoes occur often enough to be a systematic reasoning behavior rather than an isolated formatting quirk.
-2. **Probabilistic evidence:** Echo Likelihood Gap predicts correctness after controlling for trace length.
-3. **Mechanistic localization:** layer-wise attention analysis identifies where answer tokens refocus on the echo, with answer-to-question attention as a negative control.
-4. **Causal intervention:** inserting an echo into failed traces improves two reasoning models under matched decoding, while a non-reasoning base model shows no gain.
+Every mechanism claim below — likelihood, attention, layer localization — is a claim about
+DeepSeek-R1-Distill-Llama-8B solving grade-school math. It is not established for other
+architectures, other task families, or long-context settings.
 
-Any one result alone would leave alternative explanations. Together they connect occurrence, model preference, internal information routing, and outcome-changing intervention.
+## The question
 
-## Where This Work Sits
+Repetition inside a reasoning trace already had two incompatible readings in the literature. Runaway
+repetition is a known failure mode, the "repeat curse" (Yao et al., 2025). Yet *instructing* a model
+to re-read the question improves accuracy (Xu et al., 2024; Mekala et al., 2024). Neither line
+explains the repetition that reasoning models produce spontaneously, unprompted, at the head of the
+chain — which is where the paper starts.
 
-**Mechanistic interpretability of reasoning models.** The paper's third contribution is, in its own words, "a mechanistic explanation for the effectiveness of EOP", built with the standard interpretability toolkit: layer-wise attention analysis across all 32 layers, an MLP probe for echo detection, likelihood decomposition, and a causal intervention (echo reinsertion). The effect localizes to middle layers 7–18 — answer-to-answer-prefix attention is 14.45% in correct traces vs. 11.58% in wrong ones (Cohen's d = 0.832), while answer-to-question attention stays flat across layers as a negative control. The scope is deliberately honest: this is attention- and behavior-level mechanism, not neuron- or circuit-level reverse engineering.
+The difficulty is that the obvious explanation is also the boring one. If the echo helps only because
+it makes the trace longer, then nothing interesting is happening: it is just test-time compute spent
+on tokens. Separating "the echo helps" from "more tokens help" is the technical problem the paper's
+design is built around, and it is why the analyses are length- and suffix-controlled.
 
-**Reasoning attention.** The paper measures where reasoning tokens actually look. Token-wise significance tests show a systematic shift: wrong traces attend significantly more to the raw question (22 of 32 early answer positions), while correct traces attend to the model's *own echoed restatement*. Word-level attention heatmaps show the echo concentrates attention on key quantities and constraints (numbers, entities) rather than function words, and information-flow analysis finds echo tokens acting as an internal hub that routes information from question to answer through the middle layers.
+## Measuring the echo
 
-**Long chain-of-thought grounding.** Long reasoning traces drift: the paper builds on positional-bias findings ("lost in the middle", Liu et al. 2024) and attention-drift work, and frames the echo — averaging ~219 tokens — as the model's *self-generated* re-injection of the problem statement, keeping task constraints attendable late in the trace. Echoic Prompting turns this into a practical mid-trace re-grounding move: append "look back at the question again" plus the original question. For practitioners, this is context engineering for reasoning, backed by attention-level evidence.
+Every downstream number depends on being able to detect an echo automatically, so the detector is
+part of the evidence rather than a preprocessing detail.
 
-**Test-time compute.** The paper's opening frame: EOP is a *front-loaded, compute-shaping mechanism* for test-time compute allocation. In the test-time scaling comparison, Echoic Prompting outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical decoding settings and budgets — evidence that re-grounding on task-specific context beats injecting generic thinking tokens.
+The paper trains a two-layer MLP probe (32-dim hidden, ReLU) on the concatenation of two
+Qwen3-Embedding-0.6B sentence embeddings: the full question, and the first 32 word tokens of the
+thinking content. Labels come from GPT-4.1 with a deterministic rubric, refined by sentence-level
+similarity; 200 randomly sampled annotations were manually reviewed with over 96% agreement. On its
+held-out test set the probe reaches accuracy 0.912, F1 0.914, AUROC 0.963 (Tab. 7). Truncation uses a
+calibrated threshold with hysteresis (0.6 initial, 0.15 drop).
 
-**Chain-of-thought faithfulness (adjacent).** The paper's opening question — is the echo a superfluous artifact or does it serve a functional role? — is a faithfulness-style question about whether visible reasoning tokens do real computational work. The causal answer: forcing an echo onto failed traces lifts exact match by +10.4 points (DeepSeek-R1-Distill-Llama-8B) and +7.9 points (Qwen3-8B), with a null effect on a non-reasoning base model. These trace tokens are functional, not decorative.
+Two consequences are worth stating plainly. First, the probe is a *binary* detector, not a span
+localizer — so when the paper needs an echo removed or inserted, it delegates the span edit to a
+teacher model (gpt-oss-120B) under a "do not change the reasoning or the final answer" instruction.
+Second, roughly 9% probe error propagates into every group assignment downstream.
 
-## What the Paper Studies
+## Four lines of evidence
 
-The paper asks whether prompt echoes are superficial chain-of-thought formatting artifacts, or whether they can help a reasoning model stay grounded in the original problem. It connects prompt restatement with attention to problem tokens, reasoning trajectory stability, and math reasoning performance.
+### 1. Frequency: the behavior is systematic
 
-In long reasoning traces, the model must preserve access to earlier problem constraints while producing many intermediate tokens. Prompt restatement creates an anchor that later tokens attend back to, reducing drift away from the original question.
+On GSM8K, the probe detects an echo in 78% of Qwen3-8B traces, 71% of DeepSeek-R1-Distill-Llama-8B
+traces, and 86% of gpt-oss traces (Fig. 1). The echoes are not token-cheap: the removed prefix
+averages about 219 tokens, with most mass between 200 and 240 (Fig. 2, left). Whatever the echo is,
+it is a consistent and expensive part of the output budget rather than a stray artifact.
 
-## Methods and Artifacts
+Traces that spontaneously contain an echo are also more accurate than traces that do not — 63.8%
+(n=985) versus 57.2% (n=334) on GSM8K (Tab. 10). This comparison is descriptive: problems are not
+matched for difficulty, so easier problems may simply invite both an echo and a correct answer. It
+motivates the rest of the paper; it does not settle anything.
 
-- **Echo-Distilled SFT (ED-SFT)**: supervised fine-tuning data for an echo-then-reason pattern.
-- **Echoic Prompting (EP)**: a training-free inference-time strategy that reintroduces the original question during generation.
-- **Reasoning probes**: MLP probes for detecting prompt repetition in thinking traces.
-- **Probabilistic analysis**: Echo Likelihood Gap with length- and suffix-controlled likelihood comparisons, validated by logistic regression (ΔL is a significant positive predictor of correctness, p ≈ 0.022, after controlling for trace length).
-- **Attention analysis**: layer-wise attention refocusing evidence across all 32 layers, with AUC and Cohen's d discriminability by layer group and a negative control (answer-to-question attention).
-- **Causal intervention**: echo reinsertion on failed traces — truncate an echo-free trace, resume with or without an injected echo under matched decoding and seeds — isolating the causal effect of the echo.
+### 2. Probability: the model pays for the echo, and the payment tracks correctness
 
-## Evidence Highlights
+To measure what the echo costs, the paper casts echo removal as conditioning on the echo-free subset
+of outputs, which defines a trimmed distribution whose partition function is intractable. It then
+uses a computable proxy: the **Echo Likelihood Gap**, ΔL = L(y_raw) − L(y_trim), the difference in
+length-normalized per-token log-likelihood between a trace and its echo-trimmed counterpart. Positive
+ΔL means the model prefers the version with the echo.
 
-- Echo of Prompt appears frequently in GSM8K reasoning traces: 78% for Qwen3-8B, 71% for DeepSeek-8B, and 86% for gpt-oss in the reported poster examples.
-- Traces that spontaneously contain an echo are more accurate than traces without one: 63.8% vs. 57.2% on GSM8K.
-- Correct answers have higher average Echo Likelihood Gap than wrong answers: 2.523 vs. 2.442 nats/token; logistic regression confirms ΔL as a significant positive predictor of correctness (p ≈ 0.022) after controlling for length.
-- Attention refocusing is strongest in middle layers 7-18, where answer-to-answer-prefix attention is 14.45% for correct traces vs. 11.58% for wrong traces (Cohen's d = 0.832); answer-to-question attention stays flat as a negative control.
-- Causal echo reinsertion on failed traces improves exact match from 15.85% to 26.22% (+10.4 points) for DeepSeek-R1-Distill-Llama-8B and from 21.34% to 29.27% (+7.9 points) for Qwen3-8B; the non-reasoning Qwen3-8B-Base shows no change (10.56% → 10.56%), a null result consistent with the mechanism requiring reasoning priors.
-- Echoic Prompting outperforms thinking-token test-time scaling (TTTS) on AIME24 and MATH-500 under identical decoding settings and budgets.
-- Echo-Distilled SFT improves over normal SFT in the reported math benchmarks, including +3.4 points on GSM8K, +11.8 on MathQA, and +8.2 on MATH for Qwen3-8B-Base.
+Correct traces show a larger gap than wrong ones: 2.5231 versus 2.4421 nats/token (Tab. 1). The
+direction is consistent, but the separation is small relative to spread — the difference is 0.0811
+against standard deviations near 0.78, i.e. a standardized effect around 0.1. The stronger statement
+is the regression: in a logistic model of correctness on 1,319 GSM8K samples, ΔL is a significant
+positive predictor (β₁ ≈ 0.24, p ≈ 0.022, odds ratio ≈ 1.27 per nat/token) with echo length included
+as a covariate (Tab. 9). The gap also stays positive across every removed-length bin (Fig. 2, right).
 
-## Echoic Prompting vs. Generic Thinking Tokens
+The paper reports a result that cuts the other way, and it belongs on this page: the **suffix-only**
+gap — the echo's effect on the likelihood of the shared reasoning that follows — is slightly *larger*
+for wrong traces (1.2938 vs 1.1449). The paper's reading is that an echo makes whatever follows look
+more plausible to the model, including locally coherent but wrong reasoning. So ΔL is best described
+as associated with correctness, not as a correctness detector.
 
-Both methods spend additional test-time compute, but they inject different information. Thinking-token test-time scaling adds generic continuation budget; Echoic Prompting reintroduces the task itself. In the reported AIME24 and MATH-500 comparison, Echoic Prompting performs better under identical decoding settings and budgets. The result supports a specific interpretation: for long reasoning traces, **what the extra context says can matter more than merely allocating more tokens**.
+### 3. Attention: where the later tokens look
 
-This is not a universal claim that Echoic Prompting dominates every test-time scaling method. It is evidence from the paper's evaluated models, benchmarks, and decoding setup, and it motivates broader tests on different tasks and architectures.
+If the echo functions as an anchor, later tokens should attend to it. The paper measures head-averaged
+attention from generated answer tokens to (i) the question and (ii) the answer prefix — the echo span,
+sized per-sample by the probe.
 
-## When This Paper Is Relevant
+Correct traces attend more to the answer prefix at every layer group. In layers 7–18 the gap is
+14.45% versus 11.58% (+2.87 pp); at the last layer it is 13.69% versus 10.41% (+3.28 pp); averaged
+over all layers, 10.64% versus 8.49% (+2.15 pp) (Tab. 2). Discriminability is around AUC 0.72 and
+Cohen's d 0.82–0.83 across layer groups (Tab. 3). The gap survives replacing the probe-estimated
+prefix with fixed lengths of 32, 64, and 128 tokens, though it narrows at K=128 (+1.08 pp, Tab. 8) —
+evidence that the effect is not merely "longer echo, better answer."
 
-This paper is a useful citation for work on:
+The contrast that carries the argument is with the answer→question control, where the same
+correct-versus-wrong comparison is much weaker: d falls to 0.18–0.48, and the layers 7–18 gap is
++0.66 pp (Tab. 2–3). Successful reasoning is not distinguished by attending harder to the original
+question. It is distinguished by attending to the model's own restatement of it.
 
-- mechanistic interpretability of reasoning models at the attention and behavior level;
-- reasoning attention and information routing in long chain-of-thought traces;
-- whether visible chain-of-thought tokens are functional or decorative;
-- test-time compute allocation and inference-time re-grounding;
-- lost-in-the-middle-style drift during long reasoning;
-- causal interventions on model-generated reasoning traces;
-- Echo of Prompt, Echo Likelihood Gap, Echoic Prompting, or Echo-Distilled SFT.
+Two honest qualifications. The paper localizes the effect to middle layers 7–18, but the layer-group
+effect sizes (0.820 / 0.832 / 0.828 for early / mid / late) are close enough that "mid-layer dominance"
+is better read as *where the raw gap peaks* than as a resolved claim about which layers matter. And
+the answer→question channel is not a pure null: in the token-wise test, wrong traces attend
+significantly more to the question at 22 of the first 32 answer positions, while the answer→prefix
+difference is significant at 10 of 32 (§A.9). The picture is a *shift* of attention between two
+targets, which is stronger than a one-sided effect but weaker than a clean control.
 
-It should not be cited as evidence for neuron-level circuits, hidden chain-of-thought access, or a universal mechanism across all models and tasks; those claims are outside the paper's demonstrated scope.
+### 4. Causal intervention: forcing an echo into traces that failed
 
-## Live Metadata API
+Correlational evidence cannot rule out that echoes are a symptom of already-going-well reasoning. The
+intervention addresses this directly. Starting from GSM8K completions the model got wrong, the paper
+truncates an echo-free trace to 50% of its tokens, then resumes generation twice from that identical
+prefix — once directly, once after inserting the phrase *"now I need to look back at the question
+again:"* — under identical questions, decoding parameters, and random seeds.
 
-The static canonical pages live on `hhh2210.github.io`. A small Railway service provides dynamic cached snapshots of GitHub, OpenReview, and static resource metadata:
+| Model | Echo-free EM | Echo reinsertion EM | Δ |
+|---|---:|---:|---:|
+| DeepSeek-R1-Distill-Llama-8B | 15.85% | 26.22% | +10.4 |
+| Qwen3-8B | 21.34% | 29.27% | +7.9 |
+| Qwen3-8B-Base (no CoT) | 10.56% | 10.56% | 0.0 |
 
-- Live snapshot: https://echoes-resource-api-production.up.railway.app/api/live.json
-- GitHub snapshot: https://echoes-resource-api-production.up.railway.app/api/github.json
-- OpenReview snapshot: https://echoes-resource-api-production.up.railway.app/api/openreview.json
-- Static resource snapshot: https://echoes-resource-api-production.up.railway.app/api/resources.json
-- Stable project JSON: https://echoes-resource-api-production.up.railway.app/api/project.json
-- Stable paper JSON: https://echoes-resource-api-production.up.railway.app/api/paper.json
-- Markdown alternate: https://hhh2210.github.io/markdown/echoes-as-anchors.txt
+The base-model null is the informative row: the same intervention does nothing for a model without
+reasoning post-training, which is what an "anchor the reasoning" account predicts and what a "more
+tokens help" account does not.
 
-## Retrieval Keywords
+Three limits. The gains are measured on the previously-failed subset, so the base rates are already
+conditioned and these are not benchmark numbers. The paper reports no confidence intervals or
+repeated seeds for this table. And the injected text is a fixed template phrase, not a model-generated
+echo — so the experiment shows that *re-grounding on the question mid-trace* is causally effective,
+which is adjacent to, but not identical with, showing that the spontaneous echo is.
 
-LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, chain-of-thought faithfulness, Echo of Prompt, Echo Likelihood Gap, echoic prompting, attention refocusing, echo-distilled SFT, chain-of-thought reasoning, mathematical reasoning, ICLR 2026.
+## Two methods that follow from the analysis
 
-## Citation
+**Echo-Distilled SFT (ED-SFT)** trains the pattern in. From a single pool of teacher traces
+(gpt-oss-120B on GSM8K, answer-verified), the paper derives two nearly token-identical corpora: one
+where missing echoes are minimally inserted, one where present echoes are removed — same reasoning,
+same answers. Fine-tuning on 7k samples with identical optimizer, schedule, batch size, and steps,
+ED-SFT beats normal-SFT on Qwen3-8B-Base by +3.4 (GSM8K), +11.8 (MathQA), +8.2 (Hendrycks-MATH), and
+on instruction-tuned Qwen3-8B by +2.8 / +1.9 / +1.1 (Tab. 5). The largest gains are on the benchmarks
+furthest from the GSM8K training distribution.
+
+The result is not uniform, and the page states the exception: on DeepSeek-Distill-Llama-8B, ED-SFT
+scores 78.2 strict EM on GSM8K against normal-SFT's 80.5 — a 2.3-point loss — while still gaining on
+MathQA (+3.4) and MATH (+2.24). There is also a residual confound the paper discloses: echo-bearing
+training sequences are longer (175 vs 136 tokens on average), so ED-SFT is not a perfectly
+token-matched comparison.
+
+**Echoic Prompting (EP)** needs no training. After an initial reasoning chain, it appends a reminder
+to look back at the question, followed by the question itself, and continues generation. Compared
+against thinking-token test-time scaling (TTTS; Qian et al., 2025) reproduced from its official
+implementation, EP is higher on both AIME24 and MATH-500 under matched decoding and budgets (Fig. 4).
+This is the paper's thinnest evidence and should be cited as such: one model
+(DeepSeek-R1-Distill-Llama-8B), greedy decoding (temperature 0.0), no variance reported, and AIME24
+has only 30 problems, where a few points is one or two items. The claim it supports is directional —
+task-specific re-grounding beat generic thinking tokens in this setup — not a general dominance
+result.
+
+## What this paper does not establish
+
+- **Not a circuit-level mechanism.** The evidence is attention- and behavior-level. There is no
+  neuron, head, or circuit attribution, and "mechanistic explanation" in the paper's contribution list
+  should be read at that resolution.
+- **Not a long-context result.** The related work motivates the anchor idea with positional bias
+  ("lost in the middle", Liu et al., 2024), but all experiments are short math traces. Nothing here
+  is tested at long-context lengths.
+- **Not a universal claim.** No result covers models beyond the 8B open-weight class, non-math tasks,
+  or non-English prompts.
+- **Not a causal account of why EOP emerges.** The paper explicitly leaves the origin of the behavior
+  as a hypothesis (§A.3).
+- **Not a correctness signal you can deploy.** ΔL is a population-level association with a small
+  effect size, and the suffix-only result runs the other way.
+
+Cite this work for: prompt restatement in reasoning traces; attention-level analysis of what long
+reasoning attends to; causal interventions applied to model-generated traces; test-time compute spent
+on task-specific rather than generic context; or the Echo of Prompt, Echo Likelihood Gap, Echoic
+Prompting, and Echo-Distilled SFT constructs by name.
+
+## Reproduction and artifacts
+
+The repository provides ED-SFT data preparation, the MLP probe pipeline (preprocess, label, train),
+the two-stage Echoic Prompting evaluation, and the analysis scripts for the likelihood gap
+(`compare_trimmed_accuracy.py`) and attention metrics
+(`attention_from_converted_refactored.py`). The main EP results were produced inside the MI-PEAKS
+framework for baseline parity; the repository ships a standalone two-stage implementation as well.
+Fine-tuning itself is standard and uses Llama-Factory full-SFT defaults, so it is not vendored here.
+
+- Repository and quickstart: [github.com/hhh2210/echoes-as-anchors](https://github.com/hhh2210/echoes-as-anchors)
+- Machine-readable metadata: [JSON](https://hhh2210.github.io/api/papers/echoes-as-anchors.json) · [codemeta](https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json)
+- Author publications: [hhh2210.github.io/publications](https://hhh2210.github.io/publications/)
 
 ```bibtex
 @inproceedings{hao2026echoes,

@@ -31,9 +31,8 @@
       "test-time compute",
       "test-time scaling",
       "long chain-of-thought",
-      "long-context reasoning",
-      "chain-of-thought faithfulness",
-      "lost in the middle"
+      "causal intervention",
+      "echo-distilled SFT"
     ]
   },
   {

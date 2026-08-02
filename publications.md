@@ -4,6 +4,7 @@ title: Zhuoyuan Hao (Larry Hao) — Publications
 seo_title: "Zhuoyuan Hao Publications"
 last_modified_at: 2026-07-18
 permalink: /publications/
+schema: collection_page
 description: "Publications by Zhuoyuan Hao (Larry Hao) on LLM reasoning, attention refocusing, and reward hacking in rubric-based reinforcement learning."
 keywords: "Zhuoyuan Hao publications, Larry Hao papers, LLM reasoning, reward hacking, Echoes as Anchors, CHERRL, ICLR 2026"
 ---

@@ -7,6 +7,7 @@ permalink: /faq/echoes-as-anchors/
 description: "FAQ for Echoes as Anchors (ICLR 2026): mechanistic interpretability scope, reasoning attention, long chain-of-thought grounding, and test-time compute."
 keywords: "Echoes as Anchors FAQ, mechanistic interpretability, interpretability of reasoning models, reasoning attention, chain-of-thought faithfulness, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting, LLM reasoning"
 schema: faq
+paper_key: echoes-as-anchors
 ---
 
 ## What is Echoes as Anchors?

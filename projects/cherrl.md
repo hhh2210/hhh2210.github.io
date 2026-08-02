@@ -1,12 +1,13 @@
 ---
 layout: page
-title: How to Reproduce and Detect Reward Hacking in Rubric-Based RL
-seo_title: "Detecting Reward Hacking in Rubric-Based RL"
+title: "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning"
+seo_title: "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning"
 last_modified_at: 2026-07-18
 permalink: /projects/cherrl/
 description: "How can reward hacking in rubric-based RL be reproduced and detected? CHERRL injects known LLM-judge biases and gives ground truth for hacking onset."
 keywords: "CHERRL, reward hacking, rubric-based RL, LLM-as-a-Judge, reinforcement learning, judge bias, reward hacking detection, RLHF"
 schema: scholarly_article
+paper_key: cherrl
 paper_title: "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning"
 paper_url: "https://arxiv.org/abs/2606.04923"
 paper_repo: "https://github.com/THUAIS-Lab/CHERRL"

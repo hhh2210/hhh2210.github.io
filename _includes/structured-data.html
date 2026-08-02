@@ -1,6 +1,30 @@
 {% assign canonical_url = page.url | absolute_url %}
 {% assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace %}
-{% assign person_id = site.url | append: "/#person" %}
+{% assign research = site.data.research %}
+{% assign registered_person = research.person %}
+{% assign paper_record = nil %}
+{% if page.paper_key %}
+  {% assign paper_record = research.papers | where: "key", page.paper_key | first %}
+{% endif %}
+{% assign fallback_person_id = site.url | append: "/#person" %}
+{% assign person_id = registered_person.id | default: fallback_person_id %}
+{% assign person_name = registered_person.name | default: site.author.full_name | default: "Zhuoyuan Hao" %}
+{% assign fallback_person_url = site.url | append: "/" %}
+{% assign person_url = registered_person.url | default: fallback_person_url %}
+{% assign fallback_paper_id = canonical_url | append: "#paper" %}
+{% assign paper_id = paper_record.id | default: fallback_paper_id %}
+{% assign paper_title = paper_record.title | default: page.paper_title | default: page.title %}
+{% assign paper_url = paper_record.url | default: canonical_url %}
+{% assign paper_primary_url = paper_record.primary_url | default: page.paper_url %}
+{% assign paper_arxiv_url = paper_record.arxiv_url | default: page.paper_arxiv %}
+{% assign paper_arxiv_id = paper_record.arxiv_id | default: page.paper_arxiv_id %}
+{% assign paper_doi = paper_record.doi | default: page.paper_doi_value %}
+{% assign paper_doi_url = paper_record.doi_url | default: page.paper_doi %}
+{% assign paper_openalex_url = paper_record.openalex_url | default: page.paper_openalex %}
+{% assign paper_date_published = paper_record.date_published | default: page.paper_date_published %}
+{% assign paper_status = paper_record.status | default: page.paper_status %}
+{% assign paper_authors = paper_record.authors | default: page.paper_authors %}
+{% assign paper_repository = paper_record.repository_url | default: page.paper_repo %}
 {% if page.schema == "faq" %}
 <script type="application/ld+json">
 {
@@ -8,6 +32,7 @@
   "@type": "FAQPage",
   "name": {{ page.title | jsonify }},
   "url": {{ canonical_url | jsonify }},
+  {% if paper_record %}"about": { "@id": {{ paper_id | jsonify }} },{% endif %}
   "mainEntity": [
     {
       "@type": "Question",
@@ -84,6 +109,73 @@
   ]
 }
 </script>
+{% elsif page.schema == "collection_page" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": {{ canonical_url | append: "#collection" | jsonify }},
+      "name": {{ page.title | jsonify }},
+      "description": {{ page_description | jsonify }},
+      "url": {{ canonical_url | jsonify }},
+      "author": { "@id": {{ person_id | jsonify }} },
+      "about": { "@id": {{ person_id | jsonify }} },
+      "mainEntity": { "@id": {{ canonical_url | append: "#publications" | jsonify }} }
+    },
+    {
+      "@type": "ItemList",
+      "@id": {{ canonical_url | append: "#publications" | jsonify }},
+      "name": "Featured AI research publications by Zhuoyuan Hao",
+      "numberOfItems": {{ research.papers | size }},
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        {% for listed_paper in research.papers %}
+        {
+          "@type": "ListItem",
+          "position": {{ forloop.index }},
+          "item": {
+            "@type": "ScholarlyArticle",
+            "@id": {{ listed_paper.id | jsonify }},
+            "name": {{ listed_paper.title | jsonify }},
+            "url": {{ listed_paper.url | jsonify }},
+            "datePublished": {{ listed_paper.date_published | jsonify }},
+            "author": [
+              {% for author in listed_paper.authors %}
+              {
+                "@type": "Person",
+                {% if author == person_name %}
+                "@id": {{ person_id | jsonify }},
+                "name": {{ person_name | jsonify }},
+                "alternateName": {{ registered_person.alternate_names | jsonify }},
+                "url": {{ person_url | jsonify }}
+                {% else %}
+                "name": {{ author | jsonify }}
+                {% endif %}
+              }{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ],
+            "sameAs": [
+              {% for same_url in listed_paper.same_as %}
+              {{ same_url | jsonify }}{% unless forloop.last %},{% endunless %}
+              {% endfor %}
+            ]
+          }
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": {{ person_id | jsonify }},
+      "name": {{ person_name | jsonify }},
+      "alternateName": {{ registered_person.alternate_names | jsonify }},
+      "url": {{ person_url | jsonify }}
+    }
+  ]
+}
+</script>
 {% elsif page.schema == "scholarly_article" %}
 <script type="application/ld+json">
 {
@@ -91,42 +183,48 @@
   "@graph": [
     {
       "@type": "ScholarlyArticle",
-      "@id": {{ canonical_url | append: "#paper" | jsonify }},
-      "headline": {{ page.paper_title | default: page.title | jsonify }},
-      "name": {{ page.paper_title | default: page.title | jsonify }},
+      "@id": {{ paper_id | jsonify }},
+      "headline": {{ paper_title | jsonify }},
+      "name": {{ paper_title | jsonify }},
       "description": {{ page_description | jsonify }},
       "mainEntityOfPage": {{ canonical_url | jsonify }},
-      "url": {{ canonical_url | jsonify }},
-      "datePublished": {{ page.paper_date_published | jsonify }},
-      "dateModified": {{ page.last_modified_at | default: page.paper_date_published | jsonify }},
-      "creativeWorkStatus": {{ page.paper_status | jsonify }},
+      "url": {{ paper_url | jsonify }},
+      "datePublished": {{ paper_date_published | jsonify }},
+      "dateModified": {{ page.last_modified_at | default: paper_date_published | jsonify }},
+      "creativeWorkStatus": {{ paper_status | jsonify }},
       "sameAs": [
-        {% if page.paper_arxiv %}{{ page.paper_arxiv | jsonify }},{% endif %}
-        {{ page.paper_url | jsonify }}{% if page.paper_doi %},
-        {{ page.paper_doi | jsonify }}{% endif %}{% if page.paper_openalex %},
-        {{ page.paper_openalex | jsonify }}{% endif %}
+        {% if paper_record %}
+          {% for same_url in paper_record.same_as %}
+          {{ same_url | jsonify }}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        {% else %}
+          {% if paper_arxiv_url %}{{ paper_arxiv_url | jsonify }},{% endif %}
+          {{ paper_primary_url | jsonify }}{% if paper_doi_url %},
+          {{ paper_doi_url | jsonify }}{% endif %}{% if paper_openalex_url %},
+          {{ paper_openalex_url | jsonify }}{% endif %}
+        {% endif %}
       ],
       "identifier": [
-        {% if page.paper_arxiv_id %}{
+        {% if paper_arxiv_id %}{
           "@type": "PropertyValue",
           "propertyID": "arXiv",
-          "value": {{ page.paper_arxiv_id | jsonify }}
-        }{% if page.paper_doi_value %},{% endif %}{% endif %}
-        {% if page.paper_doi_value %}{
+          "value": {{ paper_arxiv_id | jsonify }}
+        }{% if paper_doi %},{% endif %}{% endif %}
+        {% if paper_doi %}{
           "@type": "PropertyValue",
           "propertyID": "DOI",
-          "value": {{ page.paper_doi_value | jsonify }}
+          "value": {{ paper_doi | jsonify }}
         }{% endif %}
       ],
       "author": [
-        {% for author in page.paper_authors %}
+        {% for author in paper_authors %}
         {
           "@type": "Person",
-          {% if author == site.author.full_name %}
+          {% if author == person_name %}
           "@id": {{ person_id | jsonify }},
-          "name": {{ author | jsonify }},
-          "alternateName": "Larry Hao",
-          "url": {{ site.url | append: "/" | jsonify }}
+          "name": {{ person_name | jsonify }},
+          "alternateName": {{ registered_person.alternate_names | jsonify }},
+          "url": {{ person_url | jsonify }}
           {% else %}
           "name": {{ author | jsonify }}
           {% endif %}
@@ -135,7 +233,7 @@
       ],
       "about": {{ page.paper_topics | default: site.keywords | jsonify }},
       "keywords": {{ page.paper_topics | default: site.keywords | join: ", " | jsonify }},
-      "codeRepository": {{ page.paper_repo | jsonify }},
+      "codeRepository": {{ paper_repository | jsonify }},
       "encoding": {
         "@type": "MediaObject",
         "contentUrl": {{ page.markdown_alternate | absolute_url | jsonify }},
@@ -147,10 +245,10 @@
       "@id": {{ canonical_url | append: "#software" | jsonify }},
       "name": {{ page.paper_repo_name | jsonify }},
       "description": {{ page.paper_software_description | default: page_description | jsonify }},
-      "codeRepository": {{ page.paper_repo | jsonify }},
+      "codeRepository": {{ paper_repository | jsonify }},
       "programmingLanguage": "Python",
       "isPartOf": {
-        "@id": {{ canonical_url | append: "#paper" | jsonify }}
+        "@id": {{ paper_id | jsonify }}
       },
       "keywords": {{ page.paper_topics | default: site.keywords | join: ", " | jsonify }}
     }
@@ -167,19 +265,20 @@
   "description": {{ page.paper_software_description | default: page_description | jsonify }},
   "url": {{ canonical_url | jsonify }},
   "mainEntityOfPage": {{ canonical_url | jsonify }},
-  "codeRepository": {{ page.paper_repo | jsonify }},
+  "codeRepository": {{ paper_repository | jsonify }},
   "programmingLanguage": "Python",
   "author": {
     "@type": "Person",
     "@id": {{ person_id | jsonify }},
-    "name": "Zhuoyuan Hao",
-    "alternateName": "Larry Hao"
+    "name": {{ person_name | jsonify }},
+    "alternateName": {{ registered_person.alternate_names | default: "Larry Hao" | jsonify }},
+    "url": {{ person_url | jsonify }}
   },
   "citation": {
     "@type": "ScholarlyArticle",
-    "@id": "https://hhh2210.github.io/papers/echoes-as-anchors/#paper",
-    "name": {{ page.paper_title | jsonify }},
-    "url": "https://hhh2210.github.io/papers/echoes-as-anchors/"
+    "@id": {{ paper_id | jsonify }},
+    "name": {{ paper_title | jsonify }},
+    "url": {{ paper_url | jsonify }}
   },
   "keywords": {{ page.paper_topics | default: site.keywords | join: ", " | jsonify }}
 }
@@ -197,8 +296,8 @@
   "author": {
     "@type": "Person",
     "@id": {{ person_id | jsonify }},
-    "name": "Zhuoyuan Hao",
-    "alternateName": "Larry Hao"
+    "name": {{ person_name | jsonify }},
+    "alternateName": {{ registered_person.alternate_names | default: "Larry Hao" | jsonify }}
   }
 }
 </script>
@@ -218,29 +317,37 @@
     {
       "@type": "Person",
       "@id": {{ person_id | jsonify }},
-      "name": "Zhuoyuan Hao",
-      "alternateName": ["Larry Hao", "郝卓远"],
-      "url": {{ canonical_url | jsonify }},
+      "name": {{ person_name | jsonify }},
+      "alternateName": {{ registered_person.alternate_names | default: "Larry Hao" | jsonify }},
+      "url": {{ person_url | jsonify }},
       "image": {{ "/images/personal.png" | absolute_url | jsonify }},
       "mainEntityOfPage": { "@id": {{ canonical_url | append: "#profile" | jsonify }} },
-      "email": "hzy2210@gmail.com",
+      "email": {{ registered_person.email | default: site.author.email | jsonify }},
       "affiliation": [
+        {% if registered_person.affiliations %}
+        {% for affiliation in registered_person.affiliations %}
+        {
+          "@type": {{ affiliation.type | jsonify }},
+          "name": {{ affiliation.name | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+        {% else %}
         {
           "@type": "CollegeOrUniversity",
-          "name": "Harbin Institute of Technology, Shenzhen"
-        },
-        {
-          "@type": "ResearchOrganization",
-          "name": "THUAIS Lab, Tsinghua University"
+          "name": {{ site.author.affiliation | jsonify }}
         }
+        {% endif %}
       ],
       "sameAs": [
-        "https://github.com/hhh2210",
-        "https://scholar.google.com/citations?user=hjooI9QAAAAJ",
-        "https://openreview.net/profile?id=~Zhuoyuan_Hao1",
-        "https://dblp.org/pid/425/1472.html",
-        "https://openalex.org/A5125425356",
-        "https://x.com/larryhaonlp"
+        {% assign person_same_as = registered_person.same_as | default: site.author.same_as %}
+        {% for same_url in person_same_as %}
+        {{ same_url | jsonify }}{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      "subjectOf": [
+        {% for listed_paper in research.papers %}
+        { "@id": {{ listed_paper.id | jsonify }} }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
       ],
       "knowsAbout": [
         "LLM reasoning",
@@ -272,9 +379,12 @@
   "author": {
     "@type": "Person",
     "@id": {{ person_id | jsonify }},
-    "name": "Zhuoyuan Hao",
-    "alternateName": "Larry Hao"
-  }
+    "name": {{ person_name | jsonify }},
+    "alternateName": {{ registered_person.alternate_names | default: "Larry Hao" | jsonify }},
+    "url": {{ person_url | jsonify }}
+  }{% if paper_record %},
+  "about": { "@id": {{ paper_id | jsonify }} }
+  {% endif %}
 }
 </script>
 {% endif %}

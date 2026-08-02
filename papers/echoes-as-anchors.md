@@ -1,12 +1,13 @@
 ---
 layout: page
-title: Why Reasoning Models Repeat the Prompt
-seo_title: "Why Reasoning Models Repeat the Prompt"
+title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
+seo_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 last_modified_at: 2026-07-18
 permalink: /papers/echoes-as-anchors/
 description: "Why do reasoning models repeat the prompt? Echoes as Anchors (ICLR 2026) gives probabilistic, attention-level, and causal evidence for prompt echoes."
 keywords: "Echoes as Anchors paper, ICLR 2026, LLM reasoning, large reasoning models, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, chain-of-thought faithfulness, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting"
 schema: scholarly_article
+paper_key: echoes-as-anchors
 paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
 paper_url: "https://openreview.net/forum?id=vndn1Wrult"
 paper_arxiv: "https://arxiv.org/abs/2602.06600"

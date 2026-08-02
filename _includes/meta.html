@@ -3,13 +3,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
+    {% assign research = site.data.research %}
+    {% assign registered_person = research.person %}
+    {% assign paper_record = nil %}
+    {% if page.paper_key %}
+      {% assign paper_record = research.papers | where: "key", page.paper_key | first %}
+    {% endif %}
     {% assign page_description = page.description | default: page.excerpt | default: site.description | strip_html | normalize_whitespace %}
     {% assign page_keywords = page.keywords | default: site.keywords | join: ', ' %}
     {% assign canonical_url = page.url | absolute_url %}
+    {% assign meta_author = site.author.name | default: site.name %}
+    {% if paper_record or page.schema == "scholarly_article" or page.schema == "collection_page" %}
+      {% assign meta_author = registered_person.name | default: site.author.full_name | default: meta_author %}
+    {% endif %}
 
     <meta name="description" content="{{ page_description | escape }}">
     <meta name="keywords" content="{{ page_keywords | escape }}">
-    <meta name="author" content="{{ site.author.name | default: site.name }}">
+    <meta name="author" content="{{ meta_author | escape }}">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="{{ canonical_url }}">
     {% if page.markdown_alternate %}
@@ -17,15 +27,28 @@
     {% endif %}
 
     {% if page.schema == "scholarly_article" %}
-    <meta name="citation_title" content="{{ page.paper_title | default: page.title | escape }}">
-    {% for author in page.paper_authors %}
+    {% assign citation_title = paper_record.title | default: page.paper_title | default: page.title %}
+    {% assign citation_authors = paper_record.authors | default: page.paper_authors %}
+    {% assign citation_date = paper_record.citation_date | default: page.paper_citation_date | default: paper_record.date_published | default: page.paper_date_published %}
+    {% assign citation_conference = paper_record.conference_title | default: page.paper_venue %}
+    {% assign citation_report_institution = paper_record.report_institution | default: page.paper_report_institution %}
+    {% assign citation_report_number = paper_record.report_number | default: page.paper_report_number %}
+    {% assign citation_arxiv_id = paper_record.arxiv_id | default: page.paper_arxiv_id %}
+    {% assign citation_doi = paper_record.doi | default: page.paper_doi_value %}
+    {% assign citation_pdf_url = paper_record.pdf_url | default: page.paper_pdf_url %}
+    {% assign citation_abstract_url = paper_record.abstract_html_url | default: canonical_url %}
+    <meta name="citation_title" content="{{ citation_title | escape }}">
+    {% for author in citation_authors %}
     <meta name="citation_author" content="{{ author | escape }}">
     {% endfor %}
-    <meta name="citation_publication_date" content="{{ page.paper_citation_date | default: page.paper_date_published | escape }}">
-    {% if page.paper_venue %}<meta name="citation_conference_title" content="{{ page.paper_venue | escape }}">{% endif %}
-    {% if page.paper_report_institution %}<meta name="citation_technical_report_institution" content="{{ page.paper_report_institution | escape }}">{% endif %}
-    {% if page.paper_report_number %}<meta name="citation_technical_report_number" content="{{ page.paper_report_number | escape }}">{% endif %}
-    {% if page.paper_arxiv_id %}<meta name="citation_arxiv_id" content="{{ page.paper_arxiv_id | escape }}">{% endif %}
+    <meta name="citation_publication_date" content="{{ citation_date | escape }}">
+    {% if citation_conference %}<meta name="citation_conference_title" content="{{ citation_conference | escape }}">{% endif %}
+    {% if citation_report_institution %}<meta name="citation_technical_report_institution" content="{{ citation_report_institution | escape }}">{% endif %}
+    {% if citation_report_number %}<meta name="citation_technical_report_number" content="{{ citation_report_number | escape }}">{% endif %}
+    {% if citation_arxiv_id %}<meta name="citation_arxiv_id" content="{{ citation_arxiv_id | escape }}">{% endif %}
+    {% if citation_doi %}<meta name="citation_doi" content="{{ citation_doi | escape }}">{% endif %}
+    {% if citation_pdf_url %}<meta name="citation_pdf_url" content="{{ citation_pdf_url | escape }}">{% endif %}
+    <meta name="citation_abstract_html_url" content="{{ citation_abstract_url | escape }}">
     {% endif %}
 
     <meta property="og:site_name" content="{{ site.name }}">

@@ -6,6 +6,7 @@ last_modified_at: 2026-07-09
 permalink: /glossary/echoes-as-anchors/
 description: "Glossary for Echoes as Anchors (ICLR 2026): Echo of Prompt, attention refocusing, reasoning attention, test-time compute, long chain-of-thought grounding."
 keywords: "Echoes as Anchors glossary, mechanistic interpretability, interpretability of reasoning models, reasoning attention, attention analysis, test-time compute, test-time scaling, long chain-of-thought, long-context reasoning, lost in the middle, reasoning drift, chain-of-thought faithfulness, Echo of Prompt, Echo Likelihood Gap, attention refocusing, Echoic Prompting, ED-SFT, LLM reasoning concepts"
+paper_key: echoes-as-anchors
 ---
 
 This glossary maps the main concepts in **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning**.

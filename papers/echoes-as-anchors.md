@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
-seo_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
+title: "Why Reasoning Models Repeat the Prompt — Echoes as Anchors (ICLR 2026)"
+seo_title: "Why Reasoning Models Repeat the Prompt — Echoes as Anchors"
 last_modified_at: 2026-07-18
 permalink: /papers/echoes-as-anchors/
 description: "Why do reasoning models repeat the prompt? Echoes as Anchors (ICLR 2026) gives probabilistic, attention-level, and causal evidence for prompt echoes."

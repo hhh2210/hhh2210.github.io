@@ -8,22 +8,10 @@ description: "Media kit and promotional summary for Echoes as Anchors, an ICLR 2
 keywords: "Echoes as Anchors media kit, ICLR 2026 Poster, LLM reasoning, Echo of Prompt, Echo Likelihood Gap, attention refocusing"
 schema: web_page
 paper_key: echoes-as-anchors
-paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
-paper_url: "https://openreview.net/forum?id=vndn1Wrult"
-paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
 paper_context: "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/echoes-as-anchors.json"
 paper_codemeta: "https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json"
 paper_bibtex: "https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib"
-paper_status: "ICLR 2026 Poster"
-paper_date_published: "2026-01-26"
-paper_authors:
-  - Zhuoyuan Hao
-  - Zhuo Li
-  - Wu Li
-  - Fangming Liu
-  - Min Zhang
-  - Jing Li
 ---
 
 **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning** is an **ICLR 2026 Poster** about why large reasoning models often repeat the question before thinking, and how that behavior can be understood and used.

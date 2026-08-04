@@ -15,19 +15,9 @@ about: about/
 
 author:
   name: Larry Hao
-  full_name: Zhuoyuan Hao
   email: hzy2210@gmail.com
   github: hhh2210
-  affiliation: Harbin Institute of Technology, Shenzhen
   image: /images/personal.png
-  same_as:
-    - https://github.com/hhh2210
-    - https://hhh2210.github.io/
-    - https://scholar.google.com/citations?user=hjooI9QAAAAJ
-    - https://openreview.net/profile?id=~Zhuoyuan_Hao1
-    - https://dblp.org/pid/425/1472.html
-    - https://openalex.org/A5125425356
-    - https://x.com/larryhaonlp
 
 keywords:
   - LLM reasoning
@@ -120,5 +110,6 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+  - test
 
 theme: jekyll-theme-slate

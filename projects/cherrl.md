@@ -8,20 +8,8 @@ description: "How can reward hacking in rubric-based RL be reproduced and detect
 keywords: "CHERRL, reward hacking, rubric-based RL, LLM-as-a-Judge, reinforcement learning, judge bias, reward hacking detection, RLHF"
 schema: scholarly_article
 paper_key: cherrl
-paper_title: "Reproducing, Analyzing, and Detecting Reward Hacking in Rubric-Based Reinforcement Learning"
-paper_url: "https://arxiv.org/abs/2606.04923"
-paper_repo: "https://github.com/THUAIS-Lab/CHERRL"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/cherrl.json"
 markdown_alternate: "/markdown/cherrl.txt"
-paper_status: "arXiv preprint"
-paper_date_published: "2026-06-03"
-paper_citation_date: "2026/06/03"
-paper_report_institution: "arXiv"
-paper_report_number: "arXiv:2606.04923"
-paper_arxiv_id: "2606.04923"
-paper_doi: "https://doi.org/10.48550/arXiv.2606.04923"
-paper_doi_value: "10.48550/arXiv.2606.04923"
-paper_openalex: "https://openalex.org/W7163509842"
 paper_repo_name: "CHERRL"
 paper_software_description: "Controllable hacking environment for rubric-based reinforcement learning: dual-judge reward construction, bias injection, and reward hacking onset detection."
 paper_topics:
@@ -31,13 +19,6 @@ paper_topics:
   - judge bias
   - reward hacking detection
   - reinforcement learning from AI feedback
-paper_authors:
-  - Xuekang Wang
-  - Zhuoyuan Hao
-  - Shuo Hou
-  - Hao Peng
-  - Juanzi Li
-  - Xiaozhi Wang
 ---
 
 ## CHERRL: A Controllable Hacking Environment for Rubric-Based Reinforcement Learning

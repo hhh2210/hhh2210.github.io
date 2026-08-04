@@ -8,23 +8,11 @@ description: "Echoes as Anchors (ICLR 2026) asks whether the prompt restatement 
 keywords: "Echoes as Anchors, ICLR 2026, Echo of Prompt, Echo Likelihood Gap, attention refocusing, echoic prompting, echo-distilled SFT, LLM reasoning, large reasoning models, test-time compute"
 schema: scholarly_article
 paper_key: echoes-as-anchors
-paper_title: "Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning"
-paper_url: "https://openreview.net/forum?id=vndn1Wrult"
-paper_arxiv: "https://arxiv.org/abs/2602.06600"
-paper_repo: "https://github.com/hhh2210/echoes-as-anchors"
 paper_context: "https://github.com/hhh2210/echoes-as-anchors/blob/master/RESEARCH_CONTEXT.md"
 paper_metadata_json: "https://hhh2210.github.io/api/papers/echoes-as-anchors.json"
 markdown_alternate: "/markdown/echoes-as-anchors.txt"
 paper_codemeta: "https://github.com/hhh2210/echoes-as-anchors/blob/master/codemeta.json"
 paper_bibtex: "https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib"
-paper_status: "ICLR 2026 Poster"
-paper_date_published: "2026-01-26"
-paper_citation_date: "2026"
-paper_venue: "The Fourteenth International Conference on Learning Representations (ICLR)"
-paper_arxiv_id: "2602.06600"
-paper_doi: "https://doi.org/10.48550/arXiv.2602.06600"
-paper_doi_value: "10.48550/arXiv.2602.06600"
-paper_openalex: "https://openalex.org/W7128374376"
 paper_repo_name: "echoes-as-anchors"
 paper_software_description: "Research code for Echoes as Anchors, an ICLR 2026 paper with attention analysis, MLP probes, causal echo insertion, Echo Likelihood Gap computation, ED-SFT data preparation, and Echoic Prompting for LLM reasoning."
 paper_topics:
@@ -37,13 +25,6 @@ paper_topics:
   - attention refocusing
   - echoic prompting
   - echo-distilled SFT
-paper_authors:
-  - Zhuoyuan Hao
-  - Zhuo Li
-  - Wu Li
-  - Fangming Liu
-  - Min Zhang
-  - Jing Li
 ---
 
 **Echoes as Anchors: Probabilistic Costs and Attention Refocusing in LLM Reasoning** (ICLR 2026) is

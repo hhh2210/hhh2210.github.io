@@ -51,6 +51,15 @@ jobs:
               api/*.json|markdown/*.txt|robots.txt|llms.txt|llms-full.txt|sitemap-ai.xml)
                 add_url "/$file"
                 ;;
+              _data/research.yml)
+                add_url "/publications/"
+                add_url "/papers/echoes-as-anchors/"
+                add_url "/projects/echoes-as-anchors/"
+                add_url "/projects/cherrl/"
+                add_url "/faq/echoes-as-anchors/"
+                add_url "/glossary/echoes-as-anchors/"
+                add_url "/media/echoes-as-anchors/"
+                ;;
               _config.yml|_includes/*|_layouts/*)
                 add_url "/"
                 ;;

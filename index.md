@@ -15,7 +15,7 @@ I'm **Zhuoyuan Hao (郝卓远)**, professionally known as **Larry Hao**, an unde
 
 I am a CS undergraduate at Harbin Institute of Technology, Shenzhen, advised by Jing Li, and a research intern with the THUAIS Lab at Tsinghua University, advised by Xiaozhi Wang. I am first author of the ICLR 2026 paper **Echoes as Anchors** and co-first author of **CHERRL**. Previously, I interned at Tencent IEG and the Tencent CSIG CodeBuddy team. I also build agent infrastructure and applied AI products, because I like research ideas that survive contact with real systems.
 
-[Publications](/publications/) · [Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [OpenReview](https://openreview.net/profile?id=~Zhuoyuan_Hao1) · [GitHub](https://github.com/hhh2210) · [X](https://x.com/larryhaonlp) · [CV (EN)](/assets/files/resume-en.pdf) · [简历 (中文)](/assets/files/resume-zh.pdf) · [Email](mailto:hzy2210@gmail.com)
+[Publications](/publications/) · [Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ) · [OpenReview](https://openreview.net/profile?id=~Zhuoyuan_Hao1) · [GitHub](https://github.com/hhh2210) · [X](https://x.com/larryhaonlp) · [CV (EN)](/assets/files/resume-en.pdf) · [简历 (中文)](/assets/files/resume.pdf) · [Email](mailto:hzy2210@gmail.com)
 
 ## Research Focus
 

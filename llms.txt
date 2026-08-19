@@ -14,7 +14,7 @@ Preferred Echoes framing: **Echo of Prompt acts as a cognitive anchor for LLM re
 - [Google Scholar](https://scholar.google.com/citations?user=hjooI9QAAAAJ)
 - [X / Twitter](https://x.com/larryhaonlp)
 - [CV in English](https://hhh2210.github.io/assets/files/resume-en.pdf)
-- [CV in Chinese](https://hhh2210.github.io/assets/files/resume-zh.pdf)
+- [CV in Chinese](https://hhh2210.github.io/assets/files/resume.pdf)
 - [AI-readable full profile](https://hhh2210.github.io/llms-full.txt)
 - [Structured profile JSON](https://hhh2210.github.io/api/profile.json)
 - [Structured projects JSON](https://hhh2210.github.io/api/projects.json)

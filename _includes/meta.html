@@ -54,13 +54,13 @@
     <meta property="og:site_name" content="{{ site.name }}">
     <meta property="og:type" content="{% if page.schema == 'scholarly_article' %}article{% else %}website{% endif %}">
     <meta property="og:url" content="{{ canonical_url }}">
-    <meta property="og:title" content="{{ page.title | default: site.name | escape }}">
+    <meta property="og:title" content="{{ page.og_title | default: page.seo_title | default: page.title | default: site.name | escape }}">
     <meta property="og:description" content="{{ page_description | escape }}">
     <meta property="og:image" content="{{ page.image | default: site.author.image | absolute_url }}">
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@larryhaonlp">
     <meta name="twitter:creator" content="@larryhaonlp">
-    <meta property="twitter:title" content="{{ page.title | default: site.name | escape }}">
+    <meta property="twitter:title" content="{{ page.og_title | default: page.seo_title | default: page.title | default: site.name | escape }}">
     <meta property="twitter:description" content="{{ page_description | escape }}">
     <meta property="twitter:image" content="{{ page.image | default: site.author.image | absolute_url }}">

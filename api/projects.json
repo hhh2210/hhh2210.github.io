@@ -55,20 +55,48 @@
     ]
   },
   {
-    "name": "rtk",
-    "type": "developer-tooling",
-    "github": "https://github.com/hhh2210/rtk",
-    "summary": "Rust CLI proxy that reduces LLM agent token consumption by filtering noisy command output before it reaches model context.",
+    "name": "Date Match",
+    "type": "product",
+    "role": "co-founder and algorithm lead",
+    "url": "https://date-match.online/",
+    "github": "https://github.com/Live-GalGame/DateMatch",
+    "summary": "Psychology-based compatibility matching app: questionnaire-driven matching, 100k+ questionnaires in the first 10 days, 170k+ users in the first month. No longer under active development.",
     "topics": [
-      "LLM agents",
-      "AI coding",
-      "token efficiency",
-      "developer tools"
+      "applied AI",
+      "compatibility matching",
+      "questionnaire design",
+      "consumer product"
+    ]
+  },
+  {
+    "name": "LiveGalGame",
+    "type": "open-source-contribution",
+    "role": "top-3 contributor, organization member",
+    "github": "https://github.com/Live-GalGame/LiveGalGame",
+    "summary": "2.5k+ star app that overlays galgame-style live subtitles, dialogue options, and an affection meter on real-world conversations.",
+    "topics": [
+      "real-time speech",
+      "LLM applications",
+      "consumer app"
+    ]
+  },
+  {
+    "name": "CodexBar",
+    "type": "open-source-contribution",
+    "role": "top-10 contributor (30 commits)",
+    "github": "https://github.com/steipete/CodexBar",
+    "summary": "macOS menu bar utility for observing OpenAI Codex and Claude Code usage; 20k+ stars, maintained by Peter Steinberger.",
+    "topics": [
+      "Codex",
+      "Claude Code",
+      "macOS",
+      "AI developer tools"
     ]
   },
   {
     "name": "auto-skill",
     "type": "agent-research",
+    "role": "author",
     "github": "https://github.com/hhh2210/auto-skill",
     "summary": "Few-shot skill induction prototype for turning examples into reusable AI-agent skills.",
     "topics": [
@@ -76,18 +104,6 @@
       "skill induction",
       "few-shot learning",
       "agent tooling"
-    ]
-  },
-  {
-    "name": "CodexBar",
-    "type": "macos-tool",
-    "github": "https://github.com/hhh2210/CodexBar",
-    "summary": "macOS menu bar utility for observing OpenAI Codex and Claude Code usage.",
-    "topics": [
-      "Codex",
-      "Claude Code",
-      "macOS",
-      "AI developer tools"
     ]
   }
 ]

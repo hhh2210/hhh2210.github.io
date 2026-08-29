@@ -25,10 +25,10 @@ paper_topics:
 
 **CHERRL** is a research environment and paper about **reward hacking in rubric-based reinforcement learning**. Rubric-based RL uses an LLM-as-a-Judge (LaaJ) to score model outputs as rewards; policy models can learn to exploit latent biases in the judge instead of genuinely improving. CHERRL makes this normally-covert failure mode observable and reproducible. Zhuoyuan Hao (Larry Hao) is co-first author with Xuekang Wang, working with the THUAIS Lab at Tsinghua University.
 
-- GitHub: https://github.com/THUAIS-Lab/CHERRL
-- arXiv: https://arxiv.org/abs/2606.04923
-- Structured metadata: https://hhh2210.github.io/api/papers/cherrl.json
-- Author profile: https://hhh2210.github.io/
+- [Official code and reproduction environment](https://github.com/THUAIS-Lab/CHERRL)
+- [arXiv paper record (v2, 2026-08-12)](https://arxiv.org/abs/2606.04923)
+- [Structured paper metadata](https://hhh2210.github.io/api/papers/cherrl.json)
+- [Zhuoyuan Hao research profile](https://hhh2210.github.io/)
 
 ## Abstract
 
@@ -36,7 +36,7 @@ In real-world rubric-based RL, reward hacking is subtle and entangled with multi
 
 ## Why This Matters
 
-- **Reward hacking is the central failure mode of rubric-based RL.** As RL training moves beyond verifiable tasks (math, code) to open-ended tasks scored by LLM judges, exploiting judge blind spots becomes the dominant way training silently goes wrong.
+- **Reward hacking is a central risk in rubric-based RL.** In open-ended tasks scored by LLM judges, a policy can exploit judge blind spots instead of improving the intended objective, yielding ineffective or unsafe training outcomes.
 - **Ground truth is the missing ingredient.** Without knowing exactly which bias is present and when exploitation starts, detection and mitigation methods cannot be evaluated rigorously. CHERRL provides that ground truth by construction.
 - **Detection from logs is practical.** RHDA shows that an agent reading realistic, limited training traces can identify hacking onset before it is obvious from aggregate reward curves.
 

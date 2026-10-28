@@ -1,0 +1,11 @@
+{% assign pubs = site.data.publications %}
+{% assign years = pubs | map: "year" | uniq %}
+{% for year in years %}
+<h2 class="year-label">{{ year }}</h2>
+<div class="pub-list">
+  {% assign rows = pubs | where: "year", year %}
+  {% for item in rows %}
+    {% include publication-row.html item=item variant="page" %}
+  {% endfor %}
+</div>
+{% endfor %}

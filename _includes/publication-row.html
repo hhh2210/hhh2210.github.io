@@ -1,0 +1,51 @@
+{% assign pub = include.item %}
+{% assign variant = include.variant | default: "home" %}
+{% assign person = site.data.research.person.name %}
+{% assign paper = nil %}
+{% if pub.key %}
+  {% assign paper = site.data.research.papers | where: "key", pub.key | first %}
+{% endif %}
+{% if paper %}
+  {% assign title = paper.title %}
+  {% assign authors = paper.authors %}
+{% else %}
+  {% assign title = pub.title %}
+  {% assign authors = pub.authors %}
+{% endif %}
+{% if variant == "page" and pub.venue_page %}
+  {% assign venue = pub.venue_page %}
+{% else %}
+  {% assign venue = pub.venue_label %}
+{% endif %}
+{% assign title_href = "" %}
+{% for link in pub.links %}
+  {% if link.label == "project" and link.path %}
+    {% assign title_href = link.path | relative_url %}
+  {% endif %}
+{% endfor %}
+{% if title_href == "" %}
+  {% for link in pub.links %}
+    {% if link.label == "paper" %}
+      {% if link.field and paper %}
+        {% assign title_href = paper[link.field] %}
+      {% elsif link.url %}
+        {% assign title_href = link.url %}
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+<article class="pub-row">
+  <p class="pub-row__venue">{% if venue contains ":" %}{% assign venue_head = venue | split: ":" | first %}{% assign venue_tail = venue | split: ":" | last %}{{ venue_head }}:<br>{{ venue_tail | strip }}{% else %}{{ venue }}{% endif %}</p>
+  <div class="pub-row__body">
+    <h3 class="pub-row__title">{% if title_href != "" %}<a href="{{ title_href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}</h3>
+    {% if authors %}
+    <p class="pub-row__authors">{%- for author in authors -%}{%- if author == person -%}<strong>{{ author }}</strong>{%- else -%}{{ author }}{%- endif -%}{%- if pub.starred contains author -%}*{%- endif -%}{%- unless forloop.last -%}, {% endunless -%}{%- endfor -%}{% if variant == "page" and pub.equal_note %} ({{ pub.equal_note }}){% endif %}</p>
+    {% endif %}
+    {% if pub.summary %}
+    <p class="pub-row__dek">{{ pub.summary }}</p>
+    {% endif %}
+    {% if pub.links %}
+    <p class="pub-row__links">{%- assign showed = false -%}{%- for link in pub.links -%}{%- unless variant == "home" and link.page_only -%}{%- assign href = "" -%}{%- if link.path -%}{%- assign href = link.path | relative_url -%}{%- elsif link.field and paper -%}{%- assign href = paper[link.field] -%}{%- elsif link.url -%}{%- assign href = link.url -%}{%- endif -%}{%- if href != "" -%}{%- if showed -%}<span class="sep" aria-hidden="true"> · </span>{%- endif -%}<a href="{{ href }}">{{ link.label }}</a>{%- assign showed = true -%}{%- endif -%}{%- endunless -%}{%- endfor -%}</p>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,60 @@
+# Presentation for PublicationRow. Registered papers take title, authors,
+# and canonical link targets from _data/research.yml via `key`.
+- key: echoes-as-anchors
+  selected: true
+  theme: Reasoning
+  year: "2026"
+  venue_label: ICLR 2026
+  summary: Why do reasoning models repeat the prompt before solving it? Prompt echoes act as anchors that refocus attention on the task, and reinserting them causally repairs failed reasoning traces.
+  links:
+    - label: paper
+      field: primary_url
+    - label: arXiv
+      field: arxiv_url
+    - label: code
+      field: repository_url
+    - label: bibtex
+      url: https://github.com/hhh2210/echoes-as-anchors/blob/master/paper.bib
+      page_only: true
+    - label: project
+      path: /papers/echoes-as-anchors/
+
+- key: cherrl
+  selected: true
+  theme: Reward hacking
+  year: "2026"
+  venue_label: arXiv 2026
+  venue_page: "arXiv:2606.04923, 2026"
+  starred:
+    - Xuekang Wang
+    - Zhuoyuan Hao
+  equal_note: "*equal contribution"
+  summary: CHERRL injects a known bias into an LLM judge to make reward hacking reproducible and measurable, with an agent (RHDA) that detects hacking onset from training logs.
+  links:
+    - label: paper
+      field: primary_url
+    - label: code
+      field: repository_url
+    - label: citation
+      url: https://github.com/THUAIS-Lab/CHERRL/blob/main/CITATION.cff
+      page_only: true
+    - label: project
+      path: /projects/cherrl/
+
+- title: Update Strategy for Channel Knowledge Map in Complex Environments
+  year: "2025"
+  venue_label: "arXiv:2512.15154, 2025"
+  selected: false
+  authors:
+    - Ting Wang
+    - Chiya Zhang
+    - Chang Liu
+    - Zhuoyuan Hao
+    - Rubing Han
+    - Weizheng Zhang
+    - Chunlong He
+  links:
+    - label: paper
+      url: https://arxiv.org/abs/2512.15154
+    - label: DOI
+      url: https://doi.org/10.48550/arXiv.2512.15154

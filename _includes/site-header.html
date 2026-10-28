@@ -1,0 +1,14 @@
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-name" href="{{ '/' | relative_url }}">{{ site.name }}</a>
+    <nav class="site-nav" aria-label="Primary">
+      {% assign blog_page = site.pages | where: "title", "Blog" | first %}
+      <a href="{{ '/' | relative_url }}#research">Research</a>
+      <a href="{{ '/publications/' | relative_url }}">Papers</a>
+      <a href="{{ '/' | relative_url }}#projects">Projects</a>
+      <a href="{{ blog_page.url | relative_url }}">Blog</a>
+      <a href="{{ '/assets/files/resume-en.pdf' | relative_url }}">CV</a>
+    </nav>
+  </div>
+</header>

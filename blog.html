@@ -5,18 +5,11 @@ seo_title: "Blog"
 description: "Blog posts by Larry Hao on LLM reasoning, AI tooling, and applied AI engineering."
 ---
 
-<div class="posts">
-  <h1 class="page-heading">Blog</h1>
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
-
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+<article class="page">
+  <h1>Blog</h1>
+  <div class="rule-list">
+    {% for post in site.posts %}
+      {% include archive-row.html post=post show_excerpt=true %}
+    {% endfor %}
+  </div>
+</article>

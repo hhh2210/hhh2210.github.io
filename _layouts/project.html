@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% assign browser_title = page.seo_title | default: page.title | default: site.name %}
+    <title>{{ browser_title }} - {{ site.name }}</title>
+
+    {% include meta.html %}
+    {% include structured-data.html %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;500&display=swap">
+    <link rel="stylesheet" href="{{ '/assets/projects/project.css' | relative_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+    <link rel="alternate" type="text/plain" title="AI-readable profile" href="{{ site.baseurl }}/llms.txt" />
+  </head>
+
+  <body class="pj">
+    <header class="pj-bar">
+      <div class="pj-bar__inner">
+        <a class="pj-bar__home" href="{{ site.baseurl }}/">{{ site.name }}</a>
+        <nav class="pj-bar__nav" aria-label="Project">
+          {% for link in page.nav_links %}<a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}
+        </nav>
+      </div>
+    </header>
+
+    <main id="main" role="main">
+      {{ content }}
+    </main>
+
+    <footer class="pj-foot">
+      <div class="pj-col">
+        <p>{{ site.author.full_name | default: "Zhuoyuan Hao" }} · <a href="{{ site.baseurl }}/">hhh2210.github.io</a>{% if page.markdown_alternate %} · <a href="{{ page.markdown_alternate | relative_url }}">Plain-text version</a>{% endif %}</p>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelectorAll('[data-copy]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = document.getElementById(btn.getAttribute('data-copy'));
+          if (!target || !navigator.clipboard) return;
+          navigator.clipboard.writeText(target.innerText.trim()).then(function () {
+            var label = btn.textContent;
+            btn.textContent = 'Copied';
+            setTimeout(function () { btn.textContent = label; }, 1400);
+          });
+        });
+      });
+    </script>
+    {% include analytics.html %}
+  </body>
+</html>

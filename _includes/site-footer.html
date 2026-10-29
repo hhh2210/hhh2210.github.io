@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="container">
+    <p class="inline-links">
+      <a rel="me" href="https://github.com/{{ site.footer-links.github }}">GitHub</a>
+      <a rel="me" href="https://scholar.google.com/citations?user={{ site.footer-links.googlescholar }}">Google Scholar</a>
+      <a rel="me" href="https://x.com/{{ site.footer-links.twitter }}">X</a>
+      <a href="mailto:{{ site.footer-links.email }}">Email</a>
+    </p>
+    <p class="inline-links">For AI agents:
+      <a href="{{ '/llms.txt' | relative_url }}">llms.txt</a>
+      <a href="{{ '/llms-full.txt' | relative_url }}">llms-full.txt</a>
+      <a href="{{ '/api/profile.json' | relative_url }}">profile.json</a>
+    </p>
+  </div>
+</footer>

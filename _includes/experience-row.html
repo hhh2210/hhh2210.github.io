@@ -1,0 +1,11 @@
+<article class="rule-row">
+  <div class="rule-row__head">
+    <h3 class="rule-row__title">{{ include.item.org }} — {{ include.item.role }}</h3>
+    <p class="rule-row__date">{{ include.item.dates }}</p>
+  </div>
+  <ul class="role-points">
+    {% for point in include.item.points %}
+    <li>{{ point }}</li>
+    {% endfor %}
+  </ul>
+</article>

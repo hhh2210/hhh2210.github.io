@@ -1,0 +1,13 @@
+{% assign selected = site.data.publications | where: "selected", true %}
+{% assign themes = selected | map: "theme" | uniq %}
+{% for theme in themes %}
+<div class="theme-group">
+  <h3 class="theme-label">{{ theme }}</h3>
+  <div class="pub-list">
+    {% assign rows = selected | where: "theme", theme %}
+    {% for item in rows %}
+      {% include publication-row.html item=item variant="home" %}
+    {% endfor %}
+  </div>
+</div>
+{% endfor %}

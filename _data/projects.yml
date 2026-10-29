@@ -1,0 +1,14 @@
+- title: Date Match
+  url: https://date-match.online/
+  metric: 100k+ questionnaires in the first 10 days, 170k+ users in the first month.
+  summary: Psychology-based compatibility matching app; co-founder and algorithm lead.
+
+- title: LiveGalGame
+  url: https://github.com/Live-GalGame/LiveGalGame
+  metric: Top-3 contributor (2.5k+ stars).
+  summary: "Fixes the bug that real-life conversations ship without dialogue options: live subtitles, choices, and an affection meter over real conversations."
+
+- title: CodexBar
+  url: https://github.com/steipete/CodexBar
+  metric: Top-10 contributor (20k+ stars).
+  summary: macOS menu-bar usage stats for OpenAI Codex and Claude Code.

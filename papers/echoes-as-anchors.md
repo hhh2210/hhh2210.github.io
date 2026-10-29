@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: "Why Reasoning Models Repeat the Prompt — Echoes as Anchors (ICLR 2026)"
 seo_title: "Why Reasoning Models Repeat the Prompt — Echoes as Anchors"
 last_modified_at: 2026-08-02

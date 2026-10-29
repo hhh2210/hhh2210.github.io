@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: zh-CN
 title: Next era of AI
 ---
 

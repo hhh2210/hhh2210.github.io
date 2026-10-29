@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: "How to Reproduce and Detect Reward Hacking in Rubric-Based RL — CHERRL"
 seo_title: "Detecting Reward Hacking in Rubric-Based RL — CHERRL"
 last_modified_at: 2026-07-18

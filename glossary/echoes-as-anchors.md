@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Echoes as Anchors Glossary
 seo_title: "Echoes as Anchors Glossary"
 last_modified_at: 2026-07-09

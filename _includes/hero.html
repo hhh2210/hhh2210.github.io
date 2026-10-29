@@ -1,9 +1,11 @@
+{% comment %}Text comes from the front matter of index.md (mission, name_caption, bio).{% endcomment %}
 <div class="hero">
-  <h1 class="mission">I study LLMs and love building things</h1>
+  <h1 class="mission">{{ page.mission }}</h1>
   <div class="identity">
     <img class="avatar" src="{{ '/images/personal.png' | relative_url }}" width="64" height="64" alt="Zhuoyuan Hao (Larry Hao)">
-    <div>
-      <p class="bio"><span class="bio-lead">I am <span class="who-name">Zhuoyuan Hao</span> <span class="who-caption">(郝卓远, Larry Hao)</span>.</span> I work on LLM reasoning and reinforcement learning: why reasoning models behave the way they do, and how learning systems quietly optimize the wrong objective. Graduated in three years from Harbin Institute of Technology, Shenzhen (HITSZ), advised by <a href="https://www.li-jing.com/">Jing Li</a>. Pursuing a 2-year MPhil in Computer Science and Engineering at HKUST, advised by <a href="https://mayrfung.github.io/">May Fung</a>. Research intern at the THUAIS Lab, Tsinghua University, advised by <a href="https://bakser.github.io/">Xiaozhi Wang</a>.</p>
+    <div class="bio">
+      <p class="bio-lead">I am <span class="who-name">{{ site.data.research.person.name }}</span> <span class="who-caption">({{ page.name_caption }})</span>.</p>
+      {{ page.bio | markdownify }}
       <p class="contact inline-links">
         <a href="{{ '/publications/' | relative_url }}">Publications</a>
         <a rel="me" href="https://scholar.google.com/citations?user={{ site.footer-links.googlescholar }}">Google Scholar</a>

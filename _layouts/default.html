@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
   <head>
     {% assign browser_title = page.seo_title | default: page.title | default: site.name %}
     <title>{% if browser_title == site.name %}{{ site.name }} - {{ site.description }}{% else %}{{ browser_title }} - {{ site.name }}{% endif %}</title>
@@ -18,7 +18,7 @@
   <body>
     {% include site-header.html %}
 
-    <main id="main" role="main" class="container">
+    <main id="main" role="main" class="container{% if layout.wide %} container--wide{% endif %}">
       {{ content }}
     </main>
 

@@ -2,6 +2,12 @@
 
 Source for [hhh2210.github.io](https://hhh2210.github.io/), a Jekyll site that presents Zhuoyuan Hao's research, publications, and project work. The repository also publishes plain-text and JSON routes so the same public facts are available without parsing the visual site.
 
+## Editing
+
+- **Homepage intro:** edit `mission`, `name_caption`, and `bio` (Markdown) in the front matter of `index.md`. Selected work, experience, and projects come from `_data/publications.yml`, `_data/experience.yml`, and `_data/projects.yml`.
+- **New post:** copy `_posts/_template.md` to `_posts/YYYY-MM-DD-short-slug.md`, fill in `title`, `description`, and `lang` (`zh-CN` or `en`), write the body in Markdown, and remove `published: false` when it is ready. Posts get the article layout automatically.
+- **Article layout:** posts and evidence pages (`layout: article`) show a centered title, a metadata rail, and a numbered contents rail built from `##` headings. The contents rail appears with three or more `##` headings; set `toc: true` or `toc: false` in front matter to override. Do not number headings by hand.
+
 ## Metadata contract
 
 `_data/research.yml` is the canonical source for academic identity and core paper metadata: stable IDs, exact titles, authors, publication dates, venues, paper URLs, DOI/arXiv/OpenAlex records, and code repositories.

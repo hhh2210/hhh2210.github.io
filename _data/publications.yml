@@ -24,7 +24,7 @@
   theme: Reward hacking
   year: "2026"
   venue_label: arXiv 2026
-  venue_page: "arXiv:2606.04923, 2026"
+  venue_page: "arXiv 2606.04923"
   starred:
     - Xuekang Wang
     - Zhuoyuan Hao
@@ -43,7 +43,7 @@
 
 - title: Update Strategy for Channel Knowledge Map in Complex Environments
   year: "2025"
-  venue_label: "arXiv:2512.15154, 2025"
+  venue_label: "arXiv 2512.15154"
   selected: false
   authors:
     - Ting Wang

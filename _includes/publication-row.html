@@ -35,7 +35,7 @@
   {% endfor %}
 {% endif %}
 <article class="pub-row">
-  <p class="pub-row__venue">{% if venue contains ":" %}{% assign venue_head = venue | split: ":" | first %}{% assign venue_tail = venue | split: ":" | last %}{{ venue_head }}:<br>{{ venue_tail | strip }}{% else %}{{ venue }}{% endif %}</p>
+  <p class="pub-row__venue">{{ venue }}</p>
   <div class="pub-row__body">
     <h3 class="pub-row__title">{% if title_href != "" %}<a href="{{ title_href }}">{{ title }}</a>{% else %}{{ title }}{% endif %}</h3>
     {% if authors %}

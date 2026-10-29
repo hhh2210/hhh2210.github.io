@@ -8,9 +8,15 @@ person:
   email: "hzy2210@gmail.com"
   affiliations:
     - type: "CollegeOrUniversity"
-      name: "Harbin Institute of Technology, Shenzhen"
+      name: "The Hong Kong University of Science and Technology"
+      short_name: "HKUST"
     - type: "ResearchOrganization"
       name: "THUAIS Lab, Tsinghua University"
+      short_name: "THUAIS"
+  alumni_of:
+    - type: "CollegeOrUniversity"
+      name: "Harbin Institute of Technology, Shenzhen"
+      short_name: "HITSZ"
   same_as:
     - "https://github.com/hhh2210"
     - "https://scholar.google.com/citations?user=hjooI9QAAAAJ"

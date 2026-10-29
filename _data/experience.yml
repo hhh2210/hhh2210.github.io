@@ -2,12 +2,12 @@
   role: research intern
   dates: "2026"
   points:
-    - "Agent SFT for coding models: data-mixture design and rubric-based refinement for distilling frontier-model agent traces into an 8B model"
-    - "train–serve-consistent loss masking for rollout traces (loss only on model-generated tokens)."
+    - "Agent SFT for coding models: data-mixture design and rubric-based refinement for distilling frontier-model agent traces into an 8B model."
+    - "Train–serve-consistent loss masking for rollout traces (loss only on model-generated tokens)."
 
 - org: Tencent IEG, Technology Operations
   role: research intern
   dates: "2025"
   points:
     - "LLM post-training for IT-operations (SRE) agents: fault-injection and tool-invocation environments, reward design, SFT-CoT distillation, and synthetic-data selection for continual pre-training."
-    - "Shipped to IEG's internal operations stack, with a community version open-sourced on ModelScope."
+    - "Shipped to IEG’s internal operations stack, with a community version open-sourced on ModelScope."

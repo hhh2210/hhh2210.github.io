@@ -338,6 +338,16 @@
         }
         {% endif %}
       ],
+      {% if registered_person.alumni_of %}
+      "alumniOf": [
+        {% for school in registered_person.alumni_of %}
+        {
+          "@type": {{ school.type | jsonify }},
+          "name": {{ school.name | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+        {% endfor %}
+      ],
+      {% endif %}
       "sameAs": [
         {% assign person_same_as = registered_person.same_as | default: site.author.same_as %}
         {% for same_url in person_same_as %}

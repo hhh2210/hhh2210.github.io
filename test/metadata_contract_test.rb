@@ -109,6 +109,18 @@ class MetadataContractTest < Minitest::Test
     assert_operator paper_pages, :>, 0
   end
 
+  def test_visible_bio_and_llms_text_name_every_registered_institution
+    person = RESEARCH.fetch("person")
+    hero = File.read(File.join(ROOT, "_includes/hero.html"))
+    llms_full = File.read(File.join(ROOT, "llms-full.txt"))
+    (person.fetch("affiliations") + person.fetch("alumni_of")).each do |org|
+      short_name = org.fetch("short_name")
+      assert_includes hero, short_name, "_includes/hero.html must mention #{short_name} from _data/research.yml"
+      assert_includes llms_full, short_name, "llms-full.txt must mention #{short_name} from _data/research.yml"
+    end
+    refute_match(/undergraduate/i, llms_full, "llms-full.txt still describes an undergraduate")
+  end
+
   def test_identity_json_mirrors_research_registry
     person = RESEARCH.fetch("person")
     profile = read_json("api/profile.json")
@@ -121,6 +133,8 @@ class MetadataContractTest < Minitest::Test
     assert_equal person.fetch("alternate_names").first, profile.fetch("preferred_name")
     assert_equal person.fetch("url"), profile.fetch("website")
     assert_equal person.fetch("same_as"), profile.fetch("same_as")
+    assert_equal person.fetch("affiliations").first.fetch("name"), profile.fetch("affiliation")
+    assert_equal person.fetch("alumni_of").first.fetch("name"), profile.fetch("alumni_of")
 
     assert_equal person.fetch("id"), index_owner.fetch("id")
     assert_equal person.fetch("name"), index_owner.fetch("name")

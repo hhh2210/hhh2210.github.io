@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: zh-CN
 title: How to use Git IN Vibe-Coding
 ---
 Cursor 之类的 AI-IDE 无疑大大提升了 coding 的效率，尤其是 sonnet+angent，不得不说 Anthropic 调教的太好了，让模型增加一个小功能，在一轮 run 里为我增加了五六个file，还会在结尾贴心地附上各种 Emoji 和表格

@@ -1,0 +1,116 @@
+---
+layout: default
+wide: true
+---
+{% comment %}
+  Long-form layout for posts and evidence pages: centered title, a numbered
+  contents rail built from the page's h2 headings (shown when there are at
+  least three, or when the page sets `toc: true`; `toc: false` hides it),
+  and a metadata rail. Below 1400px both rails fold into the reading column.
+{% endcomment %}
+{% assign toc_items = "" | split: "" %}
+{% assign toc_parts = content | split: '<h2 id="' %}
+{% for part in toc_parts offset: 1 %}
+  {% assign toc_id = part | split: '"' | first %}
+  {% assign toc_text = part | split: '</h2>' | first | remove_first: toc_id | remove_first: '">' | strip_html | strip %}
+  {% if toc_text != "" %}
+    {% assign toc_items = toc_items | push: toc_id | push: toc_text %}
+  {% endif %}
+{% endfor %}
+{% assign toc_count = toc_items.size | divided_by: 2 %}
+{% assign has_toc = false %}
+{% if page.toc == true and toc_count > 0 %}
+  {% assign has_toc = true %}
+{% elsif page.toc != false and toc_count >= 3 %}
+  {% assign has_toc = true %}
+{% endif %}
+
+{% assign paper = nil %}
+{% assign listing = nil %}
+{% if page.paper_key %}
+  {% assign paper = site.data.research.papers | where: "key", page.paper_key | first %}
+  {% assign listing = site.data.publications | where: "key", page.paper_key | first %}
+{% endif %}
+
+{% capture toc_list %}
+<ol class="toc">
+  {% for i in (1..toc_count) %}
+  {% assign id_index = i | minus: 1 | times: 2 %}
+  {% assign text_index = id_index | plus: 1 %}
+  <li><a href="#{{ toc_items[id_index] }}"><span class="toc__num">{% if i < 10 %}0{% endif %}{{ i }}</span><span class="toc__text">{{ toc_items[text_index] }}</span></a></li>
+  {% endfor %}
+</ol>
+{% endcapture %}
+
+<article class="article{% if has_toc %} article--toc{% endif %}">
+  <h1 class="article__title">{{ page.title }}</h1>
+
+  <div class="article__grid">
+    {% if has_toc %}
+    <nav class="article__toc" aria-label="Contents">
+      {{ toc_list }}
+    </nav>
+    {% endif %}
+
+    <aside class="article__meta" aria-label="About this page">
+      <dl class="metalist">
+        {% if page.collection == "posts" %}
+        <div class="metalist__row"><dt>Published</dt><dd><time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%b %-d, %Y" }}</time></dd></div>
+        {% endif %}
+        {% if listing.venue_label %}
+        <div class="metalist__row"><dt>Venue</dt><dd>{{ listing.venue_label }}</dd></div>
+        {% endif %}
+        {% assign page_abs = page.url | absolute_url %}
+        {% if paper and paper.url and paper.url != page_abs %}
+        <div class="metalist__row"><dt>Paper</dt><dd><a href="{{ paper.url | relative_url }}">Summary page</a></dd></div>
+        {% endif %}
+        {% if page.last_modified_at %}
+        <div class="metalist__row"><dt>Updated</dt><dd><time datetime="{{ page.last_modified_at | date_to_xmlschema }}">{{ page.last_modified_at | date: "%b %-d, %Y" }}</time></dd></div>
+        {% endif %}
+        <div class="metalist__row"><dt>Author</dt><dd><a href="{{ '/' | relative_url }}">{{ site.data.research.person.alternate_names | first | default: site.name }}</a></dd></div>
+      </dl>
+    </aside>
+
+    <div class="article__body">
+      {% if has_toc %}
+      <details class="toc-inline">
+        <summary>Contents</summary>
+        {{ toc_list }}
+      </details>
+      {% endif %}
+      <div class="entry">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>
+
+{% if has_toc %}
+<script>
+  (function () {
+    var links = document.querySelectorAll('.toc a');
+    if (!links.length) return;
+    var byId = {};
+    links.forEach(function (a) {
+      var id = decodeURIComponent(a.getAttribute('href').slice(1));
+      (byId[id] = byId[id] || []).push(a);
+    });
+    var headings = Object.keys(byId).map(function (id) { return document.getElementById(id); }).filter(Boolean);
+    function mark(id) {
+      links.forEach(function (a) { a.removeAttribute('aria-current'); });
+      (byId[id] || []).forEach(function (a) { a.setAttribute('aria-current', 'true'); });
+    }
+    var ticking = false;
+    function update() {
+      ticking = false;
+      var current = headings[0];
+      headings.forEach(function (h) { if (h.getBoundingClientRect().top < window.innerHeight * 0.3) current = h; });
+      if (current) mark(current.id);
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    update();
+  })();
+</script>
+{% endif %}

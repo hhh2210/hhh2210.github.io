@@ -1,5 +1,6 @@
 ---
 layout: post
+lang: zh-CN
 title: How I use AI tools
 description: "A living note on my AI tool stack: self-hosted LobeChat with relay APIs for fast multi-device chat, and why I picked each piece."
 ---

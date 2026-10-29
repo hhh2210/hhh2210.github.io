@@ -80,6 +80,15 @@ baseurl: ""
 #
 
 permalink: /:title/
+lang: en
+
+# New posts only need `title` (plus `lang: zh-CN` for Chinese); see _posts/_template.md.
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
 
 # The release of Jekyll Now that you're using
 version: v1.2.0

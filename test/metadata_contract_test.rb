@@ -111,11 +111,11 @@ class MetadataContractTest < Minitest::Test
 
   def test_visible_bio_and_llms_text_name_every_registered_institution
     person = RESEARCH.fetch("person")
-    hero = File.read(File.join(ROOT, "_includes/hero.html"))
+    hero = front_matter(File.join(ROOT, "index.md")).fetch("bio")
     llms_full = File.read(File.join(ROOT, "llms-full.txt"))
     (person.fetch("affiliations") + person.fetch("alumni_of")).each do |org|
       short_name = org.fetch("short_name")
-      assert_includes hero, short_name, "_includes/hero.html must mention #{short_name} from _data/research.yml"
+      assert_includes hero, short_name, "the homepage bio in index.md must mention #{short_name} from _data/research.yml"
       assert_includes llms_full, short_name, "llms-full.txt must mention #{short_name} from _data/research.yml"
     end
     refute_match(/undergraduate/i, llms_full, "llms-full.txt still describes an undergraduate")

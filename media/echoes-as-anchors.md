@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: article
 title: Echoes as Anchors Media Kit
 seo_title: "Echoes as Anchors Media Kit"
 last_modified_at: 2026-07-09

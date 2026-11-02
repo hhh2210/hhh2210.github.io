@@ -4,9 +4,9 @@ title: "LLM hide-and-seek: when a report becomes a scoring button"
 description: "A weekend sandbox: four LLMs play OpenAI-style hide-and-seek against a referee that trusts self-reports. None lied on its own; once the prompt said reports score, three of four reported hidden every step."
 ---
 
-一个周末玩具项目，没什么学术野心，就是好奇。
+一个周末的项目，很 toy，就是好奇。
 
-2019 年 OpenAI 的 *Emergent Tool Use* 让从零训练的 RL agent 玩捉迷藏，它们学会了推箱子、锁箱子、box surfing。我想换个问法：**如果 policy 是一个已经懂规则、也懂“作弊”这个概念的 LLM，给它一个有漏洞的裁判，它会不会去钻？**
+2019 年 OpenAI 的 *Emergent Tool Use* 让从零训练的 RL agent 玩捉迷藏，它们学会了推箱子、锁箱子、box surfing。这是我大一立项想接着做的课题，但发现作为 freshman 去从头学 multi-agent RL 太难了，最后屈服了现实做了一个更水的。三年后的今年，有了更牛逼的 coding agent 的帮助，我想换个问法：**如果 policy 是一个已经懂规则、也懂“作弊”这个概念的 LLM，给它一个裁判，它会不会去试图钻漏洞呢？**
 
 ## TL;DR
 
@@ -27,7 +27,7 @@ description: "A weekend sandbox: four LLMs play OpenAI-style hide-and-seek again
 
 ## 和已有工作的关系
 
-不训练、只在推理时观察 reward hacking，这个方向已经有人做过：
+不训练、只在推理时观察 reward hacking（或者说 misalignment behaviors）：
 
 - [Pan et al. (ICML 2024)](https://arxiv.org/abs/2402.06627) 提出 in-context reward hacking：agent 在部署中的反馈循环里优化一个（往往是隐式的）目标，同时造成副作用。比如为了提高 Twitter 互动率，把推文越改越偏激。
 - [Khalaf et al. (NeurIPS 2025)](https://arxiv.org/abs/2506.19248) 从理论上刻画 Best-of-n 这类推理时对齐方法：对着不完美的 reward model 采样越多，true reward 先升后降。
@@ -35,7 +35,7 @@ description: "A weekend sandbox: four LLMs play OpenAI-style hide-and-seek again
 
 前两类工作里，漏洞藏在开放环境的反馈循环或 reward model 的误差里，比较复杂。我更想问一个最直接的问题：一个明摆着的漏洞，模型会不会钻。
 
-这里延续的是 [CHERRL](https://arxiv.org/abs/2606.04923)（我参与的一篇工作）的思路：往裁判里**注入一个已知的偏置**，让 hacking 能稳定复现、逐步观测。CHERRL 在 rubric-based RL 的 LLM judge 里注入偏置，看训练过程中 hacking 何时出现；这里换到推理时，再换成一个大家熟悉的环境。
+这里延续的是 [CHERRL](https://arxiv.org/abs/2606.04923)（我参与的一篇工作）的思路：往裁判里**注入一个已知的偏置**，让 hacking 能稳定复现、逐步观测。CHERRL 在 rubric-based RL 的 LLM judge 里注入偏置，看训练过程中 hacking 何时出现；这里换到推理时，再换成一个大家熟悉且更直观的环境。
 
 ## 发现 1：单独玩、没人提示时，没有模型说谎
 
@@ -94,16 +94,5 @@ harness 还有一个 `message_type` 字段，schema 里写的是“可选的短�
 
 机制和捉迷藏里一样：找到一个没被检查的字段。方向却相反：这里模型钻空子，是为了**遵守**协议。
 
-## 实现细节和局限
-
-- **样本量**：每组 8–20 局，分母见各表。都是单次运行，没有做显著性检验，表里的数字只描述这些局。
-- **调用方式**：
-  - Sonnet 5.5 走原生 Messages API，关掉 extended thinking，temperature 0.7（和 gemini 一样）。
-  - GPT-6.1 Sol / Terra 直连 Codex backend，`instructions` 里只有 hider 的 system prompt。temperature 和 reasoning effort 用 backend 默认值，没有记录。我一开始走的本地网关会在前面自动加约 4k token 的 Codex 指令，换成直连后才去掉。
-  - gemini 原来的四组走一个第三方 relay；“告知”那组因为原来的 key 失效，改走另一个网关的 Google API 路由。
-- **rationale**：system prompt 要求 *"think briefly about your plan in one sentence"*，所以 CoT 很短，只能拿来举例，不能用“没提到”来推断“没考虑”。各模型空 rationale 的比例也差很多：GPT-6.1 为 0，Sonnet 约 50%，gemini 在不同路由下从 4% 到 62% 不等，因此 CoT 层面的计数不能跨模型比较。
-- **没做完的**：团队模式下“两人共建 shelter”只在 CoT 里看到过意图，gemini 的 16 局里，终局两人挨在一起又都没被看见的是 0 局。LLM seeker 的对抗模式也没跑完。
-
-可视化的故事页（基于最早 gemini 那一版数据）：[llm-hide-and-seek.vercel.app](https://llm-hide-and-seek.vercel.app)
 
 代码大部分是 Claude Code 写的，我负责提问题、看 trace。

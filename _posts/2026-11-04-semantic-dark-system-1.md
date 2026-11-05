@@ -5,6 +5,7 @@ description: "记录 Semantic Dark 的一轮折腾：本地小模型、动态闪
 lang: zh-CN
 permalink: /semantic-dark-system-1/
 published: true
+last_modified_at: 2026-11-05
 ---
 
 本来只是想让网页在深色模式下看着舒服一点，后来折腾成了一轮 System 1 实验。
@@ -14,6 +15,24 @@ published: true
 说白了，就是想在写死的规则和找一个 coding agent 慢慢修页面之间，加一个便宜、反应快的中间层。我把它叫 System 1。它不用追平大模型，只要效果过得去，延迟和成本低到我愿意一直开着就行。
 
 这个方向我到现在还是觉得值得试。但折腾下来最花时间的，其实是搞清楚到底哪些问题真该交给它。
+
+## 现成的方案和 Chromium 的尝试
+
+深色模式插件当然不缺。这里先把几个相关方案摆出来，后面才好说我们到底想补什么。
+
+| 方案 | 这次主要参考什么 |
+|---|---|
+| [Dark Reader](https://github.com/darkreader/darkreader) | 开源扩展。它的 Dynamic 模式会分析样式表、背景图和 SVG，另外还有 Filter、Filter+、Static 等模式。我们实际拿它的动态引擎做过对照，关心的是样式怎么接管和更新，不只是颜色公式。[官方说明](https://darkreader.org/help/en/) |
+| [Noir](https://getnoir.app/) | Safari 扩展，也有 macOS 版。官方介绍是加载时分析页面、逐页生成深色主题，支持站点设置；把网页误判为自带暗色时，也有手动覆盖选项。这里列的是[产品说明和 FAQ](https://getnoir.app/faq)，不把它当作同条件实测结果，也不去猜内部用了什么算法。 |
+| [Chromium Auto Dark Mode](https://developer.chrome.com/blog/auto-dark-theme) | 浏览器内部的自动深色化尝试。2021 年的[试验说明](https://groups.google.com/a/chromium.org/g/blink-dev/c/E29o9uJ8VRs)已经写到：调整颜色明度，先按图片大小和特征分类，再用机器学习帮助区分图标和照片。这里的 ML 做的是图片分类，和我们尝试的局部动作选择任务有区别。 |
+
+之前查 Chromium 那段记录时，我关心的是它为什么没有把 Auto Dark Mode 做成常规浏览器功能。这里说的“没做成”要限定范围：给原本浅色的网页自动生成深色外观。浏览器界面的暗色主题、网站自己写的 dark mode，是另外两件事。
+
+在 2021 年的试验讨论里，Peter Beverloo 把 Auto Dark Mode 称为 **fairly intrusive**。团队收到的开发者反馈是 mixed：有人喜欢它能减少维护第二套主题的成本，也有人担心自动变色的质量，所以当时把逐元素 opt-out 一起纳入试验。
+
+2025 年 3 月的[这条提交](https://github.com/chromium/chromium/commit/ada176c4ce97be7a583312daf5c36162259911e4)把现状交代得更直接，说明里写着：“A project to add this as a browser feature was not successful.” 但提交标题恰好是 **Extend enable-force-dark indefinitely**：保留实验 flag，并说明相关能力作为 WebView API 仍在使用。这次更新文章时，对应的[Chrome Status 试验条目](https://chromestatus.com/feature/5672533924773888)标的是 No active development。
+
+按公开记录能确认的是，那次浏览器产品化尝试没成，实验 flag 和 WebView 的使用路径仍被保留。当年的质量顾虑，也没有被官方写成唯一的失败原因。Dark Reader 和 Noir 则都留了按站点设置、覆盖错误判断和报告兼容问题的入口。回到自己的插件，我想问的还是：加一个小模型，究竟能补上哪一类现成方案还处理不好的情况。
 
 ## 早期的动作选择实验
 

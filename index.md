@@ -4,7 +4,7 @@ title: About
 show_title: false
 seo_title: "Zhuoyuan Hao (Larry Hao) — LLM Reasoning & Reward Hacking"
 og_title: "Zhuoyuan Hao (Larry Hao) — LLM Reasoning and Reward Hacking Researcher"
-last_modified_at: 2026-08-29
+last_modified_at: 2026-11-23
 permalink: /
 description: "Zhuoyuan Hao (Larry Hao) researches how LLMs reason and how RL systems fail: first author of Echoes as Anchors (ICLR 2026) and co-first author of CHERRL."
 keywords: "Larry Hao, Zhuoyuan Hao, LLM reasoning researcher, reinforcement learning researcher, reward hacking, trustworthy AI, mechanistic interpretability, reasoning attention, agent systems, Echoes as Anchors, CHERRL, ICLR 2026"
@@ -14,7 +14,8 @@ markdown_alternate: "/llms-full.txt"
 mission: "I study LLMs and love building things"
 name_caption: "郝卓远, Larry Hao"
 bio: |
-  I work on LLM reasoning and reinforcement learning: why reasoning models behave the way they do, and how learning systems quietly optimize the wrong objective.
+  I work on LLM reasoning and reinforcement learning. When a new training recipe takes off, I like looking under the hood—why reasoning models actually behave the way they do, and how RL systems quietly optimize the wrong objective.
+
   Graduated in three years from Harbin Institute of Technology, Shenzhen (HITSZ), advised by [Jing Li](https://www.li-jing.com/).
   Pursuing a 2-year MPhil in Computer Science and Engineering at HKUST, advised by [May Fung](https://mayrfung.github.io/).
   Research intern at the THUAIS Lab, Tsinghua University, advised by [Xiaozhi Wang](https://bakser.github.io/).
